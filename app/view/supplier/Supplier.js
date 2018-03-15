@@ -1,28 +1,24 @@
-Ext.define('tool_control_system.view.supplier.Supplier', {
+Ext.define('tool_control_system.view.supplier.Supplier',{
     extend: 'Ext.panel.Panel',
 
-    xtype: 'supplierview',
-
-    style : {
-        // 'border-style' : 'solid',
-        // 'border-width': '5px'
-    },
-
-    // layout:{type:'vbox', align:'stretch'},
-    height : 550,
-
     requires: [
-
-        // 'tool_control_system.store.Suppliers',
+        'tool_control_system.view.supplier.SupplierController',
+        'tool_control_system.view.supplier.SupplierModel',
         'tool_control_system.view.supplier.Toolbar',
         'tool_control_system.view.supplier.List'
     ],
 
-    title: 'Supplier Master',
+    controller: 'supplier-supplier',
 
-    store: {
-        type: 'suppliers'
+    viewModel: {
+        type: 'supplier-supplier'
     },
+
+    xtype: 'supplierview',
+
+    height : 550,
+
+    title: 'Supplier Master',
 
     autoScroll: true,
 
@@ -40,6 +36,16 @@ Ext.define('tool_control_system.view.supplier.Supplier', {
         xtype : 'supplier_list'
     }],
     
+    bbar: [{
+        xtype: 'pagingtoolbar',
+        pageSize: 50,
+        bind : {
+            store : '{suppliers}'
+        },
+        
+        emptyMsg: 'Sorry, No Records Are Available At The Moment.',   
+        displayInfo: true
+    }],
     
 
     listeners: {
