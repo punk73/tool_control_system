@@ -7,7 +7,7 @@ Ext.define('tool_control_system.view.part.Form',{
     requires: [
         'tool_control_system.view.part.FormController',
         'tool_control_system.view.part.FormModel',
-        // 'tool_control_system.store.Parts',
+        'tool_control_system.store.Parts',
         'tool_control_system.store.Suppliers'
 
     ],
@@ -24,10 +24,6 @@ Ext.define('tool_control_system.view.part.Form',{
 
     viewModel: {
         type: 'part-form'
-    },
-
-    bind : {
-        store: '{parts}'
     },
 
     bodyPadding: 10,

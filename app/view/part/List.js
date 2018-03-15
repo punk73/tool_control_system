@@ -5,7 +5,6 @@ Ext.define('tool_control_system.view.part.List',{
     requires: [
         'tool_control_system.view.part.ListController',
         'tool_control_system.view.part.ListModel',
-        'tool_control_system.store.Parts'
     ],
 
     controller: 'part-list',
@@ -20,8 +19,9 @@ Ext.define('tool_control_system.view.part.List',{
 
     xtype: 'part_list',
 
-    store: {
-        type: 'parts'
+
+    bind:{
+        store : '{parts}'
     },
 
     columns: [

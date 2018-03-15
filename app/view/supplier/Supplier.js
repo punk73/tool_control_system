@@ -1,4 +1,3 @@
-
 Ext.define('tool_control_system.view.supplier.Supplier',{
     extend: 'Ext.panel.Panel',
 
@@ -20,13 +19,6 @@ Ext.define('tool_control_system.view.supplier.Supplier',{
     height : 550,
 
     title: 'Supplier Master',
-
-    /*store: {
-        type: 'suppliers'
-    },*/
-    bind : {
-        store : '{suppliers}'
-    },
 
     autoScroll: true,
 
@@ -50,6 +42,7 @@ Ext.define('tool_control_system.view.supplier.Supplier',{
         bind : {
             store : '{suppliers}'
         },
+        
         emptyMsg: 'Sorry, No Records Are Available At The Moment.',   
         displayInfo: true
     }],
