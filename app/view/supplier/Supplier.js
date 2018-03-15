@@ -12,6 +12,8 @@ Ext.define('tool_control_system.view.supplier.Supplier', {
     height : 550,
 
     requires: [
+
+        // 'tool_control_system.store.Suppliers',
         'tool_control_system.view.supplier.Toolbar',
         'tool_control_system.view.supplier.List'
     ],

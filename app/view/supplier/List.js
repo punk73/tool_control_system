@@ -26,7 +26,7 @@ Ext.define('tool_control_system.view.supplier.List', {
     bbar: [{
         xtype: 'pagingtoolbar',
         pageSize: 50,
-        store: 'suppliers',
+        store: {type:'suppliers'},
         emptyMsg: 'Sorry, No Records Are Available At The Moment.',   
         displayInfo: true
     }],
