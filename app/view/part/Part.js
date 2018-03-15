@@ -4,8 +4,7 @@ Ext.define('tool_control_system.view.part.Part', {
     xtype: 'partview',
 
     style : {
-        // 'border-style' : 'solid',
-        // 'border-width': '5px'
+        
     },
 
     layout: {
@@ -21,13 +20,7 @@ Ext.define('tool_control_system.view.part.Part', {
 
     title: 'Part Master',
 
-    store: {
-        type    : 'parts'
-    },
-
     autoScroll: true,
-
-    
 
     items:[{
         xtype:'part_form',

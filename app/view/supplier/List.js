@@ -7,29 +7,17 @@ Ext.define('tool_control_system.view.supplier.List', {
         'tool_control_system.store.Suppliers'
     ],
 
-    style : {
-        // 'border-style' : 'solid',
-        // 'border-width': '5px'
+    //store nya di bind refer ke viewModel.data.stores
+    bind: {
+        store : '{suppliers}'
     },
 
-
-    store: {
-        type: 'suppliers'
-    },
 
     columns: [
         { text: 'ID',  dataIndex: 'id' },
         { text: 'Code', dataIndex: 'code', flex: 1 },
         { text: 'Name', dataIndex: 'name', flex: 5 }
-    ],
-
-    bbar: [{
-        xtype: 'pagingtoolbar',
-        pageSize: 50,
-        store: {type:'suppliers'},
-        emptyMsg: 'Sorry, No Records Are Available At The Moment.',   
-        displayInfo: true
-    }],
+    ]
     
 
 });
