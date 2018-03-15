@@ -16,17 +16,13 @@ Ext.define('tool_control_system.view.supplier.Supplier',{
 
     xtype: 'supplierview',
 
-    height : 550,
+    layout: 'fit',
+
+    height : 600,
 
     title: 'Supplier Master',
 
     autoScroll: true,
-
-    columns: [
-        { text: 'ID',  dataIndex: 'id' },
-        { text: 'Code', dataIndex: 'code', flex: 1 },
-        { text: 'Name', dataIndex: 'name', flex: 5 }
-    ],
 
     tbar : {
         xtype : 'supplier_toolbar'
@@ -41,8 +37,7 @@ Ext.define('tool_control_system.view.supplier.Supplier',{
         pageSize: 50,
         bind : {
             store : '{suppliers}'
-        },
-        
+        },        
         emptyMsg: 'Sorry, No Records Are Available At The Moment.',   
         displayInfo: true
     }],
