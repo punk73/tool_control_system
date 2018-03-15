@@ -12,13 +12,11 @@ Ext.define('tool_control_system.view.part.Part', {
         type:'border'
     },
 
-    height : 550,
+    height : 600,
 
     requires: [
-        // 'tool_control_system.store.Parts',
-        // 'tool_control_system.store.Suppliers',
         'tool_control_system.view.part.Form',
-        // 'tool_control_system.view.part.List'
+        'tool_control_system.view.part.List'
     ],
 
     title: 'Part Master',
@@ -34,6 +32,10 @@ Ext.define('tool_control_system.view.part.Part', {
     items:[{
         xtype:'part_form',
         region  : 'center'
+    },{
+        xtype : 'part_list',
+        region: 'east',
+        width : '50%'
     }],
 
     listeners: {

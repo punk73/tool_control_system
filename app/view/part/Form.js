@@ -12,6 +12,14 @@ Ext.define('tool_control_system.view.part.Form',{
 
     ],
 
+    margin : '10',
+
+    title: 'Input Parts',
+
+    frame: true,
+
+    resizable: true,
+
     controller: 'part-form',
 
     viewModel: {

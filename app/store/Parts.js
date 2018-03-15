@@ -1,4 +1,4 @@
-Ext.define('tool_control_system.store.parts', {
+Ext.define('tool_control_system.store.Parts', {
     extend: 'Ext.data.Store',
 
     model: 'tool_control_system.model.Part',

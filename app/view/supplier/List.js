@@ -23,6 +23,13 @@ Ext.define('tool_control_system.view.supplier.List', {
         { text: 'Name', dataIndex: 'name', flex: 5 }
     ],
 
+    bbar: [{
+        xtype: 'pagingtoolbar',
+        pageSize: 50,
+        store: 'suppliers',
+        emptyMsg: 'Sorry, No Records Are Available At The Moment.',   
+        displayInfo: true
+    }],
     
 
 });
