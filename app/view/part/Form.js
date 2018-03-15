@@ -26,9 +26,9 @@ Ext.define('tool_control_system.view.part.Form',{
         type: 'part-form'
     },
 
-    store: [{
-        type    : 'suppliers'
-    }],
+    bind : {
+        store: '{parts}'
+    },
 
     bodyPadding: 10,
     

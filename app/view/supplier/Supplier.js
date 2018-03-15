@@ -17,18 +17,16 @@ Ext.define('tool_control_system.view.supplier.Supplier',{
 
     xtype: 'supplierview',
 
-    style : {
-        
-    },
-
     height : 550,
 
     title: 'Supplier Master',
 
-    store: {
+    /*store: {
         type: 'suppliers'
+    },*/
+    bind : {
+        store : '{suppliers}'
     },
-
 
     autoScroll: true,
 

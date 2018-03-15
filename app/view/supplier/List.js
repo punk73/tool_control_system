@@ -12,6 +12,7 @@ Ext.define('tool_control_system.view.supplier.List', {
         store : '{suppliers}'
     },
 
+
     columns: [
         { text: 'ID',  dataIndex: 'id' },
         { text: 'Code', dataIndex: 'code', flex: 1 },
