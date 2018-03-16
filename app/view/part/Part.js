@@ -28,7 +28,7 @@ Ext.define('tool_control_system.view.part.Part', {
     },{
         xtype : 'part_list',
         region: 'east',
-        width : '50%'
+        width : '40%'
     }],
 
     listeners: {

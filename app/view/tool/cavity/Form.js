@@ -19,8 +19,6 @@ Ext.define('tool_control_system.view.tool.cavity.Form',{
 
     title: 'Cavity',
 
-    // autoScroll: true,
-
     margin : '10',
 
     bodyPadding: 10,

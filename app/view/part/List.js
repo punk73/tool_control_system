@@ -25,7 +25,7 @@ Ext.define('tool_control_system.view.part.List',{
     },
 
     columns: [
-        { text: 'Tool Number',  dataIndex: 'no', flex: 1 },
+        { text: 'Tool Number',  dataIndex: 'no', flex: 2 },
         { text: 'Tool Name', dataIndex: 'name', flex: 2 }
     ],
 
