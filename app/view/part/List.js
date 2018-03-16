@@ -18,6 +18,8 @@ Ext.define('tool_control_system.view.part.List',{
 
     title : 'Tool Info',
 
+    emptyText: 'No Data',
+
     viewModel: {
         type: 'part-list'
     },
@@ -26,7 +28,7 @@ Ext.define('tool_control_system.view.part.List',{
 
 
     bind:{
-        store : '{parts}'
+        store : '{parts.tools}'
     },
 
     columns: [

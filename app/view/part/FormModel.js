@@ -15,6 +15,9 @@ Ext.define('tool_control_system.view.part.FormModel', {
         btn_save: {
             text: 'Save'
         },
+        btn_cancel: {
+            text: 'Cancel'
+        },
         model : {
             no: null,
             name: null,

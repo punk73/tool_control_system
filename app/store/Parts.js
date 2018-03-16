@@ -7,7 +7,7 @@ Ext.define('tool_control_system.store.Parts', {
 
     autoLoad: 'true',
 
-    autoSync: true,
+    // autoSync: true,
 
     proxy: {
         type: 'rest',

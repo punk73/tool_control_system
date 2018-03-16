@@ -9,9 +9,10 @@ Ext.define('tool_control_system.view.part.FormController', {
     	store = this.getStore('parts');
     	model = new tool_control_system.model.Part(param);
 
-    	store.insert(0, model);
+    	store.add(model);
+    	store.sync();
 
-    	this.clearValue();
+    	this.onCancelClick();
 
     },
 
@@ -33,19 +34,38 @@ Ext.define('tool_control_system.view.part.FormController', {
 			        }
 			    })
 
+                console.log(model)
+
 			    this.enableAll();
 			    element.name.focus();
 
-
-    		}else{
-    			this.enableAll();
+    		}
+    		else{
+    			if( viewModel.getData().model.no == '' || viewModel.getData().model.no == null ){
+    				Ext.Msg.alert('Info','You need to specify this data' );
+    			}else{ //buat baru
+	    			this.enableAll();
+	    			element.name.focus();
+	    		}
     		}
 
     	}
     },
 
-    onDeleteClick: function (){
+    onCancelClick: function (){
+    	this.clearValue();
     	this.disableAll();
+    	this.getElement().no.focus();
+    	this.getViewModel().setData({
+    		btn_save: {
+    			text: 'Save'
+    		}
+    	})
+    },
+
+    onDeleteClick: function (){
+    	// this.disableAll();
+
     },
 
     onPartNumberEnter: function(){
@@ -71,7 +91,8 @@ Ext.define('tool_control_system.view.part.FormController', {
         	name: Ext.ComponentQuery.query('textfield[name=part_name]')[0],
         	model: Ext.ComponentQuery.query('textfield[name=model]')[0],
         	total_delivery: Ext.ComponentQuery.query('numberfield[name=total_delivery]')[0],
-        	supplier: Ext.ComponentQuery.query('combobox[name=supplier_id]')[0]
+        	supplier: Ext.ComponentQuery.query('combobox[name=supplier_id]')[0],
+        	btn_delete: Ext.ComponentQuery.query('combobox[name=supplier_id]')[0]
         }
     },
 

@@ -99,6 +99,7 @@ Ext.define('tool_control_system.view.part.Form',{
         bind:{
             text : '{btn_save.text}'
         },
+        disabled:true,
         formBind: true,
         listeners: {
             click: 'onSaveClick'
@@ -108,8 +109,18 @@ Ext.define('tool_control_system.view.part.Form',{
         bind:{
             text : '{btn_delete.text}'
         },
+        // formBind:true,
+        disabled:true,
         listeners: {
             click: 'onDeleteClick'
+        }
+    },{
+        xtype:'button',
+        bind:{
+            text : '{btn_cancel.text}'
+        },
+        listeners: {
+            click: 'onCancelClick'
         }
     }],
 
