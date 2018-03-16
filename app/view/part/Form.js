@@ -40,41 +40,80 @@ Ext.define('tool_control_system.view.part.Form',{
             xtype: 'textfield',
             name: 'part_number',
             fieldLabel: 'Part Number',
-            allowBlank: false
+            allowBlank: false,
+            enableKeyEvents: true,
+            emptyText : 'Type and Enter',
+            bind:{
+                value: '{model.no}',
+            },
+            listeners:{
+                keyup: 'onSearch'
+            }
         },{
             xtype: 'textfield',
             name: 'part_name',
             fieldLabel: 'Part Name',
-            allowBlank: false
+            emptyText : 'Part Name',
+            allowBlank: false,
+            bind:{
+                value: '{model.name}',
+            },
+            disabled:  true
         },{
             xtype: 'textfield',
             name: 'model',
             fieldLabel: 'Model',
-            allowBlank: false
+            emptyText : 'Model for this part',
+            allowBlank: false,
+            bind:{
+                value: '{model.model}',
+            },
+            disabled:  true
         },{
             xtype: 'numberfield',
             name: 'total_delivery',
             fieldLabel: 'Total Delivery',
-            value : 0,
-            allowBlank: false
+            allowBlank: false,
+            bind:{
+                value: '{model.total_delivery}',
+            },
+            disabled:  true
         },{
             xtype: 'combobox',
             name: 'supplier_id',
             store : {type : 'suppliers'},
             displayField:'name',
-            valueField:'name',
+            emptyText : 'Supplier',
+            valueField:'id',
             queryMode: 'local', 
             fieldLabel: 'Supplier',
-            allowBlank: false
+            bind:{
+                value: '{model.supplier_id}',
+            },
+            allowBlank: false,
+            disabled:  true
     }],
 
     buttons : [{
         xtype: 'button',
-        text : 'Save'
+        bind:{
+            text : '{btn_save.text}'
+        },
+        formBind: true,
+        listeners: {
+            click: 'onSaveClick'
+        }    
     },{
         xtype: 'button',
-        text : 'Delete'
-    }]
+        bind:{
+            text : '{btn_delete.text}'
+        },
+        listeners: {
+            click: 'onDeleteClick'
+        }
+    }],
+
+    
 
 
 });

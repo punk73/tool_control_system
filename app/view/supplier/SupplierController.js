@@ -1,5 +1,9 @@
 Ext.define('tool_control_system.view.supplier.SupplierController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.supplier-supplier'
+    alias: 'controller.supplier-supplier',
+
+    onSyncClick: function (){
+    	alert('sync!')
+    }
 
 });

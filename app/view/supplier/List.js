@@ -18,6 +18,11 @@ Ext.define('tool_control_system.view.supplier.List', {
             text: 'Code',
             dataIndex: 'code', 
             flex: 1,
+            layout: {
+                type: 'vbox',
+                pack: 'center',
+                align: 'stretch'
+            },
             items : [{
                 xtype:'textfield',
                 name: 'search_by_code',
@@ -31,6 +36,11 @@ Ext.define('tool_control_system.view.supplier.List', {
             text: 'Name',
             dataIndex: 'name',
             flex: 5,
+            layout: {
+                type: 'vbox',
+                pack: 'center',
+                align: 'stretch'
+            },
             items : [{
                 xtype:'textfield',
                 name: 'search_by_name',

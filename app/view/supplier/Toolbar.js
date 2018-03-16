@@ -17,8 +17,11 @@ Ext.define("tool_control_system.view.supplier.Toolbar", {
     items: [
         {
             xtype:'button',
-            iconCls: 'fa-refresh',
-            text: 'Sync'
+            iconCls: 'fas fa-sync',
+            text: 'Sync',
+            listeners: {
+                click: 'onSyncClick'
+            }
         }      
     ]
         

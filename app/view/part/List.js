@@ -11,6 +11,11 @@ Ext.define('tool_control_system.view.part.List',{
 
     margin : '10',
 
+    viewConfig  : {
+        stripeRows          : true,
+        enableTextSelection : true
+    },
+
     title : 'Tool Info',
 
     viewModel: {
