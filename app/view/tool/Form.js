@@ -1,16 +1,18 @@
 
-Ext.define('tool_control_system.view.part.Form',{
+Ext.define('tool_control_system.view.tool.Form',{
     extend: 'Ext.form.Panel',
 
-    xtype:'part_form',
+    xtype : 'tool_form',
 
     requires: [
-        'tool_control_system.view.part.FormController',
-        'tool_control_system.view.part.FormModel',
-        'tool_control_system.store.Parts',
-        'tool_control_system.store.Suppliers'
-
+        'tool_control_system.view.tool.FormController',
+        'tool_control_system.view.tool.FormModel'
     ],
+
+    controller: 'tool-form',
+    viewModel: {
+        type: 'tool-form'
+    },
 
     margin : '10',
     
@@ -20,13 +22,7 @@ Ext.define('tool_control_system.view.part.Form',{
 
     frame: true,
 
-    resizable: true,
-
-    controller: 'part-form',
-
-    viewModel: {
-        type: 'part-form'
-    },
+    // resizable: true,
 
     bodyPadding: 10,
     
@@ -38,25 +34,36 @@ Ext.define('tool_control_system.view.part.Form',{
     items : [
         {
             xtype: 'textfield',
-            name: 'part_number',
-            fieldLabel: 'Part Number',
+            name: 'tool_number',
+            fieldLabel: 'Tool Number',
             allowBlank: false
         },{
             xtype: 'textfield',
-            name: 'part_name',
-            fieldLabel: 'Part Name',
+            name: 'tool_name',
+            fieldLabel: 'Tool Name',
             allowBlank: false
         },{
             xtype: 'textfield',
-            name: 'model',
-            fieldLabel: 'Model',
+            name: 'number_of_tooling',
+            fieldLabel: 'Number Of Tooling',
             allowBlank: false
         },{
             xtype: 'numberfield',
-            name: 'total_delivery',
-            fieldLabel: 'Total Delivery',
+            name: 'total_shoot',
+            fieldLabel: 'Total Shoot',
             value : 0,
             allowBlank: false
+        },{
+            xtype: 'numberfield',
+            name: 'guarantee_shoot',
+            fieldLabel: 'Guarantee Shoot',
+            value : 0,
+            allowBlank: false
+        },{
+            xtype: 'datefield',
+            name: 'delivery_date',
+            fieldLabel: 'Delivery Date',
+            value : new Date()
         },{
             xtype: 'combobox',
             name: 'supplier_id',
@@ -75,6 +82,4 @@ Ext.define('tool_control_system.view.part.Form',{
         xtype: 'button',
         text : 'Delete'
     }]
-
-
 });

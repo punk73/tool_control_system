@@ -19,7 +19,10 @@ Ext.define('tool_control_system.view.main.Main', {
         'tool_control_system.view.main.List',
         
         'tool_control_system.view.supplier.Supplier',
-        'tool_control_system.view.part.Part'
+        'tool_control_system.view.part.Part',
+        'tool_control_system.view.tool.Tool',
+        'tool_control_system.view.machine_counter.Machine_counter',
+
 
 
     ],
@@ -104,15 +107,15 @@ Ext.define('tool_control_system.view.main.Main', {
         }, {
             title: 'Master Tools',
             iconCls: 'fa-wrench',
-            bind: {
-                html: '{loremIpsum}'
-            }
+            items: [{
+                xtype : 'toolview'
+            }]
         },{
             title: 'Input Machine Counter',
             iconCls: 'fa-cog',
-            bind: {
-                html: '{loremIpsum}'
-            }
+            items: [{
+                xtype : 'machine_counterview'
+            }]
         }
 
     ]
