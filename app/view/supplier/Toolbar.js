@@ -7,7 +7,7 @@ Ext.define("tool_control_system.view.supplier.Toolbar", {
     margin : '5 0 5 0',
 
     style: {
-        'background-color': '#b0b7b6'        
+        'background-color': '#5FA2DD'        
     },
 
     items: [

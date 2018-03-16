@@ -7,7 +7,8 @@ Ext.define('tool_control_system.view.tool.Tool',{
     requires: [
         'tool_control_system.view.tool.ToolController',
         'tool_control_system.view.tool.ToolModel',
-        'tool_control_system.view.tool.Form'
+        'tool_control_system.view.tool.Form',
+        'tool_control_system.view.tool.cavity.Form'
     ],
 
     controller: 'tool-tool',
@@ -29,5 +30,9 @@ Ext.define('tool_control_system.view.tool.Tool',{
     items:[{
         xtype : 'tool_form',
         region: 'center'
+    },{
+        xtype:'cavity_form',
+        region:'east',
+        width : '40%'
     }]
 });
