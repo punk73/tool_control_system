@@ -27,9 +27,11 @@ Ext.define('tool_control_system.view.supplier.List', {
                 xtype:'textfield',
                 name: 'search_by_code',
                 margin : 10,
-                // anchor: '100%',
-                // flex: 1,
-                emptyText : 'Searh'
+                emptyText : 'Searh',
+                enableKeyEvents: true,
+                listeners: {
+                    keyup: 'onSearch'
+                }
             }] 
         },
         { 

@@ -10,13 +10,16 @@ Ext.define('tool_control_system.view.part.FormModel', {
         name: 'tool_control_system',
         title: 'Input Parts',
         btn_delete: {
-            text: 'Delete'
+            text: 'Delete',
+            name: 'btn_delete'
         },
         btn_save: {
-            text: 'Save'
+            text: 'Save',
+            name: 'btn_save'
         },
         btn_cancel: {
-            text: 'Cancel'
+            text: 'Cancel',
+            name: 'btn_cancel'
         },
         model : {
             no: null,

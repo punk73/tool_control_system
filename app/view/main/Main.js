@@ -98,7 +98,7 @@ Ext.define('tool_control_system.view.main.Main', {
             }]
         }, {
             title: 'Master Parts',
-            iconCls: 'fa-users',
+            iconCls: 'fa-cog',
             items: [{
                 xtype : 'partview'
             }]

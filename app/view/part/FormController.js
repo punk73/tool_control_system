@@ -7,10 +7,18 @@ Ext.define('tool_control_system.view.part.FormController', {
     	param = this.getElementValue();
     	components = this.getElement();
     	store = this.getStore('parts');
-    	model = new tool_control_system.model.Part(param);
+        viewModel = this.getViewModel();
 
-    	store.add(model);
-    	store.sync();
+        if(viewModel.getData().btn_save.text == 'Save'){
+            model = new tool_control_system.model.Part(param);
+            store.add(model);
+            store.sync();
+        }else{
+            //coding update
+            model = this.getViewModel().getData().model;
+            model.store.sync();
+            // console.log(model)
+        }
 
     	this.onCancelClick();
 
@@ -20,31 +28,36 @@ Ext.define('tool_control_system.view.part.FormController', {
 
     	if (e.keyCode == 13) {
     		part_no = this.getElementValue().no;
-    		store = this.getStore('parts');
+    		store = this.getViewModel().getStore('parts');
     		viewModel = this.getViewModel();
     		element = this.getElement();
-
-    		let model = store.findRecord('no', part_no);
+            // console.log(part_no)
+    		var model = store.findRecord('no', part_no);
     		if(model != null){
-    			//isi dengan specific model
-    			viewModel.setData({
-			        model : model,
-			        btn_save: {
-			        	text: 'Update'
-			        }
-			    })
+                // console.log(model.data , 'edit data')
+                //isi dengan specific model
+                viewModel.setData({
+                    model : model,
+                    btn_save: {
+                        text: 'Update'
+                    }
+                })
 
-                console.log(model)
 
 			    this.enableAll();
+                element.no.disable();
+                console.log(element)
+                element.btn_delete.enable();
 			    element.name.focus();
 
     		}
     		else{
     			if( viewModel.getData().model.no == '' || viewModel.getData().model.no == null ){
-    				Ext.Msg.alert('Info','You need to specify this data' );
+                    // console.log(viewModel.getData())
+                    Ext.Msg.alert('Info','You need to specify this data' );
     			}else{ //buat baru
 	    			this.enableAll();
+                    // console.log('buat baru')
 	    			element.name.focus();
 	    		}
     		}
@@ -55,17 +68,33 @@ Ext.define('tool_control_system.view.part.FormController', {
     onCancelClick: function (){
     	this.clearValue();
     	this.disableAll();
-    	this.getElement().no.focus();
+        this.getElement().no.enable();
+        this.getElement().no.focus();
     	this.getViewModel().setData({
     		btn_save: {
     			text: 'Save'
-    		}
+    		},
+            model : {
+                no: null,
+                name: null,
+                model: null,
+                total_delivery: 0,
+                supplier_id: null,
+            }
     	})
+
+        // console.log(this.getViewModel())
     },
 
-    onDeleteClick: function (){
-    	// this.disableAll();
+    onDeleteClick: function (editor, edit){
+        store = this.getViewModel().getStore('parts');
+        part_no = this.getElementValue().no;
+        model = store.findRecord('no', part_no);
+        store.remove(model);
+        store.sync();
 
+        this.clearValue();
+        this.disableAll();
     },
 
     onPartNumberEnter: function(){
@@ -92,7 +121,7 @@ Ext.define('tool_control_system.view.part.FormController', {
         	model: Ext.ComponentQuery.query('textfield[name=model]')[0],
         	total_delivery: Ext.ComponentQuery.query('numberfield[name=total_delivery]')[0],
         	supplier: Ext.ComponentQuery.query('combobox[name=supplier_id]')[0],
-        	btn_delete: Ext.ComponentQuery.query('combobox[name=supplier_id]')[0]
+        	btn_delete: Ext.ComponentQuery.query('button[name=btn_delete]')[0]
         }
     },
 
@@ -113,6 +142,7 @@ Ext.define('tool_control_system.view.part.FormController', {
     	components.model.disable();
     	components.total_delivery.disable();
     	components.supplier.disable();
+        components.btn_delete.disable();
     },
 
     enableAll :  function (){
