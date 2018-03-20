@@ -8,7 +8,7 @@ Ext.define('tool_control_system.view.part.Form',{
         'tool_control_system.view.part.FormController',
         'tool_control_system.view.part.FormModel',
         'tool_control_system.store.Parts',
-        'tool_control_system.store.Suppliers'
+        'tool_control_system.store.All_suppliers'
 
     ],
 
@@ -81,10 +81,12 @@ Ext.define('tool_control_system.view.part.Form',{
         },{
             xtype: 'combobox',
             name: 'supplier_id',
-            store : {type : 'suppliers'},
+            store : {
+                type : 'all_suppliers'
+            },
             displayField:'name',
             emptyText : 'Supplier',
-            valueField:'id',
+            valueField: 'id',
             queryMode: 'local', 
             fieldLabel: 'Supplier',
             bind:{
@@ -106,7 +108,7 @@ Ext.define('tool_control_system.view.part.Form',{
             click: 'onSaveClick'
         }    
         },{
-            xtype: 'button',
+            // xtype: 'button',
             bind:{
                 text : '{btn_delete.text}'
             },
@@ -117,7 +119,7 @@ Ext.define('tool_control_system.view.part.Form',{
                 click: 'onDeleteClick'
             }
         },{
-            xtype:'button',
+            // xtype:'button',
             bind:{
                 text : '{btn_cancel.text}'
             },

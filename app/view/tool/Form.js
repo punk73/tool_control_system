@@ -6,7 +6,9 @@ Ext.define('tool_control_system.view.tool.Form',{
 
     requires: [
         'tool_control_system.view.tool.FormController',
-        'tool_control_system.view.tool.FormModel'
+        'tool_control_system.view.tool.FormModel',
+        'tool_control_system.store.All_suppliers',
+
     ],
 
     controller: 'tool-form',
@@ -36,50 +38,103 @@ Ext.define('tool_control_system.view.tool.Form',{
             xtype: 'textfield',
             name: 'tool_number',
             fieldLabel: 'Tool Number',
+            emptyText: 'Type And Enter',
+            bind:{
+                value: '{model.no}'
+            },
+            enableKeyEvents: true,
+            listeners:{
+                keyup: 'onSearch'
+            },
             allowBlank: false
         },{
             xtype: 'textfield',
             name: 'tool_name',
             fieldLabel: 'Tool Name',
-            allowBlank: false
+            emptyText: 'Tool Name',
+            bind: {
+                value: '{model.name}'
+            },
+            allowBlank: false,
+            disabled:  true
         },{
             xtype: 'textfield',
             name: 'number_of_tooling',
             fieldLabel: 'Number Of Tooling',
-            allowBlank: false
+            emptyText: 'Number of Tooling',
+            bind: {
+                value: '{model.no_of_tooling}'
+            },
+            allowBlank: false,
+            disabled:  true
         },{
             xtype: 'numberfield',
             name: 'total_shoot',
             fieldLabel: 'Total Shoot',
-            value : 0,
-            allowBlank: false
+            bind: {
+                value: '{model.total_shoot}'
+            },
+            allowBlank: false,
+            disabled:  true
         },{
             xtype: 'numberfield',
             name: 'guarantee_shoot',
             fieldLabel: 'Guarantee Shoot',
-            value : 0,
-            allowBlank: false
+            bind: {
+                value: '{model.guarantee_shoot}'
+            },
+            allowBlank: false,
+            disabled:  true
         },{
             xtype: 'datefield',
             name: 'delivery_date',
             fieldLabel: 'Delivery Date',
-            value : new Date()
+            bind: {
+                value: '{model.delivery_date}'
+            },
+            disabled:  true
         },{
             xtype: 'combobox',
             name: 'supplier_id',
-            store : {type : 'suppliers'},
+            emptyText: 'Supplier',
+            store: {
+                type:'all_suppliers'
+            },
             displayField:'name',
-            valueField:'name',
+            bind: {
+                value: '{model.supplier_id}'
+            },
+            valueField:'id',
             queryMode: 'local', 
             fieldLabel: 'Supplier',
-            allowBlank: false
+            allowBlank: false,
+            disabled:  true
     }],
 
     buttons : [{
-        xtype: 'button',
-        text : 'Save'
-    },{
-        xtype: 'button',
-        text : 'Delete'
-    }]
+            xtype: 'button',
+            name: 'btn_save',
+            bind:{
+                text : '{btn_save.text}'
+            },
+            listeners:{
+                click: 'onSaveClick'
+            },
+            disabled:  true
+        },{
+            xtype: 'button',
+            name: 'btn_delete',
+            bind:{
+                text : '{btn_delete.text}'
+            },
+            disabled:  true
+        },{
+            xtype: 'button',
+            text: 'Cancel',
+            name: 'btn_cancel',
+            listeners:{
+                click: 'onCancelClick'
+            }
+        }
+    ]
 });

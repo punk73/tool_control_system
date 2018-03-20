@@ -1,9 +1,9 @@
-Ext.define('tool_control_system.store.Suppliers', {
+Ext.define('tool_control_system.store.All_suppliers', {
     extend: 'Ext.data.Store',
 
     model: 'tool_control_system.model.Supplier',
 
-    alias: 'store.suppliers',
+    alias: 'store.all_suppliers',
 
     autoLoad: true,
 
@@ -12,9 +12,7 @@ Ext.define('tool_control_system.store.Suppliers', {
     proxy: {
         type: 'rest',
 
-        enablePaging:true,
-
-        url: 'http://'+tool_control_system.util.Config.hostname()+'/tool_control/public/api/suppliers',
+        url: 'http://'+tool_control_system.util.Config.hostname()+'/tool_control/public/api/suppliers/all',
         
         reader: {
             type: 'json',

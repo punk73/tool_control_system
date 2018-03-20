@@ -28,11 +28,12 @@ Ext.define('tool_control_system.view.tool.Tool',{
     title: 'Tool Master',
 
     items:[{
-        xtype : 'tool_form',
-        region: 'center'
-    },{
-        xtype:'cavity_form',
-        region:'east',
-        width : '40%'
-    }]
+            xtype : 'tool_form',
+            region: 'center'
+        },{
+            xtype:'cavity_form',
+            region:'east',
+            width : '40%'
+        }
+    ]
 });

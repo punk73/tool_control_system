@@ -55,7 +55,6 @@ Ext.define('tool_control_system.view.part.FormController', {
                 element.no.disable();
                 element.btn_delete.enable();
 			    element.name.focus();
-
     		}
     		else{
     			if( viewModel.getData().model.no == '' || viewModel.getData().model.no == null ){
