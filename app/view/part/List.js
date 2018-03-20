@@ -20,9 +20,9 @@ Ext.define('tool_control_system.view.part.List',{
 
     emptyText: 'No Data',
 
-    viewModel: {
+    /*viewModel: {
         type: 'part-list'
-    },
+    },*/
 
     xtype: 'part_list',
 

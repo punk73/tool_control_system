@@ -31,8 +31,10 @@ Ext.define('tool_control_system.view.part.FormController', {
     		store = this.getViewModel().getStore('parts');
     		viewModel = this.getViewModel();
     		element = this.getElement();
-            // console.log(part_no)
-    		var model = store.findRecord('no', part_no);
+            var model = store.findRecord('no', part_no);
+            tools = this.getViewModel().getParent().getStore('tools'); //list store
+            
+            // console.log(model.id, tools)
     		if(model != null){
                 // console.log(model.data , 'edit data')
                 //isi dengan specific model
@@ -43,10 +45,14 @@ Ext.define('tool_control_system.view.part.FormController', {
                     }
                 })
 
+                tools.load({
+                    params: {
+                        part_id: model.id
+                    }
+                })
 
 			    this.enableAll();
                 element.no.disable();
-                console.log(element)
                 element.btn_delete.enable();
 			    element.name.focus();
 
@@ -133,6 +139,9 @@ Ext.define('tool_control_system.view.part.FormController', {
     	components.model.setValue('');
     	components.total_delivery.setValue(0);
     	components.supplier.setValue(null);
+
+        tools = this.getViewModel().getParent().getStore('tools'); //list store
+        tools.loadData([], false );
     },
 
     disableAll: function (){
