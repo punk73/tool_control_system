@@ -21,7 +21,7 @@ Ext.define('tool_control_system.view.tool.FormController', {
             model = new tool_control_system.model.Tool(param);
             store.add(model);
             store.sync({
-                callback : function (batch, option){
+                callback : function (batch, option, success){
                     console.log(batch, option)
                 }
             });
@@ -109,14 +109,15 @@ Ext.define('tool_control_system.view.tool.FormController', {
     },
 
     onDeleteClick: function (editor, edit){
-        store = this.getViewModel().getStore('parts');
-        part_no = this.getElementValue().no;
-        model = store.findRecord('no', part_no);
+        store = this.getViewModel().getStore('tools');
+        no = this.getElementValue().no;
+        model = store.findRecord('no', no);
         store.remove(model);
         store.sync();
 
-        this.clearValue();
-        this.disableAll();
+        //this.clearValue();
+        //this.disableAll();
+        this.onCancelClick()
     },
 
     onPartNumberEnter: function(){
@@ -124,29 +125,17 @@ Ext.define('tool_control_system.view.tool.FormController', {
     },
 
     getElementValue : function (){
-    	
-        /*return {
-        	no: Ext.ComponentQuery.query('textfield[name=tool_number]')[0].value,
-        	name: Ext.ComponentQuery.query('textfield[name=tool_name]')[0].value,
-        	number_of_tooling: Ext.ComponentQuery.query('textfield[name=number_of_tooling]')[0].value,
-        	total_shoot: Ext.ComponentQuery.query('numberfield[name=total_shoot]')[0].value,
-        	guarantee_shoot: Ext.ComponentQuery.query('numberfield[name=guarantee_shoot]')[0].value,
-        	delivery_date: Ext.ComponentQuery.query('datefield[name=delivery_date]')[0].value,
-        	supplier_id: Ext.ComponentQuery.query('combobox[name=supplier_id]')[0].value,
-        	btn_save: Ext.ComponentQuery.query('button[name=btn_save]')[0].value,
-        	btn_delete: Ext.ComponentQuery.query('button[name=btn_delete]')[0].value
-        }*/
-
-        var element = this.getElement();
+    	var element = this.getElement();
         return {
             no : element.no.value,
             name : element.name.value,
             no_of_tooling : element.no_of_tooling.value,
             total_shoot: element.total_shoot.value,
+            balance_shoot : element.total_shoot.value, //isinya sama kaya total shoot
             guarantee_shoot : element.guarantee_shoot.value,
             delivery_date: element.delivery_date.value,
             supplier_id : element.supplier_id.value,
-            guarantee_remains: 0
+            guarantee_remains: 0,
         }
     },
 

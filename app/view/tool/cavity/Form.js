@@ -38,7 +38,8 @@ Ext.define('tool_control_system.view.tool.cavity.Form',{
             xtype: 'textfield',
             name: 'part_name',
             fieldLabel: 'Part Name',
-            allowBlank: false
+            allowBlank: false,
+            disabled: true
         },{
             xtype: 'numberfield',
             name: 'cavity',

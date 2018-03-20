@@ -31,41 +31,48 @@ Ext.define('tool_control_system.view.part.FormController', {
     		store = this.getViewModel().getStore('parts');
     		viewModel = this.getViewModel();
     		element = this.getElement();
-            var model = store.findRecord('no', part_no);
             tools = this.getViewModel().getParent().getStore('tools'); //list store
+            tools.loadData([], false); //kosongkan dulu
+            self = this;
             
-            // console.log(model.id, tools)
-    		if(model != null){
-                // console.log(model.data , 'edit data')
-                //isi dengan specific model
-                viewModel.setData({
-                    model : model,
-                    btn_save: {
-                        text: 'Update'
-                    }
-                })
+            store.load({
+                params: {
+                    no: part_no
+                },
+                callback: function (records,operation,success){
+                    var model = store.findRecord('no', part_no);
+                    // console.log(model.id, tools)
+                    if(model != null){
+                        // console.log(model.data , 'edit data')
+                        //isi dengan specific model
+                        viewModel.setData({
+                            model : model,
+                            btn_save: {
+                                text: 'Update'
+                            }
+                        });
 
-                tools.load({
-                    params: {
-                        part_id: model.id
+                        tools.loadData(model.get('tools'), false); //kosongkan dulu
+                        
+                        self.enableAll();
+                        element.no.disable();
+                        element.btn_delete.enable();
+                        element.name.focus();
                     }
-                })
+                    else{
+                        if( viewModel.getData().model.no == '' || viewModel.getData().model.no == null ){
+                            // console.log(viewModel.getData())
+                            Ext.Msg.alert('Info','You need to specify this data' );
+                        }else{ //buat baru
+                            self.enableAll();
+                            // console.log('buat baru')
+                            element.name.focus();
+                        }
+                    }        
+                }
+            })
 
-			    this.enableAll();
-                element.no.disable();
-                element.btn_delete.enable();
-			    element.name.focus();
-    		}
-    		else{
-    			if( viewModel.getData().model.no == '' || viewModel.getData().model.no == null ){
-                    // console.log(viewModel.getData())
-                    Ext.Msg.alert('Info','You need to specify this data' );
-    			}else{ //buat baru
-	    			this.enableAll();
-                    // console.log('buat baru')
-	    			element.name.focus();
-	    		}
-    		}
+            
 
     	}
     },

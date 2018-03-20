@@ -17,11 +17,13 @@ Ext.define('tool_control_system.view.tool.FormModel', {
         model: {
         	no: null,
         	name: '',
-        	no_of_tooling: '',
+        	no_of_tooling: 'TL-01',
         	total_shoot: 0,
         	guarantee_shoot: 0,
         	delivery_date: new Date(),
-        	supplier_id: null
+        	supplier_id: null,
+            balance_shoot : 0,
+            guarantee_remains: 0
         }
         
     },

@@ -127,6 +127,9 @@ Ext.define('tool_control_system.view.tool.Form',{
             bind:{
                 text : '{btn_delete.text}'
             },
+            listeners:{
+                click: 'onDeleteClick'
+            },
             disabled:  true
         },{
             xtype: 'button',

@@ -16,11 +16,6 @@ Ext.define('tool_control_system.model.Part', {
         { name: 'total_qty', type: 'auto' },
         { name: 'tools', type: 'auto' },
 
-    ],
-
-    hasMany: {
-        name: 'Tools',
-        model:'Tool'
-    }
+    ]
 
 });
