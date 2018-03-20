@@ -4,16 +4,20 @@ Ext.define('tool_control_system.view.part.ListModel', {
     alias: 'viewmodel.part-list',
 
     requires: [
-        'tool_control_system.store.Parts'
+        'tool_control_system.store.Parts',
+        'tool_control_system.store.Tools'
+
     ],
 
     data: {
         name: 'tool_control_system'
-    }/*,
+    },
     stores : {
-    	parts: {
-    		type:'parts'
+    	tools: {
+    		type:'tools',
+            autoLoad: false,
+            autoSync: false
     	}
-    }*/
+    }
 
 });

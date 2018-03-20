@@ -17,8 +17,13 @@ Ext.define("tool_control_system.view.supplier.Toolbar", {
     items: [
         {
             xtype:'button',
-            iconCls: 'fas fa-sync',
-            text: 'Sync',
+            bind:{
+                // iconCls: '{btn_sync.icon}',
+                text: '{btn_sync.text}'
+            },
+            style: {
+                'background-image': 'resource/sync-icon'
+            },
             listeners: {
                 click: 'onSyncClick'
             }

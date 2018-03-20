@@ -4,7 +4,11 @@ Ext.define('tool_control_system.view.supplier.SupplierModel', {
     
     data: {
         name: 'tool_control_system',
-        title : 'judul'
+        title : 'judul',
+        btn_sync: {
+            text: 'Sync',
+            icon: 'fa-refresh'
+        }
     },
 
     stores : {

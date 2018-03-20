@@ -40,11 +40,12 @@ Ext.define('tool_control_system.view.main.Main', {
         },
         title: {
             bind: {
-                text: '{name}'
+                text: '{name}',
+                icon: '{header.icon}'
             },
             flex: 0
         },
-        iconCls: 'fa-th-list'
+        // iconCls: 'fa-th-list'
     },
 
     tabBar: {

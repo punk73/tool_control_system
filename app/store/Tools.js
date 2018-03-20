@@ -5,7 +5,7 @@ Ext.define('tool_control_system.store.Tools', {
 
     alias: 'store.tools',
 
-    autoLoad: 'true',
+    autoLoad: true,
 
     autoSync: true,
 

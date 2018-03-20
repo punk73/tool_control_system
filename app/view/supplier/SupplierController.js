@@ -8,7 +8,7 @@ Ext.define('tool_control_system.view.supplier.SupplierController', {
 
     onSearch : function (component, e){
     	if (e.keyCode == 13) {
-    		param = this.getElementValue().code;
+    		param = this.getElementValue();
     		store = this.getViewModel().getStore('suppliers');
     		viewModel = this.getViewModel();
     		element = this.getElement();
@@ -25,22 +25,21 @@ Ext.define('tool_control_system.view.supplier.SupplierController', {
     			data.name = param.name
     		}
 
-    		store.loadData([], false);
+            console.log(data)
 
+    		store.loadData([], false);
     		store.load({
     			params: data,
     			callback: function (records, operation, success){
 	    			if (success && store.totalCount == 0 ){
-						var message = 'Tanggal : '+ param.tanggal+ '<br> shift : ' + param.shift+ '<br> line : ' + param.line_name+ ' <br> ';
+						var message = 'Code : '+ param.code+ '<br> Name : ' + param.name+ '<br>';
 						Ext.Msg.alert('Info', message + 'Data Kosong!');
 					}   
 	    		}
 	
 	    	})
 
-	    	console.log(store)
-    		element.code.setValue('');
-
+    		
      	}
     },
 

@@ -48,7 +48,10 @@ Ext.define('tool_control_system.view.supplier.List', {
                 name: 'search_by_name',
                 margin : 10,
                 flex: 1,
-                // anchor: '100%',
+                enableKeyEvents: true,
+                listeners: {
+                    keyup: 'onSearch'
+                },
                 emptyText : 'Searh'
             }]
         }

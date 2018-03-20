@@ -28,7 +28,7 @@ Ext.define('tool_control_system.view.part.List',{
 
 
     bind:{
-        store : '{parts.tools}'
+        store : '{tools}'
     },
 
     columns: [
