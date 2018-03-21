@@ -33,7 +33,7 @@ Ext.define('tool_control_system.view.tool.Tool',{
         },{
             xtype:'cavity_form',
             region:'east',
-            width : '40%'
+            width : '50%'
         }
     ]
 });

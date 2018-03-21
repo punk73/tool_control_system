@@ -11,12 +11,12 @@ Ext.define('tool_control_system.view.tool.FormController', {
     	components = this.getElement();
     	store = this.getViewModel().getStore('tools');
         viewModel = this.getViewModel();
-        console.log({
+        /*console.log({
             param,
             components,
             store,
             viewModel
-        })
+        })*/
         if(viewModel.getData().btn_save.text == 'Save'){
             model = new tool_control_system.model.Tool(param);
             store.add(model);
