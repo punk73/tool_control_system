@@ -11,6 +11,13 @@ Ext.define('tool_control_system.view.supplier.List', {
     bind: {
         store : '{suppliers}'
     },
+    
+    viewConfig  : {
+        stripeRows          : true,
+        enableTextSelection : true
+    },
+
+    layout : 'fit',
 
     columns: [
         { text: 'ID',  dataIndex: 'id' },

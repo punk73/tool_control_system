@@ -35,12 +35,61 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
 
     },
 
-    saveOnClick : function (){
-    	console.log('saveOnClick')
+    onSearch : function (sender, record){
+        console.log({sender, record})
     },
 
-    deleteOnClick : function (){
-    	console.log('deleteOnClick')
+    saveOnClick : function (){
+    	console.log('saveOnClick')
+        param = this.getElementValue();
+        components = this.getElement();
+        store = this.getViewModel().getParent().getStore('toolparts');
+        viewModel = this.getViewModel();
+        
+
+        newModel = {
+            tool_id : param.tool_number,
+            part_id : param.part_number,
+            cavity  : param.cavity
+        }
+        console.log(newModel)
+        model = new tool_control_system.model.Toolpart(newModel);
+        store.add(model);
+        store.sync({
+            callback : function (batch, option, success){
+                console.log(batch, option)
+            }
+        });
+        
+
+        this.cancelOnClick();
+    },
+
+    deleteOnClick : function (sender, record){
+        grid = Ext.ComponentQuery.query('cavity_list')[0]; //ambil object grid
+        if (grid) {
+            console.log(grid);
+            var sm = grid.getSelectionModel(); //ambil model dari grid tsb, *daily_ouput //contructor   
+            var rs = sm.getSelection(); //ambil object modelnya, berupa array
+            
+            if (!rs.length) {
+              Ext.Msg.alert('Info', 'No Record Selected');
+              return;
+            }
+            Ext.Msg.confirm('Remove Record', 
+              'Are you sure you want to delete?', 
+              function (button) {
+                if (button == 'yes') {
+                  grid.store.remove(rs[0]);
+                  grid.store.sync()
+                }
+            });
+        }
+    },
+
+    onItemSelected : function (sender, record){
+        element = this.getElement();
+        element.btn_delete.enable();
     },
 
     getElementValue : function (){
@@ -52,7 +101,6 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
 			part_name: element.part_name.value,
 			cavity: element.cavity.value
     	}
-        
     },
 
     getElement: function(){

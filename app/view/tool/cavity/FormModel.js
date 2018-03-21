@@ -7,7 +7,8 @@ Ext.define('tool_control_system.view.tool.cavity.FormModel', {
         tool_name : null,
         part_id : null,
         part_name : null,
-    	cavity: 0
+    	cavity: 0,
+        // model: {}
     },
     stores:{
         tools :{
