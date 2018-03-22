@@ -10,7 +10,7 @@ Ext.define('tool_control_system.model.Toolpart', {
         	name: 'tool', 
         	type: 'auto',
         	mapping: function(data){
-                if (data.tool.no) {
+                if (data.tool) {
         		  return data.tool.no;  
                 }
         	}
@@ -19,7 +19,7 @@ Ext.define('tool_control_system.model.Toolpart', {
         	name: 'part',
         	type: 'auto', 
         	mapping: function (data){
-                if (data.part.no) {
+                if (data.part) {
         		  return data.part.no;
                     
                 }

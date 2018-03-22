@@ -115,7 +115,8 @@ Ext.define('tool_control_system.view.tool.Form',{
             xtype: 'button',
             name: 'btn_save',
             bind:{
-                text : '{btn_save.text}'
+                text : '{btn_save.text}',
+                icon : '{icon.save}'
             },
             listeners:{
                 click: 'onSaveClick'
@@ -125,7 +126,8 @@ Ext.define('tool_control_system.view.tool.Form',{
             xtype: 'button',
             name: 'btn_delete',
             bind:{
-                text : '{btn_delete.text}'
+                text : '{btn_delete.text}',
+                icon : '{icon.delete}'
             },
             listeners:{
                 click: 'onDeleteClick'
@@ -135,6 +137,9 @@ Ext.define('tool_control_system.view.tool.Form',{
             xtype: 'button',
             text: 'Cancel',
             name: 'btn_cancel',
+            bind: {
+                icon : '{icon.cancel}'
+            },
             listeners:{
                 click: 'onCancelClick'
             }

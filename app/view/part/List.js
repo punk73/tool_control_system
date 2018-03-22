@@ -24,6 +24,8 @@ Ext.define('tool_control_system.view.part.List',{
         type: 'part-list'
     },*/
 
+    frame: true,
+
     xtype: 'part_list',
 
 
@@ -39,7 +41,10 @@ Ext.define('tool_control_system.view.part.List',{
     buttons : [
         {
             xtype : 'button',
-            text  : 'Delete'
+            text  : 'Delete',
+            bind : {
+                icon : '{icon.delete}'
+            }
         }
     ]
     

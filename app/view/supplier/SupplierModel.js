@@ -7,7 +7,7 @@ Ext.define('tool_control_system.view.supplier.SupplierModel', {
         title : 'judul',
         btn_sync: {
             text: 'Sync',
-            icon: 'fa-refresh'
+            icon: 'btn-sync'
         }
     },
 

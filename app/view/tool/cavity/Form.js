@@ -110,6 +110,9 @@ Ext.define('tool_control_system.view.tool.cavity.Form',{
             name: 'btn_save',
             disabled: true,
             formBind: true,
+            bind: {
+                icon : '{icon.save}'
+            },
             listeners:{
                 'click' : 'saveOnClick'
             },
@@ -119,12 +122,18 @@ Ext.define('tool_control_system.view.tool.cavity.Form',{
             text : 'Delete',
             name: 'btn_delete',
             disabled: true,
+            bind: {
+                icon : '{icon.delete}'
+            },
             listeners:{
                 'click' : 'deleteOnClick'
             },
         },{
             xtype:'button',
             text : 'Cancel',
+            bind: {
+                icon : '{icon.cancel}'
+            },
             listeners:{
                 'click' : 'cancelOnClick'
             },

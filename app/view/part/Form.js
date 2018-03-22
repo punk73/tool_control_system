@@ -98,7 +98,9 @@ Ext.define('tool_control_system.view.part.Form',{
 
     buttons : [{
         xtype: 'button',
+        // iconAlign : 'top',
         bind:{
+            icon : '{icon.save}',
             text : '{btn_save.text}'
         },
         name: 'btn_save',
@@ -110,8 +112,10 @@ Ext.define('tool_control_system.view.part.Form',{
         },{
             // xtype: 'button',
             bind:{
-                text : '{btn_delete.text}'
+                text : '{btn_delete.text}',
+                icon : '{icon.delete}',
             },
+            // iconAlign : 'top',
             // formBind:true,
             name: 'btn_delete',
             disabled:true,
@@ -121,7 +125,8 @@ Ext.define('tool_control_system.view.part.Form',{
         },{
             // xtype:'button',
             bind:{
-                text : '{btn_cancel.text}'
+                text : '{btn_cancel.text}',
+                icon : '{icon.cancel}'
             },
             name:'btn_cancel',
             listeners: {

@@ -76,6 +76,7 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
               Ext.Msg.alert('Info', 'No Record Selected');
               return;
             }
+            
             Ext.Msg.confirm('Remove Record', 
               'Are you sure you want to delete?', 
               function (button) {

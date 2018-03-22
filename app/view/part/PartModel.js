@@ -10,7 +10,12 @@ Ext.define('tool_control_system.view.part.PartModel', {
     ],
 
     data: {
-        name: 'tool_control_system'
+        name: 'tool_control_system',
+        icon : {
+            save    : 'resources/Save-icon.png',
+            delete  : 'resources/Button-Delete-icon.png',
+            cancel    : 'resources/Close-2-icon.png'
+        },
     },
     stores : {
     	tools: {

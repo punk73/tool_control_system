@@ -112,12 +112,25 @@ Ext.define('tool_control_system.view.tool.FormController', {
         store = this.getViewModel().getStore('tools');
         no = this.getElementValue().no;
         model = store.findRecord('no', no);
-        store.remove(model);
-        store.sync();
+        if (!model ) {
+          Ext.Msg.alert('Info', 'No Record Selected');
+          return;
+        }
 
-        //this.clearValue();
-        //this.disableAll();
-        this.onCancelClick()
+        self = this;
+        
+        Ext.Msg.confirm('Remove Record', 
+          'Are you sure you want to delete?', 
+          function (button) {
+            if (button == 'yes') {
+                
+                store.remove(model);
+                store.sync();
+                //this.clearValue();
+                //this.disableAll();
+                self.onCancelClick()
+            }
+        });
     },
 
     onPartNumberEnter: function(){

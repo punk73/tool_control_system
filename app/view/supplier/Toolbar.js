@@ -17,13 +17,13 @@ Ext.define("tool_control_system.view.supplier.Toolbar", {
     items: [
         {
             xtype:'button',
+            // iconAlign : 'top',
+            icon : 'resources/sync-icon.png',
             bind:{
                 // iconCls: '{btn_sync.icon}',
                 text: '{btn_sync.text}'
             },
-            style: {
-                'background-image': 'resource/sync-icon'
-            },
+            tooltip: 'Click to Sync Data',
             listeners: {
                 click: 'onSyncClick'
             }

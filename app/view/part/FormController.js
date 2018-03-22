@@ -21,7 +21,6 @@ Ext.define('tool_control_system.view.part.FormController', {
         }
 
     	this.onCancelClick();
-
     },
 
     onSearch : function(component, e){
@@ -102,15 +101,28 @@ Ext.define('tool_control_system.view.part.FormController', {
         store = this.getViewModel().getStore('parts');
         part_no = this.getElementValue().no;
         model = store.findRecord('no', part_no);
-        store.remove(model);
-        store.sync();
 
-        this.clearValue();
-        this.disableAll();
+        if (!model ) {
+          Ext.Msg.alert('Info', 'No Record Selected');
+          return;
+        }
+
+        self = this;
+        
+        Ext.Msg.confirm('Remove Record', 
+          'Are you sure you want to delete?', 
+          function (button) {
+            if (button == 'yes') {
+                store.remove(model);
+                store.sync();
+                self.clearValue();
+                self.disableAll();
+                self.onCancelClick();
+            }
+        });
     },
 
     onPartNumberEnter: function(){
-
     },
 
     getElementValue : function (){
