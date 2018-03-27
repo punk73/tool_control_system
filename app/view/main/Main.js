@@ -83,6 +83,10 @@ Ext.define('tool_control_system.view.main.Main', {
         }
     },
 
+    style: { 
+        "background-image" : "url(resources/img.jpg) !important"
+    },
+
     items: [
         {
             title: 'Home',
