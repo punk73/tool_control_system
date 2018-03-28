@@ -17,7 +17,12 @@ Ext.define('tool_control_system.view.supplier.List', {
         enableTextSelection : true
     },
 
-    layout : 'fit',
+    // layout : 'fit',
+    frame: true,
+
+    style:{
+        'border-color': '#D0D0D0'
+    },
 
     columns: [
         { text: 'ID',  dataIndex: 'id' },

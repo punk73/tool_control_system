@@ -25,6 +25,10 @@ Ext.define('tool_control_system.view.tool.cavity.List',{
     height: 200,
 
     frame:true,
+
+    style:{
+        'border-color': '#d0d0d0'
+    },
     
     bind:{
         store : '{toolparts}'

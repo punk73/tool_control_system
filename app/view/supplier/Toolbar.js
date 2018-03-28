@@ -4,13 +4,13 @@ Ext.define("tool_control_system.view.supplier.Toolbar", {
     
     xtype : 'supplier_toolbar',
 
-    margin : '5 0 5 0',
+    // margin : '5 0 5 0',
 
-    style: {
+    /*style: {
         'background-color': '#5FA2DD',
         'border-style' : 'solid',
         'border-width' : '5px'       
-    },
+    },*/
 
     // frame:true,
 

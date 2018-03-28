@@ -4,10 +4,10 @@ Ext.define('tool_control_system.model.Data', {
     fields: [
         { name: 'id', type: 'int' }, //base
 
-        { 
+        /*{ 
             name: 'no', 
             type: 'auto' 
-        },
+        },*/
 
         { 
             name: 'part_no',
@@ -62,11 +62,11 @@ Ext.define('tool_control_system.model.Data', {
             name: 'model',
             type: 'auto',
             mapping: function(data){
-                if (data.tool) {
-                  return data.tool.model;  
+                if (data.part) {
+                  return data.part.model;  
                 }
             }
-        }, //tool
+        }, //part
 
         { 
             name: 'no_of_tooling',

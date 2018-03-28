@@ -16,7 +16,7 @@ Ext.define('tool_control_system.view.machine_counter.Form',{
 
     frame: true,
 
-    title: 'Cavity',
+    title: 'Input Counter Machine',
 
     margin : '10',
 
@@ -32,30 +32,58 @@ Ext.define('tool_control_system.view.machine_counter.Form',{
             xtype: 'textfield',
             name: 'tool_number',
             fieldLabel: 'Tool Number',
-            allowBlank: false
+            allowBlank: false,
+            emptyText: 'Type And Enter',
+            bind:{
+                value: '{model.no}'
+            },
+            enableKeyEvents: true,
+            listeners:{
+                keyup: 'onSearch'
+            }
+
         },{
             xtype: 'textfield',
             name: 'tool_name',
             fieldLabel: 'Tool Name',
+            disabled: true,
+            bind: {
+                value : '{tool.name}'
+            },
             allowBlank: false
         },{
             xtype: 'textfield',
             name: 'number_of_tooling',
             fieldLabel: 'Number Of Tooling',
+            bind: {
+                value : '{tool.no_of_tooling}'
+            },
+            disabled: true,
             allowBlank: false
         },{
             xtype: 'datefield',
             name: 'tanggal',
             fieldLabel: 'Tanggal',
-            value : new Date()
+            bind: {
+                value : '{model.tanggal}'
+            },
+            disabled: true,
         },{
             xtype: 'numberfield',
             name: 'machine_counter',
             fieldLabel: 'Machine Counter',
+            disabled: true,
+            bind: {
+                value : '{model.machine_counter}'
+            },
             allowBlank: false
         },{
             xtype : 'textarea',
             name : 'note',
+            bind: {
+                value : '{model.note}'
+            },
+            disabled: true,
             fieldLabel: 'Note'
         }
     ],
@@ -63,7 +91,17 @@ Ext.define('tool_control_system.view.machine_counter.Form',{
     buttons:[
         {
             xtype:'button',
-            text : 'Save'
+            text : 'Save',
+            formBind : true,
+            name : 'btn_save'
+        },
+        {
+            xtype:'button',
+            text : 'Cancel',
+            name : 'btn_cancel',
+            listeners :{
+                click : 'onCancelClick'
+            }
         }
     ]
     

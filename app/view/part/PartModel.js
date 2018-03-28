@@ -14,7 +14,8 @@ Ext.define('tool_control_system.view.part.PartModel', {
         icon : {
             save    : 'resources/Save-icon.png',
             delete  : 'resources/Button-Delete-icon.png',
-            cancel    : 'resources/Close-2-icon.png'
+            cancel  : 'resources/Close-2-icon.png',
+            title   : 'resources/part.png'
         },
     },
     stores : {

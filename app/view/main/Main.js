@@ -67,6 +67,10 @@ Ext.define('tool_control_system.view.main.Main', {
 
     defaults: {
         bodyPadding: 20,
+        style : {
+            'background-image':'resource/background2.jpg',
+            'background-color': 'green'
+        },
         tabConfig: {
             plugins: 'responsive',
             responsiveConfig: {
@@ -81,10 +85,6 @@ Ext.define('tool_control_system.view.main.Main', {
                 }
             }
         }
-    },
-
-    style: { 
-        "background-image" : "url(resources/img.jpg) !important"
     },
 
     items: [
@@ -120,10 +120,12 @@ Ext.define('tool_control_system.view.main.Main', {
                 xtype : 'machine_counterview'
             }]
         },{
-            xtype: 'button',
             title: 'Log out',
-            iconCls: 'fa-sign-out'
-            
+            // xtype: 'button',
+            iconCls: 'fa-sign-out',
+            items: {
+                text : 'logout'
+            }            
         }
 
 

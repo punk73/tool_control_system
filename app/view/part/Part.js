@@ -21,6 +21,10 @@ Ext.define('tool_control_system.view.part.Part', {
 
     title: 'Part Master',
 
+    bind:{
+        icon : '{icon.title}'
+    },
+
     viewModel: {
         type: 'part-part'
     },

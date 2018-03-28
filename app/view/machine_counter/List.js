@@ -13,12 +13,17 @@ Ext.define('tool_control_system.view.machine_counter.List',{
         type: 'machine_counter-list'
     },
 
+    viewConfig  : {
+        stripeRows          : true,
+        enableTextSelection : true
+    },
+
     xtype: 'machine_counter_list',
 
     margin: '10',
 
     bind:{
-        store : '{parts}'
+        store : '{tools}'
     },
 
     frame : true,
