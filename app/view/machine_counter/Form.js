@@ -38,6 +38,7 @@ Ext.define('tool_control_system.view.machine_counter.Form',{
                 value: '{model.no}'
             },
             enableKeyEvents: true,
+            tooltip: 'type tool number and click enter button',
             listeners:{
                 keyup: 'onSearch'
             }
@@ -63,6 +64,8 @@ Ext.define('tool_control_system.view.machine_counter.Form',{
         },{
             xtype: 'datefield',
             name: 'tanggal',
+            format: 'Y-m-d',
+            emptyText:'yyyy-mm-dd',
             fieldLabel: 'Tanggal',
             bind: {
                 value : '{model.tanggal}'
@@ -93,7 +96,11 @@ Ext.define('tool_control_system.view.machine_counter.Form',{
             xtype:'button',
             text : 'Save',
             formBind : true,
-            name : 'btn_save'
+            name : 'btn_save',
+            tooltip: 'Click to Save Data',
+            listeners:{
+                click: 'onSaveClick'
+            }
         },
         {
             xtype:'button',

@@ -13,6 +13,9 @@ Ext.define('tool_control_system.view.main.List', {
 
     title: '<span> MAIN DATA </span> ',
 
+    style : {
+        'font-size' : '8px'
+    },
 
     bind : {
         store : '{datas}',
@@ -32,13 +35,154 @@ Ext.define('tool_control_system.view.main.List', {
 
     columns: [
         { text: 'ID',  dataIndex: 'id', width: 50 },
-        { text: 'Part No', dataIndex: 'part_no'/*, flex: 1*/ },
-        { text: 'Tool No', dataIndex: 'tool_no'/*, flex: 1*/ },
-        { text: 'Tool Name', dataIndex: 'tool_name'/*, flex: 1*/ },
-        { text: 'Supplier<br>Name', dataIndex: 'supplier_name'/*, flex: 1*/ },
-        { text: 'Model', dataIndex: 'model'/*, flex: 1*/ },
-        { text: 'No Of Tooling', dataIndex: 'no_of_tooling'/*, flex: 1*/ },
-        { text: 'Cavity', dataIndex: 'cavity'/*, flex: 1*/ },
+
+        { 
+            text: 'Part No', 
+            dataIndex: 'part_no', 
+            layout: {
+                type: 'vbox',
+                pack: 'center',
+                align: 'stretch'
+            },
+            items : [{
+                xtype:'textfield',
+                name: 'search_by_part_no',
+                margin : 4,
+                emptyText : 'Searh',
+                tooltip: 'Type Part No Here',
+                enableKeyEvents: true,
+                listeners: {
+                    keyup: 'onSearch'
+                }
+            }] 
+        },
+
+        { 
+            text: 'Tool No', 
+            dataIndex: 'tool_no', 
+            layout: {
+                type: 'vbox',
+                pack: 'center',
+                align: 'stretch'
+            },
+            items : [{
+                xtype:'textfield',
+                name: 'search_by_tool_no',
+                margin : 4,
+                emptyText : 'Searh',
+                enableKeyEvents: true,
+                listeners: {
+                    keyup: 'onSearch'
+                }
+            }] 
+        },
+
+        { 
+            text: 'Tool Name', 
+            dataIndex: 'tool_name',
+            layout: {
+                type: 'vbox',
+                pack: 'center',
+                align: 'stretch'
+            },
+            items : [{
+                xtype:'textfield',
+                name: 'search_by_tool_name',
+                margin : 4,
+                emptyText : 'Searh',
+                tooltip: 'Type Part No Here',
+                enableKeyEvents: true,
+                listeners: {
+                    keyup: 'onSearch'
+                }
+            }]  
+        },
+
+        { 
+            text: 'Supplier Name', 
+            dataIndex: 'supplier_name', 
+            layout: {
+                type: 'vbox',
+                pack: 'center',
+                align: 'stretch'
+            },
+            items : [{
+                xtype:'textfield',
+                name: 'search_by_supplier_name',
+                margin : 4,
+                emptyText : 'Searh',
+                tooltip: 'Type Part No Here',
+                enableKeyEvents: true,
+                listeners: {
+                    keyup: 'onSearch'
+                }
+            }]  
+        },
+
+        { 
+            text: 'Model', 
+            dataIndex: 'model', 
+            layout: {
+                type: 'vbox',
+                pack: 'center',
+                align: 'stretch'
+            },
+            items : [{
+                xtype:'textfield',
+                name: 'search_by_model',
+                margin : 4,
+                emptyText : 'Searh',
+                tooltip: 'Type Part No Here',
+                enableKeyEvents: true,
+                listeners: {
+                    keyup: 'onSearch'
+                }
+            }]  
+        },
+
+        { 
+            text: 'No Of Tooling', 
+            dataIndex: 'no_of_tooling', 
+            layout: {
+                type: 'vbox',
+                pack: 'center',
+                align: 'stretch'
+            },
+            items : [{
+                xtype:'textfield',
+                name: 'search_by_no_of_tooling',
+                margin : 4,
+                emptyText : 'Searh',
+                tooltip: 'Type Part No Here',
+                enableKeyEvents: true,
+                listeners: {
+                    keyup: 'onSearch'
+                }
+            }] /*, flex: 1*/ 
+        },
+
+        { 
+            text: 'Cavity', 
+            dataIndex: 'cavity', 
+            layout: {
+                type: 'vbox',
+                pack: 'center',
+                align: 'stretch'
+            },
+            items : [{
+                xtype:'textfield',
+                name: 'search_by_cavity',
+                margin : 4,
+                emptyText : 'Searh',
+                tooltip: 'Type Part No Here',
+                enableKeyEvents: true,
+                listeners: {
+                    keyup: 'onSearch'
+                }
+            }]  /*, flex: 1*/ 
+        },
+        
+        { text: 'Machine<br>Counter', dataIndex: 'machine_counter', /*, flex: 1*/ },
         { text: 'Total<br>Delivery', dataIndex: 'total_delivery'/*, flex: 1*/ },
         { text: 'Total<br>Shoot', dataIndex: 'total_shoot'/*, flex: 1*/ },
         { text: 'month1', dataIndex: 'month1'/*, flex: 1*/ },
@@ -67,5 +211,6 @@ Ext.define('tool_control_system.view.main.List', {
 
     listeners: {
         // select: 'onItemSelected'
+        // itemcontextmenu: 'onRighClick' //niatnya buat right click, tp ga enakeun karena ada event righclick nya chrome        
     }
 });

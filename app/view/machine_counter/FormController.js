@@ -5,28 +5,25 @@ Ext.define('tool_control_system.view.machine_counter.FormController', {
     onSaveClick: function (){
     	param = this.getElementValue();
     	components = this.getElement();
-    	store = this.getViewModel().getStore('tools');
+    	store = this.getViewModel().getStore('tool_details');
         viewModel = this.getViewModel();
-        /*console.log({
+            
+        tool = viewModel.getData().tool;
+        param.tool_id = tool.id;
+
+        console.log({
             param,
-            components,
-            store,
-            viewModel
-        })*/
-        if(viewModel.getData().btn_save.text == 'Save'){
-            model = new tool_control_system.model.Tool(param);
-            store.add(model);
-            store.sync({
-                callback : function (batch, option, success){
-                    console.log(batch, option)
-                }
-            });
-        }else{
-            //coding update
-            model = this.getViewModel().getData().model;
-            model.store.sync();
-            // console.log(model)
-        }
+            components
+        });
+
+
+        model = new tool_control_system.model.Tool(param);
+        store.add(model);
+        store.sync({
+            callback : function (batch, option, success){
+                // console.log(batch, option)
+            }
+        });
 
     	this.onCancelClick();
 
@@ -50,15 +47,13 @@ Ext.define('tool_control_system.view.machine_counter.FormController', {
                 },
                 callback: function(records,operation,success){
                     var model = store.findRecord('no', no);
+                    // console.log(model)
                     if(model != null){
                         viewModel.setData({
-                          tool : {
-					        name : model.data.name,
-					        no_of_tooling : model.data.no_of_tooling
-					      }
+                          tool : model.data
                         })
 
-                        console.log(viewModel.getData())
+                        // console.log(viewModel.getData())
                         
                         element.no.disable();
 
@@ -69,6 +64,11 @@ Ext.define('tool_control_system.view.machine_counter.FormController', {
                         element.btn_save.enable();
 
                         element.machine_counter.focus();
+                    }else{
+                        const message = 'Tool Number not found!<br>please recheck for typo or kindly contact JEIN for support';
+                        Ext.Msg.alert('Info', message );
+                        element.no.focus();
+                        return;
                     }
                 }
             })
@@ -125,7 +125,7 @@ Ext.define('tool_control_system.view.machine_counter.FormController', {
             no : element.no.value,
             name : element.name.value,
             no_of_tooling : element.no_of_tooling.value,
-            tanggal: element.tanggal.value,
+            tanggal: element.tanggal.rawValue,
             machine_counter : element.machine_counter.value, //isinya sama kaya total shoot
             note : element.note.value
         }

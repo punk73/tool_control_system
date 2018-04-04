@@ -82,6 +82,16 @@ Ext.define('tool_control_system.model.Data', {
             name: 'cavity',
             type: 'auto'
         }, //toolpart
+        
+        { 
+            name: 'machine_counter',
+            type: 'auto',
+            mapping: function(data){
+                if (data.tool) {
+                  return data.tool.machine_counter;  
+                }
+            }
+        },
 
         {   
             //belum ada 
@@ -99,7 +109,13 @@ Ext.define('tool_control_system.model.Data', {
             type: 'auto',
             mapping: function(data){
                 if (data.tool) {
-                  return data.tool.total_shoot;  
+                    if (data.tool.detail) {
+                        //jika tool.detail != null
+                        return data.tool.start_value + data.tool.detail.total_shoot
+                    }else{
+
+                        return data.tool.start_value;  
+                    }
                 }
             } 
         }, //tool //pck31.total_delivery / toolpart.cavity

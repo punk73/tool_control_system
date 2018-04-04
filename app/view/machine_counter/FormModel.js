@@ -1,11 +1,17 @@
 Ext.define('tool_control_system.view.machine_counter.FormModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.machine_counter-form',
+
+    requires:[
+        'tool_control_system.store.Tool_details'
+    ],
+
     data: {
         name: 'tool_control_system',
 
         tool : {
-        	no : null,
+            id : null,
+            no : null,
         	name : null,
         	no_of_tooling : null
         },
@@ -20,7 +26,11 @@ Ext.define('tool_control_system.view.machine_counter.FormModel', {
     stores : {
     	tools : {
     		type : 'tools'
-    	}
+    	},
+
+        tool_details :{
+            type : 'tool_details'
+        }
     }
 
 });

@@ -33,10 +33,18 @@ Ext.define('tool_control_system.view.part.Part', {
 
     items:[{
         xtype:'part_form',
+        collapsible: true,
+        split: {
+            size: 10
+        },
         region  : 'center'
     },{
         xtype : 'part_list',
         region: 'east',
+        collapsible: true,
+        split: {
+            size: 10
+        },
         width : '40%'
     }],
 

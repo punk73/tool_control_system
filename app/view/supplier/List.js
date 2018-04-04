@@ -38,7 +38,7 @@ Ext.define('tool_control_system.view.supplier.List', {
             items : [{
                 xtype:'textfield',
                 name: 'search_by_code',
-                margin : 10,
+                margin : 4,
                 emptyText : 'Searh',
                 enableKeyEvents: true,
                 listeners: {
@@ -58,7 +58,7 @@ Ext.define('tool_control_system.view.supplier.List', {
             items : [{
                 xtype:'textfield',
                 name: 'search_by_name',
-                margin : 10,
+                margin : 4,
                 flex: 1,
                 enableKeyEvents: true,
                 listeners: {
