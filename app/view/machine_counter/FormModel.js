@@ -3,7 +3,9 @@ Ext.define('tool_control_system.view.machine_counter.FormModel', {
     alias: 'viewmodel.machine_counter-form',
 
     requires:[
-        'tool_control_system.store.Tool_details'
+        'tool_control_system.store.Tool_details',
+        'tool_control_system.store.Machines',
+
     ],
 
     data: {
@@ -30,6 +32,10 @@ Ext.define('tool_control_system.view.machine_counter.FormModel', {
 
         tool_details :{
             type : 'tool_details'
+        },
+
+        machines : {
+            type : 'machines'
         }
     }
 

@@ -7,7 +7,7 @@ Ext.define('tool_control_system.view.main.MainModel', {
     alias: 'viewmodel.main',
 
     data: {
-        name: 'Tool Control System',
+        name: 'Automata',
 
         btn_sync: {
             text : 'Sync'

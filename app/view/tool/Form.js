@@ -74,15 +74,20 @@ Ext.define('tool_control_system.view.tool.Form',{
             bind: {
                 value: '{model.total_shoot}'
             },
+            minValue: 0,
+            autoStripChars: true,
             allowBlank: false,
             disabled:  true
         },{
             xtype: 'numberfield',
             name: 'guarantee_shoot',
             fieldLabel: 'Guarantee Shoot',
+            minValue: 0,
+            autoStripChars: true,
             bind: {
                 value: '{model.guarantee_shoot}'
             },
+            minValue: 0,
             allowBlank: false,
             disabled:  true
         },{
@@ -92,6 +97,8 @@ Ext.define('tool_control_system.view.tool.Form',{
             bind: {
                 value: '{model.delivery_date}'
             },
+            format: 'Y-m-d',
+            emptyText:'yyyy-mm-dd',
             disabled:  true
         },{
             xtype: 'combobox',
@@ -114,6 +121,7 @@ Ext.define('tool_control_system.view.tool.Form',{
     buttons : [{
             xtype: 'button',
             name: 'btn_save',
+            formBind: true,
             bind:{
                 text : '{btn_save.text}',
                 icon : '{icon.save}'

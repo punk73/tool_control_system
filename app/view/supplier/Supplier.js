@@ -20,6 +20,10 @@ Ext.define('tool_control_system.view.supplier.Supplier',{
 
     height : 600,
 
+    bind: {
+        icon : '{icon.supplier}'
+    },
+
     title: 'Supplier Master',
 
     autoScroll: true,

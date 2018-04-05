@@ -8,6 +8,9 @@ Ext.define('tool_control_system.view.supplier.SupplierModel', {
         btn_sync: {
             text: 'Sync',
             icon: 'btn-sync'
+        },
+        icon : {
+            supplier : 'resources/supplier-icon.png'
         }
     },
 

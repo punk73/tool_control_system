@@ -10,6 +10,7 @@ Ext.define('tool_control_system.view.machine_counter.Form',{
     ],
 
     controller: 'machine_counter-form',
+    
     viewModel: {
         type: 'machine_counter-form'
     },
@@ -76,6 +77,7 @@ Ext.define('tool_control_system.view.machine_counter.Form',{
             name: 'machine_counter',
             fieldLabel: 'Machine Counter',
             disabled: true,
+            minValue: 0,
             bind: {
                 value : '{model.machine_counter}'
             },
@@ -95,8 +97,12 @@ Ext.define('tool_control_system.view.machine_counter.Form',{
         {
             xtype:'button',
             text : 'Save',
+            tooltip : 'Save',
             formBind : true,
             name : 'btn_save',
+            bind : {
+                icon : '{icon.save}'
+            },
             tooltip: 'Click to Save Data',
             listeners:{
                 click: 'onSaveClick'
@@ -105,7 +111,11 @@ Ext.define('tool_control_system.view.machine_counter.Form',{
         {
             xtype:'button',
             text : 'Cancel',
+            tooltip : 'Cancel',
             name : 'btn_cancel',
+            bind : {
+                icon : '{icon.cancel}'
+            },
             listeners :{
                 click : 'onCancelClick'
             }

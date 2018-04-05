@@ -88,7 +88,7 @@ Ext.define('tool_control_system.model.Data', {
             type: 'auto',
             mapping: function(data){
                 if (data.tool) {
-                  return data.tool.machine_counter;  
+                  return data.tool.counter;  
                 }
             }
         },
@@ -167,11 +167,15 @@ Ext.define('tool_control_system.model.Data', {
         }, //forecast
 
         { 
-            name: 'total_qty', 
+            name: 'total_qty', //untuk total qty untill
             type: 'auto',
             mapping: function(data){
                 if (data.part) {
-                  return data.part.total_qty;  
+                    if (data.forecast) {
+                        return (data.part.total_delivery+data.forecast.total);
+                    }
+
+                    return data.part.total_delivery
                 }
             }  
         }, //pck31.total_delivery + sum(months)
@@ -179,7 +183,17 @@ Ext.define('tool_control_system.model.Data', {
         //belum ada
         { 
             name: 'total_shoot_forecast', 
-            type: 'auto' 
+            type: 'auto',
+            mapping : function (data){
+                if (data.part) {
+                    if (data.forecast) {
+                        return (data.part.total_delivery+data.forecast.total) / data.cavity ;
+                    }
+
+                    return data.part.total_delivery / data.cavity
+                }
+
+            } 
         }, // ( pck31.total_delivery + sum(months) ) / toolpart.cavity
 
         { 
@@ -196,8 +210,13 @@ Ext.define('tool_control_system.model.Data', {
             name: 'balance_shoot', 
             type: 'auto',
             mapping: function(data){
-                if (data.tool) {
-                  return data.tool.balance_shoot;  
+                var tool = data.tool, part = data.part, forecast = data.forecast;
+                if (tool) {
+                    if (part) {
+                        if (forecast) {
+                            return  tool.guarantee_shoot - (part.total_delivery+forecast.total)/data.cavity;
+                        }
+                    }
                 }
             }  
         }, //tool (guarantee_shoot - total_shoot)
@@ -208,7 +227,9 @@ Ext.define('tool_control_system.model.Data', {
             type: 'auto',
             mapping: function(data){
                 if (data.tool) {
-                  return data.tool.guarantee_remains;  
+                  if (data.tool.detail) {
+                        return data.tool.detail.guarante_after_forecast
+                    }
                 }
             }  
         }, //( (balance_shoot * cavity) / (sum(month)/6) )

@@ -33,6 +33,43 @@ Ext.define("tool_control_system.view.main.Toolbar", {
             emptyText:'yyyy-mm-dd',
             value: new Date(),
             fieldLabel:'Tanggal'
+        },
+        {
+            xtype:'button',
+            name : 'btn-danger',
+            icon : 'resources/danger.png',
+            style : {
+                'color' : 'red'
+            },
+            text : 9,
+            tooltip: 'Tool Already Over Guarantee!!',
+            listeners: {
+                // click: 'onSyncClick'
+            }
+        },{
+            xtype:'button',
+            name : 'btn-warning',
+            icon : 'resources/warning.png',
+            style : {
+                'color' : 'red'
+            },
+            text : 9,
+            tooltip: 'Tool Over Guarantee Within 6 weeks!',
+            listeners: {
+                // click: 'onSyncClick'
+            }
+        },{
+            xtype:'button',
+            name : 'btn-info',
+            icon : 'resources/info.png',
+            style : {
+                'color' : 'red'
+            },
+            text : 9,
+            tooltip: 'SAVE ~',
+            listeners: {
+                // click: 'onSyncClick'
+            }
         }
     ]
         

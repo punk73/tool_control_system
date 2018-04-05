@@ -7,6 +7,7 @@
  */
 Ext.define('tool_control_system.view.main.Main', {
     extend: 'Ext.tab.Panel',
+
     xtype: 'app-main',
 
     requires: [
@@ -26,15 +27,20 @@ Ext.define('tool_control_system.view.main.Main', {
     ],
 
     controller: 'main',
+
     viewModel: 'main',
 
     ui: 'navigation',
 
     tabBarHeaderPosition: 1,
+
     titleRotation: 0,
+    
     tabRotation: 0,
 
+
     header: {
+
         layout: {
             align: 'stretchmax'
         },
@@ -45,7 +51,6 @@ Ext.define('tool_control_system.view.main.Main', {
             },
             flex: 0
         },
-        // iconCls: 'fa-th-list'
     },
 
     tabBar: {
@@ -114,7 +119,7 @@ Ext.define('tool_control_system.view.main.Main', {
                 xtype : 'toolview'
             }]
         },{
-            title: 'Input Machine Counter',
+            title: 'Input Machine<br>Counter',
             iconCls: 'fa-cog',
             items: [{
                 xtype : 'machine_counterview'

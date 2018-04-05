@@ -5,7 +5,7 @@ Ext.define('tool_control_system.view.machine_counter.FormController', {
     onSaveClick: function (){
     	param = this.getElementValue();
     	components = this.getElement();
-    	store = this.getViewModel().getStore('tool_details');
+    	store = this.getViewModel().getStore('machines');
         viewModel = this.getViewModel();
             
         tool = viewModel.getData().tool;
@@ -126,7 +126,7 @@ Ext.define('tool_control_system.view.machine_counter.FormController', {
             name : element.name.value,
             no_of_tooling : element.no_of_tooling.value,
             tanggal: element.tanggal.rawValue,
-            machine_counter : element.machine_counter.value, //isinya sama kaya total shoot
+            counter : element.machine_counter.value, //isinya sama kaya total shoot
             note : element.note.value
         }
     },

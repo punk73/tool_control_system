@@ -74,6 +74,8 @@ Ext.define('tool_control_system.view.part.Form',{
             name: 'total_delivery',
             fieldLabel: 'Total Delivery',
             allowBlank: false,
+            minValue: 0,
+            autoStripChars: true,
             bind:{
                 value: '{model.total_delivery}',
             },

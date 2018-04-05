@@ -46,7 +46,7 @@ Ext.define('tool_control_system.view.tool.cavity.Form',{
                 store: '{tools}'
             },
             valueField:'id',
-            queryMode: 'local',
+            // queryMode: 'local',
             fieldLabel: 'Tool Number',
             listeners:{
                 'change' : 'toolOnChange'
@@ -66,9 +66,6 @@ Ext.define('tool_control_system.view.tool.cavity.Form',{
             xtype: 'combobox',
             name: 'part_number',
             emptyText: 'Part Number',
-            /*store: {
-                type:'all_parts'
-            },*/
             displayField:'no',
             bind:{
                 value: '{part_id}',
@@ -78,7 +75,6 @@ Ext.define('tool_control_system.view.tool.cavity.Form',{
                 'change' : 'partOnChange'
             },
             valueField:'id',
-            queryMode: 'local',
             fieldLabel: 'Part Number',
             allowBlank: false
         },{

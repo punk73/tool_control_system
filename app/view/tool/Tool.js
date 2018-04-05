@@ -21,6 +21,10 @@ Ext.define('tool_control_system.view.tool.Tool',{
         type:'border'
     },
 
+    bind: {
+        icon : '{icon.tool}'
+    },
+
     height : 600,
 
     autoScroll: true,
@@ -29,9 +33,17 @@ Ext.define('tool_control_system.view.tool.Tool',{
 
     items:[{
             xtype : 'tool_form',
+            collapsible: true,
+            split: {
+                size: 10
+            },
             region: 'center'
         },{
             xtype:'cavity_form',
+            collapsible: true,
+            split: {
+                size: 10
+            },
             region:'east',
             width : '50%'
         }

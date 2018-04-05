@@ -46,6 +46,7 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
         store = this.getViewModel().getParent().getStore('toolparts');
         viewModel = this.getViewModel();
         
+        console.log(param)
 
         newModel = {
             tool_id : param.tool_number,

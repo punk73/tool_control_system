@@ -11,12 +11,16 @@ Ext.define('tool_control_system.view.tool.FormController', {
     	components = this.getElement();
     	store = this.getViewModel().getStore('tools');
         viewModel = this.getViewModel();
+        
         /*console.log({
             param,
             components,
             store,
             viewModel
         })*/
+
+        // return ;
+
         if(viewModel.getData().btn_save.text == 'Save'){
             model = new tool_control_system.model.Tool(param);
             store.add(model);
@@ -25,6 +29,7 @@ Ext.define('tool_control_system.view.tool.FormController', {
                     console.log(batch, option)
                 }
             });
+            
         }else{
             //coding update
             model = this.getViewModel().getData().model;
@@ -99,7 +104,7 @@ Ext.define('tool_control_system.view.tool.FormController', {
             model: {
                 no: null,
                 name: '',
-                no_of_tooling: '',
+                no_of_tooling: 'TL-01',
                 total_shoot: 0,
                 guarantee_shoot: 0,
                 delivery_date: new Date(),
@@ -143,12 +148,12 @@ Ext.define('tool_control_system.view.tool.FormController', {
             no : element.no.value,
             name : element.name.value,
             no_of_tooling : element.no_of_tooling.value,
-            total_shoot: element.total_shoot.value,
-            balance_shoot : element.total_shoot.value, //isinya sama kaya total shoot
+            start_value: element.total_shoot.value,
+            // balance_shoot : element.total_shoot.value, //isinya sama kaya total shoot
             guarantee_shoot : element.guarantee_shoot.value,
-            delivery_date: element.delivery_date.value,
+            delivery_date: element.delivery_date.rawValue,
             supplier_id : element.supplier_id.value,
-            guarantee_remains: 0,
+            // guarantee_remains: 0,
         }
     },
 

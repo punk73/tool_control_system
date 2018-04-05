@@ -193,7 +193,20 @@ Ext.define('tool_control_system.view.main.List', {
         { text: 'Total<br>Qty', dataIndex: 'total_qty'/*, flex: 1*/ },
         { text: 'Total Shoot <br> Forecast', dataIndex: 'total_shoot_forecast'/*, flex: 1*/ },
         { text: 'Guarantee<br>Shoot', dataIndex: 'guarantee_shoot'/*, flex: 1*/ },
-        { text: 'Balance<br>Shoot', dataIndex: 'balance_shoot'/*, flex: 1*/ },
+        { 
+            text: 'Balance<br>Shoot', 
+            dataIndex: 'balance_shoot',
+            renderer : function (value, meta){
+                if(parseInt(value) >= 0) {
+                    meta.style = "background-color:green;color:white;";
+
+                } else {
+                    meta.style = "background-color:red;color:white;";
+                }
+
+                return value;
+            }
+        },
         { text: 'Guarantee<br>Remains', dataIndex: 'guarantee_remains'/*, flex: 1*/ },
         { text: 'Validation<br>Date', dataIndex: 'validation_date'/*, flex: 1*/ },
         { text: 'Remark', dataIndex: 'remark'/*, flex: 1*/ }
