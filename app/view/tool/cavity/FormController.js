@@ -2,6 +2,36 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.tool-cavity-form',
 
+    suppliersOnChange : function (){
+        elementValue = this.getElementValue();
+        tools = this.getViewModel().getStore('tools');
+        parts = this.getViewModel().getStore('parts');
+        supplier_id = elementValue.supplier_id;
+        element = this.getElement();
+        element.tool_number.enable();
+        element.part_number.enable();
+
+        params = {
+            supplier_id : supplier_id
+        }
+
+        tools.load({
+            params : params,
+            callback : function (a,b,c){
+                console.log({a,b,c})
+            }
+        })
+
+        parts.load({
+            params : params,
+            callback : function (a,b,c){
+                console.log({a,b,c})
+            }
+        })
+
+
+    },
+
     toolOnChange : function (){
     	viewModel = this.getViewModel();
     	// data = viewModel.getData();
@@ -97,7 +127,8 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
     getElementValue : function (){
     	element = this.getElement();
     	return {
-    		tool_number: element.tool_number.value,
+    		supplier_id: element.supplier.value,
+            tool_number: element.tool_number.value,
 			tool_name: element.tool_name.value,
 			part_number: element.part_number.value,
 			part_name: element.part_name.value,
@@ -107,7 +138,8 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
 
     getElement: function(){
     	return {
-        	tool_number: Ext.ComponentQuery.query('combobox[name=tool_number]')[0],
+            supplier: Ext.ComponentQuery.query('combobox[name=supplier]')[0],
+            tool_number: Ext.ComponentQuery.query('combobox[name=tool_number]')[0],
         	tool_name: Ext.ComponentQuery.query('textfield[name=tool_name]')[1],
         	part_number: Ext.ComponentQuery.query('combobox[name=part_number]')[0],
         	part_name: Ext.ComponentQuery.query('textfield[name=part_name]')[1],
@@ -121,19 +153,25 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
     cancelOnClick : function (){
     	this.clearValue();
         element = this.getElement();
+        element.tool_number.disable();
+        element.part_number.disable();
+        element.cavity.disable();
+
         element.btn_save.disable();
         element.btn_delete.disable();
-        element.tool_number.focus();
+
+        element.supplier.focus();
     },
 
     clearValue : function (){
     	// alert('on delete click')
     	var components = this.getElement();
-    	components.tool_number.setValue(null);
+        components.supplier.setValue(null);
+        components.tool_number.setValue(null);
     	components.tool_name.setValue('');
     	components.part_number.setValue(null);
     	components.part_name.setValue('');
-    	components.cavity.setValue(0);
+    	components.cavity.setValue(1);
 
         // tools = this.getViewModel().getParent().getStore('tools'); //list store
         // tools.loadData([], false );

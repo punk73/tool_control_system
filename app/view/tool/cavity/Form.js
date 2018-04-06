@@ -34,6 +34,23 @@ Ext.define('tool_control_system.view.tool.cavity.Form',{
     items:[
         {
             xtype: 'combobox',
+            name: 'supplier',
+            emptyText: 'Select Supplier',
+            bind:{
+                // value: '{tool_id}',
+                store: '{suppliers}'
+            },
+            queryMode : 'local',
+            displayField:'name',
+            valueField:'id',
+            fieldLabel: 'Tool Number',
+            listeners:{
+                'change' : 'suppliersOnChange'
+            },
+            allowBlank: false
+        },
+        {
+            xtype: 'combobox',
             name: 'tool_number',
             emptyText: 'Tool Number',
             // formBind: true,
@@ -45,8 +62,9 @@ Ext.define('tool_control_system.view.tool.cavity.Form',{
                 value: '{tool_id}',
                 store: '{tools}'
             },
+            disabled: true,
             valueField:'id',
-            // queryMode: 'local',
+            queryMode: 'local',
             fieldLabel: 'Tool Number',
             listeners:{
                 'change' : 'toolOnChange'
@@ -74,6 +92,8 @@ Ext.define('tool_control_system.view.tool.cavity.Form',{
             listeners:{
                 'change' : 'partOnChange'
             },
+            disabled: true,
+            queryMode: 'local', 
             valueField:'id',
             fieldLabel: 'Part Number',
             allowBlank: false
@@ -93,6 +113,7 @@ Ext.define('tool_control_system.view.tool.cavity.Form',{
                 value: '{cavity}'
             },
             fieldLabel: 'Cavity',
+            disabled: true,
             allowBlank: false
         },{
             xtype : 'cavity_list'

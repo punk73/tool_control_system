@@ -9,6 +9,8 @@ Ext.define('tool_control_system.view.machine_counter.List',{
 
     controller: 'machine_counter-list',
 
+    title : 'Tool Info',
+
     viewModel: {
         type: 'machine_counter-list'
     },
