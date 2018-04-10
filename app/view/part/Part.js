@@ -16,7 +16,8 @@ Ext.define('tool_control_system.view.part.Part', {
     requires: [
         'tool_control_system.view.part.PartModel',
         'tool_control_system.view.part.Form',
-        'tool_control_system.view.part.List'
+        'tool_control_system.view.part.List',
+        'tool_control_system.view.part.part_relation.Form'
     ],
 
     title: 'Part Master',
@@ -38,15 +39,15 @@ Ext.define('tool_control_system.view.part.Part', {
             size: 10
         },
         region  : 'center'
-    }/*,{
-        xtype : 'part_list',
-        // region: 'east',
-        // collapsible: true,
-        // split: {
-        //     size: 10
-        // },
-        // width : '40%'
-    }*/],
+    },{
+        xtype : 'part_part_relation_form',
+        region: 'east',
+        collapsible: true,
+        split: {
+            size: 10
+        },
+        width : '40%'
+    }],
 
     listeners: {
         // select: 'onItemSelected'
