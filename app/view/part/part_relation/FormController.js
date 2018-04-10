@@ -5,24 +5,18 @@ Ext.define('tool_control_system.view.part.part_relation.FormController', {
     onSaveClick: function (){
     	param = this.getElementValue();
     	components = this.getElement();
-    	store = this.getStore('parts');
+    	store = this.getStore('part_relations');
         viewModel = this.getViewModel();
 
-        // console.log(param)
+        param = {
+        	parent_part_id : param.parent_part_number,
+        	children_part_id :  param.children_part_number
+        }
 
         if(viewModel.getData().btn_save.text == 'Save'){
-            model = new tool_control_system.model.Part(param);
+            model = new tool_control_system.model.Part_relation(param);
             store.add(model);
             store.sync();
-        }else{
-            //coding update
-            model = this.getViewModel().getData().model;
-            //setup date of first value if date is changes
-            model.data.date_of_first_value = this.getElementValue().date_of_first_value;
-            // console.log(model);
-            
-            model.store.sync();
-            // console.log(model)
         }
 
     	this.onCancelClick();
@@ -85,7 +79,7 @@ Ext.define('tool_control_system.view.part.part_relation.FormController', {
     	store = this.getViewModel().getStore('parts');
     	id = element.parent_part_number;
     	model = store.findRecord('id', id );
-    	console.log({  model})
+    	
         if (model != null ) {
 
         	viewModel.setData({
@@ -101,7 +95,7 @@ Ext.define('tool_control_system.view.part.part_relation.FormController', {
     	store = this.getViewModel().getStore('parts');
     	id = element.children_part_number;
     	model = store.findRecord('id', id );
-    	console.log({  model})
+    	
         if (model != null ) {
 
         	viewModel.setData({

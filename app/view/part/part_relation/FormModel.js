@@ -1,6 +1,12 @@
 Ext.define('tool_control_system.view.part.part_relation.FormModel', {
     extend: 'Ext.app.ViewModel',
+    
     alias: 'viewmodel.part-part_relation-form',
+
+    requires :[
+        'tool_control_system.store.Part_relations'
+    ],
+
     data: {
         name: 'tool_control_system',
 
@@ -28,7 +34,11 @@ Ext.define('tool_control_system.view.part.part_relation.FormModel', {
     stores: {
     	parts : {
     		type : 'all_parts'
-    	}
+    	},
+
+        part_relations : {
+            type: 'part_relations'
+        }
     }
 
 });
