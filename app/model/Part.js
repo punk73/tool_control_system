@@ -12,8 +12,10 @@ Ext.define('tool_control_system.model.Part', {
         { name: 'supplier_id', type: 'auto' },
         { name: 'model', type: 'auto' },
         { name: 'first_value', type: 'auto' },
-        { name: 'total_delivery', type: 'auto' },
-        { name: 'total_qty', type: 'auto' },
+        { name: 'date_of_first_value', type: 'auto' },
+
+        // { name: 'total_delivery', type: 'auto' },
+        // { name: 'total_qty', type: 'auto' },
         { name: 'tools', type: 'auto' },
 
     ]

@@ -33,6 +33,7 @@ Ext.define('tool_control_system.view.tool.FormController', {
         }else{
             //coding update
             model = this.getViewModel().getData().model;
+            model.data.delivery_date = this.getElementValue().delivery_date;
             model.store.sync();
             // console.log(model)
         }

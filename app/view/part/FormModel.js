@@ -25,7 +25,8 @@ Ext.define('tool_control_system.view.part.FormModel', {
             no: null,
             name: null,
             model: null,
-            total_delivery: 0,
+            first_value: 0,
+            date_of_first_value : null,
             supplier_id: null,
         }
     },

@@ -9,6 +9,8 @@ Ext.define('tool_control_system.view.part.FormController', {
     	store = this.getStore('parts');
         viewModel = this.getViewModel();
 
+        // console.log(param)
+
         if(viewModel.getData().btn_save.text == 'Save'){
             model = new tool_control_system.model.Part(param);
             store.add(model);
@@ -16,6 +18,10 @@ Ext.define('tool_control_system.view.part.FormController', {
         }else{
             //coding update
             model = this.getViewModel().getData().model;
+            //setup date of first value if date is changes
+            model.data.date_of_first_value = this.getElementValue().date_of_first_value;
+            // console.log(model);
+            
             model.store.sync();
             // console.log(model)
         }
@@ -42,8 +48,8 @@ Ext.define('tool_control_system.view.part.FormController', {
                     var model = store.findRecord('no', part_no);
                     // console.log(model.id, tools)
                     if(model != null){
-                        // console.log(model.data , 'edit data')
-                        //isi dengan specific model
+                        //for setup date of first value
+                        
                         viewModel.setData({
                             model : model,
                             btn_save: {
@@ -70,9 +76,6 @@ Ext.define('tool_control_system.view.part.FormController', {
                     }        
                 }
             })
-
-            
-
     	}
     },
 
@@ -89,7 +92,7 @@ Ext.define('tool_control_system.view.part.FormController', {
                 no: null,
                 name: null,
                 model: null,
-                total_delivery: 0,
+                first_value: 0,
                 supplier_id: null,
             }
     	})
@@ -132,9 +135,8 @@ Ext.define('tool_control_system.view.part.FormController', {
         	name: Ext.ComponentQuery.query('textfield[name=part_name]')[0].rawValue,
         	supplier_id : Ext.ComponentQuery.query('combobox[name=supplier_id]')[0].value,
         	model: Ext.ComponentQuery.query('textfield[name=model]')[0].rawValue,
-        	first_value: Ext.ComponentQuery.query('numberfield[name=total_delivery]')[0].value,
-        	total_delivery: Ext.ComponentQuery.query('numberfield[name=total_delivery]')[0].value,
-        	total_qty: Ext.ComponentQuery.query('numberfield[name=total_delivery]')[0].value
+        	first_value: Ext.ComponentQuery.query('numberfield[name=first_value]')[0].value,
+            date_of_first_value : Ext.ComponentQuery.query('datefield[name=date_of_first_value]')[0].rawValue,
         }
     },
 
@@ -143,7 +145,8 @@ Ext.define('tool_control_system.view.part.FormController', {
         	no: Ext.ComponentQuery.query('textfield[name=part_number]')[0],
         	name: Ext.ComponentQuery.query('textfield[name=part_name]')[0],
         	model: Ext.ComponentQuery.query('textfield[name=model]')[0],
-        	total_delivery: Ext.ComponentQuery.query('numberfield[name=total_delivery]')[0],
+        	first_value: Ext.ComponentQuery.query('numberfield[name=first_value]')[0],
+            date_of_first_value : Ext.ComponentQuery.query('datefield[name=date_of_first_value]')[0],
         	supplier: Ext.ComponentQuery.query('combobox[name=supplier_id]')[0],
         	btn_delete: Ext.ComponentQuery.query('button[name=btn_delete]')[0]
         }
@@ -155,8 +158,9 @@ Ext.define('tool_control_system.view.part.FormController', {
     	components.no.setValue('');
     	components.name.setValue('');
     	components.model.setValue('');
-    	components.total_delivery.setValue(0);
+    	components.first_value.setValue(0);
     	components.supplier.setValue(null);
+        components.date_of_first_value.setValue(null);
 
         tools = this.getViewModel().getParent().getStore('tools'); //list store
         tools.loadData([], false );
@@ -167,8 +171,9 @@ Ext.define('tool_control_system.view.part.FormController', {
     	// components.no.disable();
     	components.name.disable();
     	components.model.disable();
-    	components.total_delivery.disable();
+    	components.first_value.disable();
     	components.supplier.disable();
+        components.date_of_first_value.disable();
         components.btn_delete.disable();
     },
 
@@ -177,7 +182,8 @@ Ext.define('tool_control_system.view.part.FormController', {
     	// components.no.enable();
     	components.name.enable();
     	components.model.enable();
-    	components.total_delivery.enable();
+        components.date_of_first_value.enable();
+    	components.first_value.enable();
     	components.supplier.enable();	
     }
 

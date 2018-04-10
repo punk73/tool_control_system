@@ -38,15 +38,15 @@ Ext.define('tool_control_system.view.part.Part', {
             size: 10
         },
         region  : 'center'
-    },{
+    }/*,{
         xtype : 'part_list',
-        region: 'east',
-        collapsible: true,
-        split: {
-            size: 10
-        },
-        width : '40%'
-    }],
+        // region: 'east',
+        // collapsible: true,
+        // split: {
+        //     size: 10
+        // },
+        // width : '40%'
+    }*/],
 
     listeners: {
         // select: 'onItemSelected'

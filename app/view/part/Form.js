@@ -71,14 +71,24 @@ Ext.define('tool_control_system.view.part.Form',{
             disabled:  true
         },{
             xtype: 'numberfield',
-            name: 'total_delivery',
-            fieldLabel: 'Total Delivery',
+            name: 'first_value',
+            fieldLabel: 'First Total Delivery Value',
             allowBlank: false,
             minValue: 0,
             autoStripChars: true,
             bind:{
-                value: '{model.total_delivery}',
+                value: '{model.first_value}',
             },
+            disabled:  true
+        },{
+            xtype: 'datefield',
+            name: 'date_of_first_value',
+            fieldLabel: 'First Total Delivery Date',
+            bind: {
+                value: '{model.date_of_first_value}'
+            },
+            format: 'Y-m-d',
+            emptyText:'yyyy-mm-dd',
             disabled:  true
         },{
             xtype: 'combobox',
@@ -96,7 +106,10 @@ Ext.define('tool_control_system.view.part.Form',{
             },
             allowBlank: false,
             disabled:  true
-    }],
+        },{
+            xtype : 'part_list'
+        }
+    ],
 
     buttons : [{
         xtype: 'button',

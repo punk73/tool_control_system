@@ -9,14 +9,14 @@ Ext.define('tool_control_system.view.part.List',{
 
     controller: 'part-list',
 
-    margin : '10',
+    // margin : '10',
 
     viewConfig  : {
         stripeRows          : true,
         enableTextSelection : true
     },
 
-    title : 'Tool Info',
+    // title : 'Tool Info',
 
     emptyText: 'No Data',
 
@@ -25,6 +25,10 @@ Ext.define('tool_control_system.view.part.List',{
     },*/
 
     frame: true,
+
+    style:{
+        'border-color': '#D0D0D0'
+    },
 
     xtype: 'part_list',
 
@@ -44,7 +48,8 @@ Ext.define('tool_control_system.view.part.List',{
             text  : 'Delete',
             bind : {
                 icon : '{icon.delete}'
-            }
+            },
+            disabled: true
         }
     ]
     
