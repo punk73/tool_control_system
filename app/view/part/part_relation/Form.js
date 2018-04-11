@@ -4,7 +4,8 @@ Ext.define('tool_control_system.view.part.part_relation.Form',{
 
     requires: [
         'tool_control_system.view.part.part_relation.FormController',
-        'tool_control_system.view.part.part_relation.FormModel'
+        'tool_control_system.view.part.part_relation.FormModel',
+        'tool_control_system.view.part.part_relation.List'
     ],
 
     xtype: 'part_part_relation_form',
@@ -86,6 +87,10 @@ Ext.define('tool_control_system.view.part.part_relation.Form',{
                 value: '{children_part_name}',
             },
             disabled : true
+        },
+        {
+            xtype : 'part_part_relation_List',
+            height : 200
         }
     ],
 
@@ -100,21 +105,8 @@ Ext.define('tool_control_system.view.part.part_relation.Form',{
         disabled:true,
         formBind: true,
         listeners: {
-            click: 'onSaveClick'
-        }    
-        },{
-            // xtype: 'button',
-            bind:{
-                text : '{btn_delete.text}',
-                icon : '{icon.delete}',
-            },
-            // iconAlign : 'top',
-            // formBind:true,
-            name: 'btn_delete_part_relation',
-            disabled:true,
-            listeners: {
-                click: 'onDeleteClick'
-            }
+                click: 'onSaveClick'
+            }    
         },{
             // xtype:'button',
             bind:{

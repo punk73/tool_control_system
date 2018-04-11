@@ -5,7 +5,7 @@ Ext.define('tool_control_system.view.part.part_relation.FormController', {
     onSaveClick: function (){
     	param = this.getElementValue();
     	components = this.getElement();
-    	store = this.getStore('part_relations');
+    	store = this.getViewModel().getStore('part_relations');
         viewModel = this.getViewModel();
 
         param = {
@@ -16,7 +16,12 @@ Ext.define('tool_control_system.view.part.part_relation.FormController', {
         if(viewModel.getData().btn_save.text == 'Save'){
             model = new tool_control_system.model.Part_relation(param);
             store.add(model);
-            store.sync();
+            self = this;
+            store.sync({
+                success : function (){
+                    self.listReload();
+                }
+            });
         }
 
     	this.onCancelClick();
@@ -70,6 +75,34 @@ Ext.define('tool_control_system.view.part.part_relation.FormController', {
                 }
             })
     	}
+    },
+
+    deleteListOnClick : function (){
+        grid = Ext.ComponentQuery.query('part_part_relation_List')[0]; //ambil object grid
+        if (grid) {
+            console.log(grid);
+            var sm = grid.getSelectionModel(); //ambil model dari grid tsb, *daily_ouput //contructor   
+            var rs = sm.getSelection(); //ambil object modelnya, berupa array
+            
+            if (!rs.length) {
+              Ext.Msg.alert('Info', 'No Record Selected');
+              return;
+            }
+            
+            Ext.Msg.confirm('Remove Record', 
+              'Are you sure you want to delete?', 
+              function (button) {
+                if (button == 'yes') {
+                  grid.store.remove(rs[0]);
+                  grid.store.sync()
+                }
+            });
+        }
+    },
+
+    listReload : function (){
+        store = this.getViewModel().getStore('part_relations');
+        store.load();
     },
 
     ParentPartOnChange : function (){
