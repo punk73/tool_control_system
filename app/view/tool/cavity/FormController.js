@@ -28,8 +28,6 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
                 console.log({a,b,c})
             }
         })
-
-
     },
 
     toolOnChange : function (){
@@ -61,7 +59,10 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
         	viewModel.setData({
     			part_name: model.get('name')	
         	})
-        }   
+        }
+
+        this.getElement().cavity.enable();
+        this.getElement().is_independent.enable();   
 
     },
 
@@ -76,14 +77,23 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
         store = this.getViewModel().getParent().getStore('toolparts');
         viewModel = this.getViewModel();
         
-        console.log(param)
+        if (param.is_independent) {
+            is_independent = 1;
+        }else{
+            is_independent = 0;
+        }
 
         newModel = {
             tool_id : param.tool_number,
             part_id : param.part_number,
-            cavity  : param.cavity
+            cavity  : param.cavity,
+            is_independent : is_independent
         }
-        console.log(newModel)
+
+        // console.log({param, newModel})
+        
+        // return false;
+
         model = new tool_control_system.model.Toolpart(newModel);
         store.add(model);
         store.sync({
@@ -132,7 +142,8 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
 			tool_name: element.tool_name.value,
 			part_number: element.part_number.value,
 			part_name: element.part_name.value,
-			cavity: element.cavity.value
+			cavity: element.cavity.value,
+            is_independent : element.is_independent.value
     	}
     },
 
@@ -144,6 +155,7 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
         	part_number: Ext.ComponentQuery.query('combobox[name=part_number]')[0],
         	part_name: Ext.ComponentQuery.query('textfield[name=part_name]')[1],
         	cavity: Ext.ComponentQuery.query('numberfield[name=cavity]')[0],
+            is_independent: Ext.ComponentQuery.query('checkbox[name=is_independent]')[0],
         	btn_delete: Ext.ComponentQuery.query('button[name=btn_delete]')[2],
         	btn_save: Ext.ComponentQuery.query('button[name=btn_save]')[2]
 
@@ -156,6 +168,9 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
         element.tool_number.disable();
         element.part_number.disable();
         element.cavity.disable();
+
+        element.is_independent.checked = false;
+        element.is_independent.disable();
 
         element.btn_save.disable();
         element.btn_delete.disable();
@@ -172,6 +187,7 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
     	components.part_number.setValue(null);
     	components.part_name.setValue('');
     	components.cavity.setValue(1);
+        components.is_independent.checked = false;
 
         // tools = this.getViewModel().getParent().getStore('tools'); //list store
         // tools.loadData([], false );
@@ -197,6 +213,8 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
     	components.part_number.enable();
     	components.part_name.enable();
     	components.cavity.enable();
+        components.is_independent.enable();
+
 
     }
 
