@@ -70,9 +70,9 @@ Ext.define('tool_control_system.view.tool.Form',{
         },{
             xtype: 'numberfield',
             name: 'total_shoot',
-            fieldLabel: 'Total Shoot',
+            fieldLabel: 'First Total Shoot',
             bind: {
-                value: '{model.total_shoot}'
+                value: '{model.start_value}'
             },
             minValue: 0,
             autoStripChars: true,
@@ -96,6 +96,16 @@ Ext.define('tool_control_system.view.tool.Form',{
             fieldLabel: 'Delivery Date',
             bind: {
                 value: '{model.delivery_date}'
+            },
+            format: 'Y-m-d',
+            emptyText:'yyyy-mm-dd',
+            disabled:  true
+        },{
+            xtype: 'datefield',
+            name: 'start_value_date',
+            fieldLabel: 'First Total Shoot Date',
+            bind: {
+                value: '{model.start_value_date}'
             },
             format: 'Y-m-d',
             emptyText:'yyyy-mm-dd',

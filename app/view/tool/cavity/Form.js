@@ -43,7 +43,7 @@ Ext.define('tool_control_system.view.tool.cavity.Form',{
             queryMode : 'local',
             displayField:'name',
             valueField:'id',
-            fieldLabel: 'Tool Number',
+            fieldLabel: 'Supplier',
             listeners:{
                 'change' : 'suppliersOnChange'
             },

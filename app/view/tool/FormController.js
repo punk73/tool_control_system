@@ -12,12 +12,12 @@ Ext.define('tool_control_system.view.tool.FormController', {
     	store = this.getViewModel().getStore('tools');
         viewModel = this.getViewModel();
         
-        /*console.log({
-            param,
-            components,
-            store,
-            viewModel
-        })*/
+        // console.log({
+        //     param,
+        //     components,
+        //     store,
+        //     viewModel
+        // })
 
         // return ;
 
@@ -33,9 +33,16 @@ Ext.define('tool_control_system.view.tool.FormController', {
         }else{
             //coding update
             model = this.getViewModel().getData().model;
+
             model.data.delivery_date = this.getElementValue().delivery_date;
+            model.data.start_value_date = this.getElementValue().start_value_date;
+            
+            console.log({
+                model : model,
+                param : this.getElementValue()
+            })
+
             model.store.sync();
-            // console.log(model)
         }
 
     	this.onCancelClick();
@@ -59,6 +66,8 @@ Ext.define('tool_control_system.view.tool.FormController', {
                     var model = store.findRecord('no', no);
                     if(model != null){
                         
+                        // console.log(model.data)
+
                         viewModel.setData({
                             model : model,
                             btn_save: {
@@ -106,10 +115,13 @@ Ext.define('tool_control_system.view.tool.FormController', {
                 no: null,
                 name: '',
                 no_of_tooling: 'TL-01',
-                total_shoot: 0,
+                start_value: 0,
                 guarantee_shoot: 0,
                 delivery_date: new Date(),
-                supplier_id: null
+                supplier_id: null,
+                // balance_shoot : 0,
+                start_value_date : new Date(),
+                // guarantee_remains: 0
             }
         })
     },
@@ -153,6 +165,7 @@ Ext.define('tool_control_system.view.tool.FormController', {
             // balance_shoot : element.total_shoot.value, //isinya sama kaya total shoot
             guarantee_shoot : element.guarantee_shoot.value,
             delivery_date: element.delivery_date.rawValue,
+            start_value_date: element.start_value_date.rawValue,
             supplier_id : element.supplier_id.value,
             // guarantee_remains: 0,
         }
@@ -166,6 +179,7 @@ Ext.define('tool_control_system.view.tool.FormController', {
         	total_shoot: Ext.ComponentQuery.query('numberfield[name=total_shoot]')[0],
         	guarantee_shoot: Ext.ComponentQuery.query('numberfield[name=guarantee_shoot]')[0],
         	delivery_date: Ext.ComponentQuery.query('datefield[name=delivery_date]')[0],
+            start_value_date: Ext.ComponentQuery.query('datefield[name=start_value_date]')[0],
         	supplier_id: Ext.ComponentQuery.query('combobox[name=supplier_id]')[1],
         	btn_save: Ext.ComponentQuery.query('button[name=btn_save]')[1],
         	btn_delete: Ext.ComponentQuery.query('button[name=btn_delete]')[1]
@@ -177,10 +191,11 @@ Ext.define('tool_control_system.view.tool.FormController', {
     	var components = this.getElement();
     	components.no.setValue('');
     	components.name.setValue('');
-    	components.no_of_tooling.setValue('');
+    	components.no_of_tooling.setValue('TL-01');
     	components.total_shoot.setValue(0);
     	components.guarantee_shoot.setValue(0);
     	components.delivery_date.setValue(new Date());
+        components.start_value_date.setValue(new Date());
     	components.supplier_id.setValue(null);
     },
 
@@ -192,6 +207,7 @@ Ext.define('tool_control_system.view.tool.FormController', {
     	components.total_shoot.disable();
     	components.guarantee_shoot.disable();
     	components.delivery_date.disable();
+        components.start_value_date.disable();
     	components.supplier_id.disable();
         components.btn_save.disable();
         components.btn_delete.disable();
@@ -204,7 +220,8 @@ Ext.define('tool_control_system.view.tool.FormController', {
     	components.no_of_tooling.enable();
     	components.total_shoot.enable();
     	components.guarantee_shoot.enable();
-    	components.delivery_date.enable();
+        components.delivery_date.enable();
+    	components.start_value_date.enable();
     	components.supplier_id.enable();	
     }
 

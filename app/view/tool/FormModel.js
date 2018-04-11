@@ -18,12 +18,13 @@ Ext.define('tool_control_system.view.tool.FormModel', {
         	no: null,
         	name: '',
         	no_of_tooling: 'TL-01',
-        	total_shoot: 0,
+        	start_value: 0,
         	guarantee_shoot: 0,
         	delivery_date: new Date(),
         	supplier_id: null,
-            balance_shoot : 0,
-            guarantee_remains: 0
+            // balance_shoot : 0,
+            start_value_date : new Date(),
+            // guarantee_remains: 0
         }
         
     },
