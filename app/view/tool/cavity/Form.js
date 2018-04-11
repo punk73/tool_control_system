@@ -116,6 +116,14 @@ Ext.define('tool_control_system.view.tool.cavity.Form',{
             disabled: true,
             allowBlank: false
         },{
+            xtype : 'checkbox',
+            boxLabel  : 'Is Suffix Number ?',
+            name      : 'is_independent',
+            inputValue: 1,
+            uncheckedValue : 0,
+            id        : 'is_independent',
+            disabled  : true
+        },{
             xtype : 'cavity_list'
         }
     ],
