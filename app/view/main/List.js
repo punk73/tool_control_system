@@ -37,27 +37,6 @@ Ext.define('tool_control_system.view.main.List', {
         { text: 'ID',  dataIndex: 'id', width: 50 },
 
         { 
-            text: 'Part No', 
-            dataIndex: 'part_no', 
-            layout: {
-                type: 'vbox',
-                pack: 'center',
-                align: 'stretch'
-            },
-            items : [{
-                xtype:'textfield',
-                name: 'search_by_part_no',
-                margin : 4,
-                emptyText : 'Searh',
-                tooltip: 'Type Part No Here',
-                enableKeyEvents: true,
-                listeners: {
-                    keyup: 'onSearch'
-                }
-            }] 
-        },
-
-        { 
             text: 'Tool No', 
             dataIndex: 'tool_no', 
             layout: {
@@ -97,6 +76,28 @@ Ext.define('tool_control_system.view.main.List', {
                 }
             }]  
         },
+
+        { 
+            text: 'Part No', 
+            dataIndex: 'part_no', 
+            layout: {
+                type: 'vbox',
+                pack: 'center',
+                align: 'stretch'
+            },
+            items : [{
+                xtype:'textfield',
+                name: 'search_by_part_no',
+                margin : 4,
+                emptyText : 'Searh',
+                tooltip: 'Type Part No Here',
+                enableKeyEvents: true,
+                listeners: {
+                    keyup: 'onSearch'
+                }
+            }] 
+        },
+
 
         { 
             text: 'Supplier Name', 
