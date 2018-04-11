@@ -22,7 +22,7 @@ Ext.define('tool_control_system.view.tool.cavity.List',{
         enableTextSelection : true
     },
 
-    height: 200,
+    height: 150,
 
     frame:true,
 
@@ -38,7 +38,7 @@ Ext.define('tool_control_system.view.tool.cavity.List',{
         { 
             text: 'Tool No',  
             dataIndex: 'tool', 
-            flex: 2,
+            
             layout: {
                 type: 'vbox',
                 pack: 'center',
@@ -47,7 +47,8 @@ Ext.define('tool_control_system.view.tool.cavity.List',{
             items : [{
                 xtype:'textfield',
                 name: 'search_by_tool',
-                margin : 10,
+                margin : 3,
+                flex: 2,
                 emptyText : 'Searh',
                 enableKeyEvents: true,
                 listeners: {
@@ -58,7 +59,7 @@ Ext.define('tool_control_system.view.tool.cavity.List',{
         { 
             text: 'Part No',
             dataIndex: 'part',
-            flex: 2,
+            
             layout: {
                 type: 'vbox',
                 pack: 'center',
@@ -67,7 +68,8 @@ Ext.define('tool_control_system.view.tool.cavity.List',{
             items : [{
                 xtype:'textfield',
                 name: 'search_by_part',
-                margin : 10,
+                flex: 2,
+                margin : 3,
                 emptyText : 'Searh',
                 enableKeyEvents: true,
                 listeners: {
@@ -78,7 +80,7 @@ Ext.define('tool_control_system.view.tool.cavity.List',{
         { 
             text: 'Cavity', 
             dataIndex: 'cavity', 
-            flex: 1,
+            
             layout: {
                 type: 'vbox',
                 pack: 'center',
@@ -87,13 +89,21 @@ Ext.define('tool_control_system.view.tool.cavity.List',{
             items : [{
                 xtype:'textfield',
                 name: 'search_by_cavity',
-                margin : 10,
+                margin : 3,
+                flex: 1,
                 emptyText : 'Searh',
                 enableKeyEvents: true,
                 listeners: {
                     keyup: 'onSearch'
                 }
             }]  
+        },
+        {
+            text : 'Is Suffix Number',
+            dataIndex : 'is_independent',
+            xtype : 'checkcolumn',
+            flex : 0.2,
+
         }
     ],
 

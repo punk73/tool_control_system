@@ -66,12 +66,29 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
 
     },
 
-    onSearch : function (sender, record){
-        console.log({sender, record})
+    onSearch : function (component, e){
+        if (e.keyCode == 13) {
+            store = this.getView().up('toolview').getViewModel().getStore('toolparts');
+            elementValue = this.getElementValue();
+            value = {
+                tool_number : elementValue.search_by_tool,
+                part_number : elementValue.search_by_part,
+                cavity      : elementValue.search_by_cavity
+            }
+
+
+            // console.log(store)
+            store.load({
+                params:  value,
+                success : function(a,b){
+                    console.log({a,b})
+                }
+            })
+        }
     },
 
     saveOnClick : function (){
-    	console.log('saveOnClick')
+    	// console.log('saveOnClick')
         param = this.getElementValue();
         components = this.getElement();
         store = this.getViewModel().getParent().getStore('toolparts');
@@ -109,7 +126,7 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
     deleteOnClick : function (sender, record){
         grid = Ext.ComponentQuery.query('cavity_list')[0]; //ambil object grid
         if (grid) {
-            console.log(grid);
+            // console.log(grid);
             var sm = grid.getSelectionModel(); //ambil model dari grid tsb, *daily_ouput //contructor   
             var rs = sm.getSelection(); //ambil object modelnya, berupa array
             
@@ -143,7 +160,13 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
 			part_number: element.part_number.value,
 			part_name: element.part_name.value,
 			cavity: element.cavity.value,
-            is_independent : element.is_independent.value
+            is_independent : element.is_independent.value,
+
+            search_by_tool : element.search_by_tool.value,
+            search_by_part : element.search_by_part.value,
+            search_by_cavity : element.search_by_cavity.value,
+
+
     	}
     },
 
@@ -156,6 +179,13 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
         	part_name: Ext.ComponentQuery.query('textfield[name=part_name]')[1],
         	cavity: Ext.ComponentQuery.query('numberfield[name=cavity]')[0],
             is_independent: Ext.ComponentQuery.query('checkbox[name=is_independent]')[0],
+
+            search_by_tool: Ext.ComponentQuery.query('textfield[name=search_by_tool]')[0],
+            search_by_part: Ext.ComponentQuery.query('textfield[name=search_by_part]')[0],
+            search_by_cavity: Ext.ComponentQuery.query('textfield[name=search_by_cavity]')[0],
+
+            
+
         	btn_delete: Ext.ComponentQuery.query('button[name=btn_delete]')[2],
         	btn_save: Ext.ComponentQuery.query('button[name=btn_save]')[2]
 

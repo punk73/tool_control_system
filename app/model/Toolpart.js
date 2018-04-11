@@ -24,7 +24,9 @@ Ext.define('tool_control_system.model.Toolpart', {
                     
                 }
 	        } 
-	    }
+	    },{
+            name : 'is_independent', type : 'int'
+        }
     ]
 
 });
