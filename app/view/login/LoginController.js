@@ -35,8 +35,8 @@ Ext.define('tool_control_system.view.login.LoginController', {
             	
             	// console.log({response, opts})
             	res = JSON.parse(response.responseText);
-            	
-            	console.log(res);
+            	token = res.token;
+            	// console.log(res);
 		        localStorage.setItem("isLoggedIn", true);
 		        localStorage.setItem("token", res.token );
 
@@ -44,17 +44,38 @@ Ext.define('tool_control_system.view.login.LoginController', {
 		        self.getView().destroy();
 
 		        // Add the main view to the viewport
-		        Ext.create({
-		            xtype: 'app-main'
-		        });
+		        Ext.Ajax.request({
+                    url: 'http://'+tool_control_system.util.Config.hostname()+'/tool_control/public/api/auth/me',
+                    method: 'GET',
+                    params: {
+                        token : token
+                    },
+                    success: function (response, opts){
+                        console.log({response, opts})
+                        res = JSON.parse(response.responseText);
+                        level = res.access_level;
+                        // console.log(level) 
+                        Ext.create({
+                            xtype: 'app-main',
+
+                            access_level : level
+                        });
+                    },
+                    failure: function(response, opts) {
+                        console.log({response, opts})
+                        
+                        Ext.create({
+                            xtype: 'login'
+                        });
+                    }
+                });
             },
             failure: function(response, opts) {
 		        console.log({response, opts})
-		        console.log('server-side failure with status code ' + response.status);
+                error = JSON.parse(response.responseText).error.message;
+                Ext.Msg.alert('Error', error );
 		    }
         });
-
-        
 
     }
 });

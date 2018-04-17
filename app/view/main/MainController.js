@@ -99,6 +99,20 @@ Ext.define('tool_control_system.view.main.MainController', {
             cavity: Ext.ComponentQuery.query('textfield[name=search_by_cavity]')[0],
             
         }
+    },
+
+    onLogOut : function (){
+        console.log('onLogOut')
+
+        localStorage.removeItem('isLoggedIn');
+
+        // Remove Main View
+        this.getView().destroy();
+
+        // Add the Login Window
+        Ext.create({
+            xtype: 'login'
+        });
     }
 
 

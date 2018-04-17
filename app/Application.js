@@ -29,7 +29,7 @@ Ext.define('tool_control_system.Application', {
         // TODO - Launch the application
          // It's important to note that this type of application could use
         // any type of storage, i.e., Cookies, LocalStorage, etc.
-        var loggedIn;
+        /*var loggedIn;
 
         // Check to see the current value of the localStorage key
         loggedIn = localStorage.getItem("isLoggedIn");
@@ -39,6 +39,35 @@ Ext.define('tool_control_system.Application', {
         // otherwise, we display the main view
         Ext.create({
             xtype: loggedIn ? 'app-main' : 'login'
+        });*/
+
+        self = this;
+        token = tool_control_system.util.Config.getToken();
+
+        Ext.Ajax.request({
+            url: 'http://'+tool_control_system.util.Config.hostname()+'/tool_control/public/api/auth/me',
+            method: 'GET',
+            params: {
+                token : token
+            },
+            success: function (response, opts){
+                console.log({response, opts})
+                res = JSON.parse(response.responseText);
+                level = res.access_level;
+                // console.log(level) 
+                Ext.create({
+                    xtype: 'app-main',
+
+                    access_level : level
+                });
+            },
+            failure: function(response, opts) {
+                console.log({response, opts})
+                
+                Ext.create({
+                    xtype: 'login'
+                });
+            }
         });
 
     },

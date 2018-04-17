@@ -96,31 +96,6 @@ Ext.define('tool_control_system.view.main.Main', {
 
     items: [
         {
-            title: 'Home',
-            iconCls: 'fa-home',
-            // The following grid shares a store with the classic version's grid as well!
-            items: [{
-                xtype: 'mainlist'
-            }]
-        }, {
-            title: 'Master Supplier',
-            iconCls: 'fa-user',
-            items: [{
-                xtype : 'supplierview'
-            }]
-        }, {
-            title: 'Master Parts',
-            iconCls: 'fa-cog',
-            items: [{
-                xtype : 'partview'
-            }]
-        }, {
-            title: 'Master Tools',
-            iconCls: 'fa-wrench',
-            items: [{
-                xtype : 'toolview'
-            }]
-        },{
             title: 'Input Machine<br>Counter',
             iconCls: 'fa-cog',
             items: [{
@@ -130,11 +105,72 @@ Ext.define('tool_control_system.view.main.Main', {
             title: 'Log out',
             // xtype: 'button',
             iconCls: 'fa-sign-out',
+            tabConfig: {
+                listeners: {
+                    click: 'onLogOut'
+                }
+            },
             items: {
                 text : 'logout'
-            }            
+            }        
         }
+    ],
 
+    initItems: function (){
+        var a = this.access_level;
+        console.log('initItems', this.access_level ) //this.access_level diisi di Application.js
+        if (a == 1) {
+            
+            this.items = [
+                {
+                    title: 'Home',
+                    iconCls: 'fa-home',
+                    // The following grid shares a store with the classic version's grid as well!
+                    items: [{
+                        xtype: 'mainlist'
+                    }]
+                }, {
+                    title: 'Master Supplier',
+                    iconCls: 'fa-user',
+                    items: [{
+                        xtype : 'supplierview'
+                    }]
+                }, {
+                    title: 'Master Parts',
+                    iconCls: 'fa-cog',
+                    items: [{
+                        xtype : 'partview'
+                    }]
+                }, {
+                    title: 'Master Tools',
+                    iconCls: 'fa-wrench',
+                    items: [{
+                        xtype : 'toolview'
+                    }]
+                },{
+                    title: 'Input Machine<br>Counter',
+                    iconCls: 'fa-cog',
+                    items: [{
+                        xtype : 'machine_counterview'
+                    }]
+                },{
+                    title: 'Log out',
+                    // xtype: 'button',
+                    iconCls: 'fa-sign-out',
+                    tabConfig: {
+                        listeners: {
+                            click: 'onLogOut'
+                        }
+                    },
+                    items: {
+                        title : 'logout'
+                    }            
+                }
+            ];
 
-    ]
+        }
+        
+        this.callParent();
+    }
+
 });
