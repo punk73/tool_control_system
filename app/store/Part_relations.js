@@ -14,6 +14,10 @@ Ext.define('tool_control_system.store.Part_relations', {
 
         enablePaging:true,
 
+        extraParams: {
+            token : tool_control_system.util.Config.getToken() //
+        },
+
         url: 'http://'+tool_control_system.util.Config.hostname()+'/tool_control/public/api/part_relations',
         
         reader: {

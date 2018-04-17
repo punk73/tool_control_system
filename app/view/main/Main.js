@@ -38,6 +38,8 @@ Ext.define('tool_control_system.view.main.Main', {
     
     tabRotation: 0,
 
+    plugins: 'viewport',
+
 
     header: {
 

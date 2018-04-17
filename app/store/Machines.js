@@ -14,6 +14,10 @@ Ext.define('tool_control_system.store.Machines', {
 
         enablePaging:true,
 
+        extraParams: {
+            token : tool_control_system.util.Config.getToken() //
+        },
+
         url: 'http://'+tool_control_system.util.Config.hostname()+'/tool_control/public/api/machines',
         
         reader: {
