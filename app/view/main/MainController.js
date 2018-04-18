@@ -105,6 +105,7 @@ Ext.define('tool_control_system.view.main.MainController', {
         console.log('onLogOut')
 
         localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('token');
 
         // Remove Main View
         this.getView().destroy();
@@ -113,6 +114,13 @@ Ext.define('tool_control_system.view.main.MainController', {
         Ext.create({
             xtype: 'login'
         });
+    },
+
+    onEnter :  function (component, e){
+        if (e.keyCode == 13) {
+            
+        }
+
     }
 
 

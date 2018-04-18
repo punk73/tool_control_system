@@ -26,6 +26,10 @@ Ext.define('tool_control_system.view.login.Login', {
             name: 'password',
             inputType: 'password',
             fieldLabel: 'Password',
+            enableKeyEvents: true,
+            listeners: {
+                keyup: 'onEnter'
+            },
             allowBlank: false
         }, {
             xtype: 'displayfield',
