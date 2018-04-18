@@ -12,6 +12,10 @@ Ext.define('tool_control_system.store.All_suppliers', {
     proxy: {
         type: 'rest',
 
+        extraParams: {
+            token : tool_control_system.util.Config.getToken() //
+        },
+
         url: 'http://'+tool_control_system.util.Config.hostname()+'/tool_control/public/api/suppliers/all',
         
         reader: {
