@@ -76,6 +76,11 @@ Ext.define('tool_control_system.view.login.LoginController', {
                 Ext.Msg.alert('Error', error );
 		    }
         });
+    },
 
+    onEnter :  function (component, e){
+        if (e.keyCode == 13) {
+            this.onLoginClick();
+        }
     }
 });

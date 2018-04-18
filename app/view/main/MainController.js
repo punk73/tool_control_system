@@ -114,13 +114,6 @@ Ext.define('tool_control_system.view.main.MainController', {
         Ext.create({
             xtype: 'login'
         });
-    },
-
-    onEnter :  function (component, e){
-        if (e.keyCode == 13) {
-            
-        }
-
     }
 
 
