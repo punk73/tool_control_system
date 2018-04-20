@@ -9,20 +9,13 @@ Ext.define('tool_control_system.view.part.List',{
 
     controller: 'part-list',
 
-    // margin : '10',
-
     viewConfig  : {
         stripeRows          : true,
         enableTextSelection : true
     },
 
-    // title : 'Tool Info',
-
+    
     emptyText: 'No Data',
-
-    /*viewModel: {
-        type: 'part-list'
-    },*/
 
     frame: true,
 

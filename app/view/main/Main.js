@@ -73,7 +73,7 @@ Ext.define('tool_control_system.view.main.Main', {
     },
 
     defaults: {
-        bodyPadding: 20,
+        bodyPadding: 10,
         style : {
             'background-image':'resource/background2.jpg',
             'background-color': 'green'
