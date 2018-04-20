@@ -11,8 +11,17 @@ Ext.define('tool_control_system.view.part.list.All', {
 
     requires: [
         'tool_control_system.view.part.list.Parts',
-        'tool_control_system.view.part.list.Part_details'
+        'tool_control_system.view.part.list.Part_details',
+        //viewController & viewModel
+        'tool_control_system.view.part.list.AllController',
+        'tool_control_system.view.part.list.AllModel'
     ],
+
+    controller: 'part-list-all',
+    
+    viewModel: {
+        type: 'part-list-all'
+    },
 
     title: 'Part List Info',
 

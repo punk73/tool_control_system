@@ -114,8 +114,28 @@ Ext.define('tool_control_system.view.main.MainController', {
         Ext.create({
             xtype: 'login'
         });
+    },
+
+    onDetailClick : function (grid, rowIndex, colIndex){
+        //data is available on model variable;
+        var model = grid.getStore().getAt(rowIndex).data;
+        console.log({model})
+        //make a new windows;
+        /*Ext.create('Ext.window.Window', {
+            // title: 'CHART',
+            height: 600,
+            width: 1000,
+            layout: 'fit',
+            modal :true,
+            // frame: true,
+            items: [{
+                title : 'DAILY OUTPUT SUMMARY CHART',
+                // bodyPadding : 10,
+                xtype : 'daily_output_chart_main',
+                // height : 550,
+                // width : '100%'
+            }]
+        }).show();*/
     }
-
-
 
 });

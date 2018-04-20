@@ -37,6 +37,24 @@ Ext.define('tool_control_system.view.main.List', {
         { text: 'ID',  dataIndex: 'id', width: 50 },
 
         { 
+            
+            align: 'center',
+            width: 50,
+            xtype: 'actioncolumn',
+            items: [
+               {
+                  xtype: 'button',
+                  iconCls: 'x-fa fa-info',
+                  tooltip: 'Details',
+                  /*listeners: {
+                    click : 'onDetailClick'
+                  }*/
+                  handler: 'onDetailClick'
+               }
+            ]
+        },
+
+        { 
             text: 'Tool No', 
             dataIndex: 'tool_no', 
             layout: {

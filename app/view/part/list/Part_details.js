@@ -4,18 +4,6 @@ Ext.define('tool_control_system.view.part.list.Part_details',{
 
     xtype : 'part_list_part_details',
 
-    requires: [
-        'tool_control_system.view.part.list.Part_detailsController',
-        'tool_control_system.view.part.list.Part_detailsModel',
-        // 'tool_control_system.store.Part_details'
-    ],
-
-    controller: 'part-list-part_details',
-
-    viewModel: {
-        type: 'part-list-part_details'
-    },
-
     viewConfig  : {
         stripeRows          : true,
         enableTextSelection : true

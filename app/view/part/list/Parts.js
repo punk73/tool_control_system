@@ -4,16 +4,6 @@ Ext.define('tool_control_system.view.part.list.Parts',{
 
     xtype : 'part_list_parts',
 
-    requires: [
-        'tool_control_system.view.part.list.PartsController',
-        'tool_control_system.view.part.list.PartsModel'
-    ],
-
-    controller: 'part-list-parts',
-    viewModel: {
-        type: 'part-list-parts'
-    },
-
     viewConfig  : {
         stripeRows          : true,
         enableTextSelection : true
@@ -148,5 +138,9 @@ Ext.define('tool_control_system.view.part.list.Parts',{
         emptyMsg: 'Sorry, No Records Are Available At The Moment.',   
         displayInfo: true
     }],
+
+    listeners : {
+        select: 'onSelectItem'
+    }
     
 });

@@ -1,6 +1,6 @@
-Ext.define('tool_control_system.view.part.list.PartsController', {
+Ext.define('tool_control_system.view.part.list.AllController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.part-list-parts',
+    alias: 'controller.part-list-all',
 
     onSearch : function (component, e){
     	if (e.keyCode == 13) {
@@ -45,8 +45,6 @@ Ext.define('tool_control_system.view.part.list.PartsController', {
      	}
     },
 
-
-
     getElement : function(){
     	return {
         	no: Ext.ComponentQuery.query('textfield[name=search_part_by_no]')[0],
@@ -70,6 +68,19 @@ Ext.define('tool_control_system.view.part.list.PartsController', {
     		date_of_first_value : element.date_of_first_value.value,
 
     	}
+    },
+
+    onSelectItem: function (sender, item){
+        // console.log({sender, item})
+        var data = item.data;
+        // console.log({data})
+        var viewModel = this.getViewModel();
+
+        //instead of changin details, coba rubah part_details store dari sini, it'll automaticly changing the grid data;
+        viewModel.set('details', data.details );
+        console.log(viewModel.get('details'))        
+
+        
     }
 
 });
