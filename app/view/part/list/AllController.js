@@ -71,16 +71,10 @@ Ext.define('tool_control_system.view.part.list.AllController', {
     },
 
     onSelectItem: function (sender, item){
-        // console.log({sender, item})
         var data = item.data;
-        // console.log({data})
         var viewModel = this.getViewModel();
-
-        //instead of changin details, coba rubah part_details store dari sini, it'll automaticly changing the grid data;
-        viewModel.set('details', data.details );
-        console.log(viewModel.get('details'))        
-
-        
+        var store = viewModel.getStore('part_details');
+        store.loadData(data.details, false);
     }
 
 });
