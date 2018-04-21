@@ -33,18 +33,15 @@ Ext.define('tool_control_system.model.Data', {
             name: 'tool_no',
             type: 'auto',
             mapping: function(data){
-                if (data.tool) {
-                  return data.tool.no;  
-                }
+                return data.no;  
             }
         }, //tool
         { 
             name: 'tool_name', 
             type: 'auto',
             mapping: function(data){
-                if (data.tool) {
-                  return data.tool.name;  
-                }
+                return data.name;  
+                
             }
         }, //tool
 
@@ -80,7 +77,14 @@ Ext.define('tool_control_system.model.Data', {
         
         { 
             name: 'cavity',
-            type: 'auto'
+            type: 'auto',
+            mapping : function (data){
+                if (data.part) {
+                    if (data.part.pivot) {
+                        return data.part.pivot.cavity;
+                    }
+                }
+            }
         }, //toolpart
         
         { 
@@ -185,13 +189,15 @@ Ext.define('tool_control_system.model.Data', {
             name: 'total_shoot_forecast', 
             type: 'auto',
             mapping : function (data){
-                if (data.part) {
+                /*if (data.part) {
                     if (data.forecast) {
                         return (data.part.total_delivery+data.forecast.total) / data.cavity ;
                     }
 
                     return data.part.total_delivery / data.cavity
-                }
+                }*/
+
+                return data.total_shoot;
 
             } 
         }, // ( pck31.total_delivery + sum(months) ) / toolpart.cavity
@@ -210,14 +216,15 @@ Ext.define('tool_control_system.model.Data', {
             name: 'balance_shoot', 
             type: 'auto',
             mapping: function(data){
-                var tool = data.tool, part = data.part, forecast = data.forecast;
+                /*var tool = data.tool, part = data.part, forecast = data.forecast;
                 if (tool) {
                     if (part) {
                         if (forecast) {
                             return  tool.guarantee_shoot - (part.total_delivery+forecast.total)/data.cavity;
                         }
                     }
-                }
+                }*/
+                return data.balance_shoot;
             }  
         }, //tool (guarantee_shoot - total_shoot)
 
@@ -226,11 +233,12 @@ Ext.define('tool_control_system.model.Data', {
             name: 'guarantee_remains', 
             type: 'auto',
             mapping: function(data){
-                if (data.tool) {
+                /*if (data.tool) {
                   if (data.tool.detail) {
-                        return data.tool.detail.guarante_after_forecast
+                        return data.detail.guarante_after_forecast
                     }
-                }
+                }*/
+                return data.guarantee_after_forecast;
             }  
         }, //( (balance_shoot * cavity) / (sum(month)/6) )
         

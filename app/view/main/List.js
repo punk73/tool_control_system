@@ -37,6 +37,35 @@ Ext.define('tool_control_system.view.main.List', {
         { text: 'ID',  dataIndex: 'id', width: 50 },
 
         { 
+            
+            align: 'center',
+            width: 50,
+            xtype: 'actioncolumn',
+            items: [
+               {
+                  xtype: 'button',
+                  iconCls: 'x-fa fa-info',
+                  tooltip: 'Details',
+                  scale: 'small',
+                  handler: 'onDetailClick',
+                  margin: 3
+               }
+            ],
+            renderer : function (value, meta){
+                // console.log({value, meta})
+                data = this.up().grid.getStore().getAt(meta.rowIndex).data//.getStore().getAt(meta.rowIndex)
+                balance_shoot = data.balance_shoot;
+                if(parseInt(balance_shoot) >= 0) {
+                    meta.style = "background-color:#3bd368;color:white;";
+                    // return 'OK';
+                } else {
+                    meta.style = "background-color:red;color:white;";
+                    // return 'Danger';
+                }
+            }
+        },
+
+        { 
             text: 'Tool No', 
             dataIndex: 'tool_no', 
             layout: {
@@ -199,7 +228,7 @@ Ext.define('tool_control_system.view.main.List', {
             dataIndex: 'balance_shoot',
             renderer : function (value, meta){
                 if(parseInt(value) >= 0) {
-                    meta.style = "background-color:green;color:white;";
+                    meta.style = "background-color:#3bd368;color:white;";
 
                 } else {
                     meta.style = "background-color:red;color:white;";

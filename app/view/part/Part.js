@@ -17,7 +17,9 @@ Ext.define('tool_control_system.view.part.Part', {
         'tool_control_system.view.part.PartModel',
         'tool_control_system.view.part.Form',
         'tool_control_system.view.part.List',
-        'tool_control_system.view.part.part_relation.Form'
+        'tool_control_system.view.part.part_relation.Form',
+        // 'tool_control_system.view.part.list.Parts'
+        'tool_control_system.view.part.list.All'
     ],
 
     title: 'Part Master',
@@ -40,16 +42,17 @@ Ext.define('tool_control_system.view.part.Part', {
         },
         region  : 'center'
     },{
-        xtype : 'part_part_relation_form',
+        // xtype : 'part_part_relation_form', // ini nanti diadain di tombol;
+        xtype : 'part_list_all',
         region: 'east',
         collapsible: true,
         split: {
             size: 10
         },
-        width : '40%'
+        width : '60%'
     }],
 
     listeners: {
-        // select: 'onItemSelected'
+        
     }
 });

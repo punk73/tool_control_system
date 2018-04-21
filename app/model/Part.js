@@ -13,10 +13,18 @@ Ext.define('tool_control_system.model.Part', {
         { name: 'model', type: 'auto' },
         { name: 'first_value', type: 'auto' },
         { name: 'date_of_first_value', type: 'auto' },
-
-        // { name: 'total_delivery', type: 'auto' },
-        // { name: 'total_qty', type: 'auto' },
         { name: 'tools', type: 'auto' },
+
+        //supplier
+        { 
+            name: 'supplier_name', type: 'auto',
+            mapping: function (data){
+                if (data.supplier) {
+                    return data.supplier.name;
+                }
+            }
+        },
+
 
     ]
 
