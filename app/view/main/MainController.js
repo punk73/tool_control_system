@@ -197,6 +197,7 @@ Ext.define('tool_control_system.view.main.MainController', {
         var model = grid.getStore().getAt(rowIndex).data;
         var parts = model.parts;
         var viewModel = this.getViewModel();
+        var datas = viewModel.getStore('datas');
         var viewModelParts = viewModel.getStore('parts');
         var viewModelTools = viewModel.getStore('tools');
 

@@ -46,12 +46,23 @@ Ext.define('tool_control_system.view.main.List', {
                   xtype: 'button',
                   iconCls: 'x-fa fa-info',
                   tooltip: 'Details',
-                  /*listeners: {
-                    click : 'onDetailClick'
-                  }*/
-                  handler: 'onDetailClick'
+                  scale: 'small',
+                  handler: 'onDetailClick',
+                  margin: 3
                }
-            ]
+            ],
+            renderer : function (value, meta){
+                // console.log({value, meta})
+                data = this.up().grid.getStore().getAt(meta.rowIndex).data//.getStore().getAt(meta.rowIndex)
+                balance_shoot = data.balance_shoot;
+                if(parseInt(balance_shoot) >= 0) {
+                    meta.style = "background-color:#3bd368;color:white;";
+                    // return 'OK';
+                } else {
+                    meta.style = "background-color:red;color:white;";
+                    // return 'Danger';
+                }
+            }
         },
 
         { 
@@ -217,7 +228,7 @@ Ext.define('tool_control_system.view.main.List', {
             dataIndex: 'balance_shoot',
             renderer : function (value, meta){
                 if(parseInt(value) >= 0) {
-                    meta.style = "background-color:green;color:white;";
+                    meta.style = "background-color:#3bd368;color:white;";
 
                 } else {
                     meta.style = "background-color:red;color:white;";

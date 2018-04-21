@@ -119,7 +119,30 @@ Ext.define('tool_control_system.view.main.Detail', {
             fieldLabel: 'Supplier',
             allowBlank: false,
             // disabled:  true
-      }],
+        },{
+          xtype :'grid',
+          viewConfig  : {
+            stripeRows          : true,
+            enableTextSelection : true
+          },
+          frame: true,
+
+          emptyText: 'No Data',
+
+          height : 100,
+          
+          style : {
+            'font-size' : '8px',
+            'border-color': '#D0D0D0'
+          },
+          bind : {
+            store : '{tool_details}',
+          },
+          columns :[
+            { text: 'ID',  dataIndex: 'id', width: 50 },
+          ]
+        }
+      ],
       //override the buttons;
       buttons:[]
     },
