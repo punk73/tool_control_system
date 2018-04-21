@@ -1,7 +1,7 @@
 
 Ext.define('tool_control_system.view.part.list.Parts',{
     extend: 'Ext.grid.Panel',
-
+    //it has no controller and viewModel because the controller and the ViewModel is inherited from parent view
     xtype : 'part_list_parts',
 
     viewConfig  : {

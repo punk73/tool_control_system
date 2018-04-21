@@ -116,26 +116,126 @@ Ext.define('tool_control_system.view.main.MainController', {
         });
     },
 
+    //untuk detail View;
+    onSearchDetail : function (component, e){
+        if (e.keyCode == 13) {
+            param = this.getElementValueDetail();
+            store = this.getViewModel().getStore('parts');
+            viewModel = this.getViewModel();
+            element = this.getElementDetail();
+
+            data = {}
+
+            for (var key in param) {
+                // skip loop if the property is from prototype
+                if (!param.hasOwnProperty(key)) continue;
+
+                var obj = param[key];
+                for (var prop in obj) {
+                    // skip loop if the property is from prototype
+                    if(!obj.hasOwnProperty(prop)) continue;
+
+                    // your code
+                    data[key] = param[key];
+                    
+                }
+            }
+
+            // console.log(data)
+            // return false;
+
+            store.loadData([], false);
+            store.load({
+                params: data,
+                callback: function (records, operation, success){
+                    if (success && store.totalCount == 0 ){
+                        var message = 'Code : '+ param.code+ '<br> Name : ' + param.name+ '<br>';
+                        Ext.Msg.alert('Info', message + 'Data Kosong!');
+                    }   
+                }
+    
+            })
+
+            
+        }
+    },
+
+    getElementDetail : function(){
+        return {
+            no: Ext.ComponentQuery.query('textfield[name=search_part_by_no]')[0],
+            name: Ext.ComponentQuery.query('textfield[name=search_part_by_name]')[0],
+            supplier_name: Ext.ComponentQuery.query('textfield[name=search_part_by_supplier]')[0],
+            model: Ext.ComponentQuery.query('textfield[name=search_part_by_model]')[0],
+            first_value: Ext.ComponentQuery.query('textfield[name=search_part_by_first_value]')[0],
+            date_of_first_value: Ext.ComponentQuery.query('textfield[name=search_part_by_date_of_first_value]')[0]
+
+        }
+    },
+
+    getElementValueDetail: function (){
+        var element = this.getElement();
+        return {
+            no : element.no.value,
+            name : element.name.value,
+            supplier_name : element.supplier_name.value,
+            model : element.model.value,
+            first_value : element.first_value.value,
+            date_of_first_value : element.date_of_first_value.value,
+
+        }
+    },
+
+    onSelectItem: function (sender, item){
+        var data = item.data;
+        var viewModel = this.getViewModel();
+        var store = viewModel.getStore('part_details');
+        store.loadData(data.details, false);
+    },
+
     onDetailClick : function (grid, rowIndex, colIndex){
         //data is available on model variable;
         var model = grid.getStore().getAt(rowIndex).data;
-        console.log({model})
-        //make a new windows;
-        /*Ext.create('Ext.window.Window', {
+        var parts = model.parts;
+        var viewModel = this.getViewModel();
+        var viewModelParts = viewModel.getStore('parts');
+        var viewModelTools = viewModel.getStore('tools');
+
+        viewModelParts.loadData(parts, false );
+        viewModelTools.loadData(model, false );
+
+        tool = {
+            no: model.no,
+            name: model.name,
+            no_of_tooling: model.no_of_tooling,
+            start_value: model.start_value,
+            guarantee_shoot: model.guarantee_shoot,
+            delivery_date: model.delivery_date,
+            supplier_id: model.supplier_id,
+            start_value_date : model.start_value_date,
+        };
+
+        //set data tool
+        viewModel.set('model', tool );
+
+        //set data forecast
+        viewModel.set('forecast', model.forecast );
+
+        console.log({model, tool })
+
+        //make a new windows for showing details;
+        Ext.create('Ext.window.Window', {
             // title: 'CHART',
             height: 600,
-            width: 1000,
+            width: 1100,
+            maximizable : true,
             layout: 'fit',
             modal :true,
             // frame: true,
             items: [{
-                title : 'DAILY OUTPUT SUMMARY CHART',
-                // bodyPadding : 10,
-                xtype : 'daily_output_chart_main',
-                // height : 550,
-                // width : '100%'
+                xtype : 'main_detail',
+                //set viewModel here
             }]
-        }).show();*/
+        }).show();
     }
 
 });

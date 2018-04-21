@@ -23,6 +23,7 @@ Ext.define('tool_control_system.view.main.Main', {
         'tool_control_system.view.part.Part',
         'tool_control_system.view.tool.Tool',
         'tool_control_system.view.machine_counter.Machine_counter',
+        'tool_control_system.view.main.Detail' //muncul dan dipanggil di controller
 
     ],
 
