@@ -200,9 +200,18 @@ Ext.define('tool_control_system.view.main.MainController', {
         var datas = viewModel.getStore('datas');
         var viewModelParts = viewModel.getStore('parts');
         var viewModelTools = viewModel.getStore('tools');
+        var viewModelToolDetails =viewModel.getStore('tool_details');
 
         viewModelParts.loadData(parts, false );
         viewModelTools.loadData(model, false );
+
+        viewModelToolDetails.loadData([], false );
+        viewModelToolDetails.load({
+            params: {tool_id: model.id },
+            callback: function (records, operation, success){
+                console.log('success')   
+            }
+        })
 
         tool = {
             no: model.no,

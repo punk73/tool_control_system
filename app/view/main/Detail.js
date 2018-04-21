@@ -140,6 +140,10 @@ Ext.define('tool_control_system.view.main.Detail', {
           },
           columns :[
             { text: 'ID',  dataIndex: 'id', width: 50 },
+            { text: 'Total Shoot',  dataIndex: 'total_shoot' },
+            { text: 'Guarantee After Forecast',  dataIndex: 'guarantee_after_forecast' },
+            { text: 'Balance Shoot',  dataIndex: 'balance_shoot' },
+            { text: 'Transaction Date',  dataIndex: 'trans_date' }
           ]
         }
       ],
