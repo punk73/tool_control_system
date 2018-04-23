@@ -119,7 +119,7 @@ Ext.define('tool_control_system.view.main.Main', {
 
     initItems: function (){
         var a = this.access_level;
-        console.log('initItems', this.access_level ) //this.access_level diisi di Application.js
+        // console.log('initItems', this.access_level ) //this.access_level diisi di Application.js
         if (a == 1) {
             
             this.items = [

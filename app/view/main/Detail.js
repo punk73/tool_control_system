@@ -28,7 +28,7 @@ Ext.define('tool_control_system.view.main.Detail', {
       //override margin
       margin : '2 0 2 2',
 
-      viewModel: 'main',
+      // viewModel: 'main',
 
       // frame :false,
 
@@ -135,9 +135,11 @@ Ext.define('tool_control_system.view.main.Detail', {
             'font-size' : '8px',
             'border-color': '#D0D0D0'
           },
+
           bind : {
             store : '{tool_details}',
           },
+
           columns :[
             { text: 'ID',  dataIndex: 'id', width: 50 },
             { text: 'Total Shoot',  dataIndex: 'total_shoot' },

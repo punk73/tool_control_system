@@ -60,6 +60,8 @@ Ext.define('tool_control_system.view.login.LoginController', {
 
                             access_level : level
                         });
+
+                        location.reload(); //this reload is to make sure that every store get to proper token
                     },
                     failure: function(response, opts) {
                         console.log({response, opts})

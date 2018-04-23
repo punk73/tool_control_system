@@ -197,11 +197,12 @@ Ext.define('tool_control_system.view.main.MainController', {
         var model = grid.getStore().getAt(rowIndex).data;
         var parts = model.parts;
         var viewModel = this.getViewModel();
-        var datas = viewModel.getStore('datas');
+        // var datas = viewModel.getStore('datas');
         var viewModelParts = viewModel.getStore('parts');
         var viewModelTools = viewModel.getStore('tools');
         var viewModelToolDetails =viewModel.getStore('tool_details');
 
+        //load data untuk parts
         viewModelParts.loadData(parts, false );
         viewModelTools.loadData(model, false );
 
@@ -209,7 +210,8 @@ Ext.define('tool_control_system.view.main.MainController', {
         viewModelToolDetails.load({
             params: {tool_id: model.id },
             callback: function (records, operation, success){
-                console.log('success')   
+                console.log({records, operation, success})
+                viewModelToolDetails.loadData(records, false);   
             }
         })
 
@@ -229,9 +231,7 @@ Ext.define('tool_control_system.view.main.MainController', {
 
         //set data forecast
         viewModel.set('forecast', model.forecast );
-
-        console.log({model, tool })
-
+        
         //make a new windows for showing details;
         Ext.create('Ext.window.Window', {
             // title: 'CHART',

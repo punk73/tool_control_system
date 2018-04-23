@@ -51,7 +51,7 @@ Ext.define('tool_control_system.Application', {
                 token : token
             },
             success: function (response, opts){
-                console.log({response, opts})
+                // console.log({response, opts})
                 res = JSON.parse(response.responseText);
                 level = res.access_level;
                 // console.log(level) 
