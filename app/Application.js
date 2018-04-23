@@ -61,7 +61,6 @@ Ext.define('tool_control_system.Application', {
                 // console.log(level) 
                 Ext.create({
                     xtype: 'app-main',
-
                     access_level : level
                 });
             },

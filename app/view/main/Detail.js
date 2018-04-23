@@ -14,7 +14,7 @@ Ext.define('tool_control_system.view.main.Detail', {
 
   items : [
     {
-      xtype : 'tool_form',
+      xtype : 'form',
       region: 'west',
       width : '30%',
       collapsible: true,
@@ -28,9 +28,12 @@ Ext.define('tool_control_system.view.main.Detail', {
       //override margin
       margin : '2 0 2 2',
 
-      // viewModel: 'main',
-
-      // frame :false,
+      bodyPadding: 10,
+    
+      defaults: {
+          anchor: '100%',
+          labelWidth: 100
+      },
 
       items : [
         {
@@ -176,7 +179,7 @@ Ext.define('tool_control_system.view.main.Detail', {
           split: {
               size: 10
           },
-          height : '30%',
+          height : '40%',
 
           /*override properties*/
           title: 'Part Detail'
@@ -196,13 +199,84 @@ Ext.define('tool_control_system.view.main.Detail', {
       margin: 2,
       items : [
         {
-          // xtype : 'part_part_relation_form', // ini nanti diadain di tombol;
+            // xtype : 'part_part_relation_form', // ini nanti diadain di tombol;
           xtype : 'form',
-          region: 'center',
+
+          region: 'north',
+
           collapsible: true,
+
           split: {
               size: 10
           },
+
+          // properties
+          title: 'Cavity Data',
+          
+          margin: 2,
+
+          height: '25%',
+
+          bodyPadding: '5 5 0',
+          // width: 600,
+
+          fieldDefaults: {
+              labelAlign: 'top',
+              msgTarget: 'side'
+          },
+
+          defaults: {
+              border: false,
+              xtype: 'panel',
+              flex: 1,
+              layout: 'anchor'
+          },
+
+          layout: 'hbox',
+          
+          items : [ 
+            {
+                xtype: 'textfield',
+                fieldLabel: 'Cavity',
+                anchor: '-5',
+                margin : '0 7 0 0',
+                bind: {
+                  value : '{toolpart.cavity}'
+                }
+            },
+            /*This still not working yet!!!!*/
+            /*already try using grid and checkcolumn xtype, but cannot specify the store */
+            {
+                xtype:'checkbox',
+                fieldLabel: 'Is Suffix Number',
+                anchor: '100%',
+                bind: {
+                  value : '{toolpart.is_independent}'
+                },
+                checked : function(){
+                  console.log(this.value)
+                  console.log("im frustation!")
+
+                  return false;
+                  // return (this.value == "1");
+                },
+                uncheckedValue : 0
+            }
+
+          ],
+
+          /*initItems: function(){
+            console.log('hadsf')
+          }*/
+        },
+        {
+          // xtype : 'part_part_relation_form', // ini nanti diadain di tombol;
+          xtype : 'form',
+          region: 'center',
+          // collapsible: true,
+          // split: {
+          //     size: 10
+          // },
           title : 'Forcast Data',
           autoScroll :true,
           bodyPadding: 10,

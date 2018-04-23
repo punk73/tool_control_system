@@ -249,6 +249,18 @@ Ext.define('tool_control_system.model.Data', {
                 name: 'validation_date', 
                 type: 'auto' 
         },
+
+        { 
+                name: 'is_independent', 
+                type: 'auto',
+                mapping: function (data){
+                    if (data.part) {
+                        if (data.part.pivot) {
+                            return data.part.pivot.cavity;
+                        }
+                    }
+                } 
+        },
         //belum ada
         { 
                 name: 'remark', 

@@ -22,7 +22,8 @@ Ext.define("tool_control_system.view.main.Toolbar", {
         },
         {
             xtype: 'datefield',
-            id: 'forecast_date',
+            // id: 'forecast_date',
+            name : 'trans_date',
             labelPad: 15,
             labelWidth:40,
             style : {
@@ -32,7 +33,10 @@ Ext.define("tool_control_system.view.main.Toolbar", {
             allowBlank: true,
             emptyText:'yyyy-mm-dd',
             value: new Date(),
-            fieldLabel:'Tanggal'
+            fieldLabel:'Tanggal',
+            listeners: {
+                change : 'onTransDateChange'
+            }
         },
         {
             xtype:'button',

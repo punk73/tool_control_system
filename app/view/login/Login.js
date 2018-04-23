@@ -1,5 +1,6 @@
 Ext.define('tool_control_system.view.login.Login', {
     extend: 'Ext.window.Window',
+
     xtype: 'login',
 
  	requires: [
@@ -8,10 +9,25 @@ Ext.define('tool_control_system.view.login.Login', {
     ],
 
     controller: 'login',
+
     bodyPadding: 10,
+    
     title: 'Login Window',
+    
     closable: false,
+    
     autoShow: true,
+
+    /*style: { 
+        "background-image" : "url(resources/background.jpg) !important",
+        "background-color" : 'red !important'
+    },
+
+    bodyCls: 'popWindow',*/
+
+    /*styles : {
+        'background-image': 'resources/background.jpg'
+    },*/
 
     items: {
         xtype: 'form',
