@@ -42,7 +42,7 @@ Ext.define('tool_control_system.view.machine_counter.Machine_counter',{
                 size: 10
             },
             region : 'east',
-            width  : '40%' 
+            width  : '50%' 
         }
     ]
 });

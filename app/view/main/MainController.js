@@ -106,6 +106,8 @@ Ext.define('tool_control_system.view.main.MainController', {
 
         localStorage.removeItem('isLoggedIn');
         localStorage.removeItem('token');
+        localStorage.removeItem('user');
+
 
         // Remove Main View
         this.getView().destroy();

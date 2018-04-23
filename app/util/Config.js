@@ -25,6 +25,15 @@ Ext.define('tool_control_system.util.Config', {
             return null
         }
     },
+
+    getSupplierId : function (){
+        if (localStorage.getItem('user') != null){
+           return  JSON.parse( localStorage.getItem('user') ).supplier_id;
+        }else{
+            return null
+        }
+    },
+
     getToken : function(){
         // return localStorage.getItem('token');
         if (localStorage.getItem('token') != null){

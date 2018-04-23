@@ -20,7 +20,17 @@ Ext.define('tool_control_system.view.machine_counter.Machine_counterModel', {
     		type:'parts'
     	},
         tools:{
-            type:'tools'
+            type:'tools',
+            proxy: {
+            extraParams: {
+                token : tool_control_system.util.Config.getToken(), //
+                
+                //set extra parameter of supplier id
+                supplier_id: tool_control_system.util.Config.getSupplierId()
+
+
+            }
+        }
         },
 
     }
