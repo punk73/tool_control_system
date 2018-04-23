@@ -3,10 +3,25 @@ Ext.define('tool_control_system.model.Machine', {
 
     fields: [
         { name: 'id', type: 'int' },
-        { name: 'tool_id', type: 'auto' },
-        { name: 'counter', type: 'int' },
-        { name: 'tanggal', type: 'auto' },
-        { name: 'note', type: 'auto' }
+        { 
+        	name: 'tool_id', 
+        	type: 'auto'
+	    },
+
+        { 
+        	name: 'counter', 
+        	type: 'int'
+        },
+        
+        { 
+        	name: 'tanggal', 
+        	type: 'auto'
+        },
+        
+        { 
+        	name: 'note', 
+        	type: 'auto'
+        }
     ]
     
 });

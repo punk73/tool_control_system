@@ -51,9 +51,13 @@ Ext.define('tool_control_system.Application', {
                 token : token
             },
             success: function (response, opts){
-                console.log({response, opts})
+                // console.log({response, opts})
                 res = JSON.parse(response.responseText);
                 level = res.access_level;
+
+                //set user, for get the specific supplier id
+                localStorage.setItem('user', response.responseText );
+
                 // console.log(level) 
                 Ext.create({
                     xtype: 'app-main',
@@ -62,7 +66,7 @@ Ext.define('tool_control_system.Application', {
                 });
             },
             failure: function(response, opts) {
-                console.log({response, opts})
+                // console.log({response, opts})
                 
                 Ext.create({
                     xtype: 'login'

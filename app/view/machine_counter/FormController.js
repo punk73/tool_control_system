@@ -43,7 +43,8 @@ Ext.define('tool_control_system.view.machine_counter.FormController', {
 
             store.load({
                 params: {
-                    no: no
+                    no: no,
+                    supplier_id : tool_control_system.util.Config.getSupplierId()
                 },
                 callback: function(records,operation,success){
                     var model = store.findRecord('no', no);
@@ -133,13 +134,13 @@ Ext.define('tool_control_system.view.machine_counter.FormController', {
 
     getElement: function(){
     	return {
-        	no: Ext.ComponentQuery.query('textfield[name=tool_number]')[2],
-        	name: Ext.ComponentQuery.query('textfield[name=tool_name]')[2],
-        	no_of_tooling: Ext.ComponentQuery.query('textfield[name=number_of_tooling]')[1],
+        	no: Ext.ComponentQuery.query('textfield[name=tool_number_machine_counter]')[0],
+        	name: Ext.ComponentQuery.query('textfield[name=tool_name_machine_counter]')[0],
+        	no_of_tooling: Ext.ComponentQuery.query('textfield[name=number_of_tooling_machine_counter]')[0],
         	tanggal: Ext.ComponentQuery.query('datefield[name=tanggal]')[0],
         	machine_counter: Ext.ComponentQuery.query('numberfield[name=machine_counter]')[0],
         	note: Ext.ComponentQuery.query('textarea[name=note]')[0],
-        	btn_save: Ext.ComponentQuery.query('button[name=btn_save]')[3]
+        	btn_save: Ext.ComponentQuery.query('button[name=btn_save_machine_counter]')[0]
 
         	
         }

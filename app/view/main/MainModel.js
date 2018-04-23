@@ -46,7 +46,7 @@ Ext.define('tool_control_system.view.main.MainModel', {
 
         tool_details : {
             type : 'tool_details',
-            autoLoad: false
+            // autoLoad: false //set to false 
         },
 
         suppliers: {

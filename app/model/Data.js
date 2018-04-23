@@ -90,11 +90,13 @@ Ext.define('tool_control_system.model.Data', {
         { 
             name: 'machine_counter',
             type: 'auto',
-            mapping: function(data){
-                if (data.tool) {
-                  return data.tool.counter;  
+            mapping: function (data) {
+                if (data.detail) {
+                    if (data.detail.machine != null) {
+                        return data.detail.machine.counter;
+                    }
                 }
-            }
+            } 
         },
 
         {   

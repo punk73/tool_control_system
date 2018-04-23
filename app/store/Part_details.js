@@ -13,7 +13,7 @@ Ext.define('tool_control_system.store.Part_details', {
 
     // autoSync: true,
 
-    proxy: {
+    proxy: {    
         type: 'rest',
 
         enablePaging:true,

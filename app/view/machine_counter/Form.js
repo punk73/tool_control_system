@@ -31,7 +31,7 @@ Ext.define('tool_control_system.view.machine_counter.Form',{
     items:[
         {
             xtype: 'textfield',
-            name: 'tool_number',
+            name: 'tool_number_machine_counter',
             fieldLabel: 'Tool Number',
             allowBlank: false,
             emptyText: 'Type And Enter',
@@ -46,7 +46,7 @@ Ext.define('tool_control_system.view.machine_counter.Form',{
 
         },{
             xtype: 'textfield',
-            name: 'tool_name',
+            name: 'tool_name_machine_counter',
             fieldLabel: 'Tool Name',
             disabled: true,
             bind: {
@@ -55,7 +55,7 @@ Ext.define('tool_control_system.view.machine_counter.Form',{
             allowBlank: false
         },{
             xtype: 'textfield',
-            name: 'number_of_tooling',
+            name: 'number_of_tooling_machine_counter',
             fieldLabel: 'Number Of Tooling',
             bind: {
                 value : '{tool.no_of_tooling}'
@@ -99,7 +99,7 @@ Ext.define('tool_control_system.view.machine_counter.Form',{
             text : 'Save',
             tooltip : 'Save',
             formBind : true,
-            name : 'btn_save',
+            name : 'btn_save_machine_counter',
             bind : {
                 icon : '{icon.save}'
             },

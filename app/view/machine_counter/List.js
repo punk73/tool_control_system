@@ -35,5 +35,15 @@ Ext.define('tool_control_system.view.machine_counter.List',{
         { text: 'Tool Name', dataIndex: 'name', flex: 2 }
     ],
 
+    bbar : {
+        xtype: 'pagingtoolbar',
+        pageSize: 50,
+        bind : {
+            store : '{tools}'
+        },        
+        emptyMsg: 'Sorry, No Records Are Available At The Moment.',   
+        displayInfo: true
+    }
+
     
 });

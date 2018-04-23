@@ -54,12 +54,18 @@ Ext.define('tool_control_system.view.login.LoginController', {
                         console.log({response, opts})
                         res = JSON.parse(response.responseText);
                         level = res.access_level;
+
+                        //set user json in localStorage
+                        localStorage.setItem('user', response.responseText );
+
                         // console.log(level) 
                         Ext.create({
                             xtype: 'app-main',
 
                             access_level : level
                         });
+
+                        location.reload(); //this reload is to make sure that every store get to proper token
                     },
                     failure: function(response, opts) {
                         console.log({response, opts})
