@@ -244,8 +244,39 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
     	components.part_name.enable();
     	components.cavity.enable();
         components.is_independent.enable();
+    },
 
-
+    showGrid: function (){
+        console.log('showGrid') 
+        //make windows
+        //make a new windows for showing details;
+        Ext.create('Ext.window.Window', {
+            // title: 'CHART',
+            height: 600,
+            width: 1100,
+            maximizable : true,
+            layout: 'fit',
+            modal :true,
+            // frame: true,
+            items: [{
+                xtype : 'cavity_list',
+                // height : 300,
+                bind : {
+                    store : '{toolparts}'
+                },
+                
+                bbar : [{
+                    xtype: 'pagingtoolbar',
+                    pageSize: 50,
+                    bind : {
+                        store : '{toolparts}'
+                    },        
+                    emptyMsg: 'Sorry, No Records Are Available At The Moment.',   
+                    displayInfo: true
+                }],
+                //set viewModel here
+            }]
+        }).show();   
     }
 
 });

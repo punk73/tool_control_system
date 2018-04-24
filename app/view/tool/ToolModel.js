@@ -10,7 +10,9 @@ Ext.define('tool_control_system.view.tool.ToolModel', {
             save    : 'resources/Save-icon.png',
             delete  : 'resources/Button-Delete-icon.png',
             cancel  : 'resources/Close-2-icon.png',
-            tool  : 'resources/tool-icon.png'
+            tool  : 'resources/tool-icon.png',
+            info  : 'resources/info.png',
+
         }
     },
     stores: {

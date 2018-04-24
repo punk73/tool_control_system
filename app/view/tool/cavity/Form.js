@@ -116,16 +116,42 @@ Ext.define('tool_control_system.view.tool.cavity.Form',{
             disabled: true,
             allowBlank: false
         },{
-            xtype : 'checkbox',
-            boxLabel  : 'Is Suffix Number ?',
-            name      : 'is_independent',
-            inputValue: 1,
-            uncheckedValue : 0,
-            id        : 'is_independent',
-            disabled  : true
-        },{
+            xtype : 'panel',
+            layout : {
+                type: 'hbox',
+                align: 'stretch'
+            },
+            margin : '0 0 3 0',
+            
+            items : [
+                {
+                    xtype : 'checkbox',
+                    boxLabel  : 'Is Suffix Number ?',
+                    name      : 'is_independent',
+                    inputValue: 1,
+                    uncheckedValue : 0,
+                    id        : 'is_independent',
+                    disabled  : true,
+                    flex : 4
+                },{
+                    xtype:'button',
+                    text : 'Info',
+                    scale: 'small',
+                    tooltip : 'Show Grid',
+                    bind: {
+                        icon : '{icon.info}'
+                    },
+                    listeners:{
+                        'click' : 'showGrid'
+                    },
+                    margin : '  0 0 5 20',
+                    flex : 1
+                },
+            ]
+        },
+        {
             xtype : 'cavity_list'
-        }
+        },
     ],
 
     buttons:[
@@ -162,6 +188,6 @@ Ext.define('tool_control_system.view.tool.cavity.Form',{
             listeners:{
                 'click' : 'cancelOnClick'
             },
-        }
+        }, 
     ]
 });

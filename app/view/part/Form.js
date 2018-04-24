@@ -107,7 +107,9 @@ Ext.define('tool_control_system.view.part.Form',{
             allowBlank: false,
             disabled:  true
         },{
-            xtype : 'part_list'
+            xtype : 'part_list',
+            height: 155,
+            autoScroll : true
         }
     ],
 

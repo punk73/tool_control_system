@@ -18,11 +18,18 @@ Ext.define('tool_control_system.view.tool.cavity.List',{
     autoScroll: true,
 
     viewConfig  : {
-        stripeRows          : true,
-        enableTextSelection : true
+        stripeRows           : true,
+        forcaFit             : true,
+        enableTextSelection  : true
     },
 
-    height: 150,
+    /*selModel: 'rowmodel',
+    plugins: {
+        ptype: 'rowediting',
+        clicksToEdit: 1
+    },*/
+
+    height: 140,
 
     frame:true,
 
@@ -38,7 +45,8 @@ Ext.define('tool_control_system.view.tool.cavity.List',{
         { 
             text: 'Tool No',  
             dataIndex: 'tool', 
-            
+            enableTextSelection  : true,
+            flex : 1,
             layout: {
                 type: 'vbox',
                 pack: 'center',
@@ -56,10 +64,13 @@ Ext.define('tool_control_system.view.tool.cavity.List',{
                 }
             }] 
         },
+
         { 
             text: 'Part No',
             dataIndex: 'part',
-            
+            flex : 1,
+            enableTextSelection  : true,
+
             layout: {
                 type: 'vbox',
                 pack: 'center',
@@ -77,10 +88,12 @@ Ext.define('tool_control_system.view.tool.cavity.List',{
                 }
             }]  
         },
+
         { 
             text: 'Cavity', 
             dataIndex: 'cavity', 
-            
+            enableTextSelection  : true,
+            flex : 1,
             layout: {
                 type: 'vbox',
                 pack: 'center',
@@ -98,12 +111,13 @@ Ext.define('tool_control_system.view.tool.cavity.List',{
                 }
             }]  
         },
+        
         {
-            text : 'Is Suffix Number',
+            text : 'Is Suffix<br>Number',
+            enableTextSelection  : true,
             dataIndex : 'is_independent',
             xtype : 'checkcolumn',
-            flex : 0.2,
-
+            flex : 1,
         }
     ],
 

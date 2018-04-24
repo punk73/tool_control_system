@@ -17,6 +17,8 @@ Ext.define('tool_control_system.view.part.PartModel', {
             cancel  : 'resources/Close-2-icon.png',
             title   : 'resources/part.png',
             sync : 'resources/sync-icon.png',
+            info : 'resources/info.png',
+
         },
     },
     stores : {

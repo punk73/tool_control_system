@@ -3,11 +3,11 @@ Ext.define('tool_control_system.view.part.List',{
     extend: 'Ext.grid.Panel',
 
     requires: [
-        'tool_control_system.view.part.ListController',
         'tool_control_system.view.part.ListModel',
+        'tool_control_system.view.part.ListController'
     ],
 
-    controller: 'part-list',
+    controller: 'part-list', //controller nya refer ke FormController karena ini adalah child view form
 
     viewConfig  : {
         stripeRows          : true,
@@ -38,9 +38,25 @@ Ext.define('tool_control_system.view.part.List',{
     buttons : [
         {
             xtype : 'button',
+            text  : 'Semi Part',
+            tooltip: 'Show Semi Part Form',
+            bind : {
+                icon : '{icon.info}'
+            },
+            listeners : {
+                click : 'showSemiPartForm'
+            }
+            // disabled: true
+        },
+        {
+            xtype : 'button',
             text  : 'Delete',
+            tooltip : 'Delete Tool From This Part',
             bind : {
                 icon : '{icon.delete}'
+            },
+            listeners : {
+                click : 'onDelete'
             },
             disabled: true
         }

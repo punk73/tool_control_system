@@ -19,6 +19,16 @@ Ext.define('tool_control_system.view.part.part_relation.FormModel', {
             children_part_id : null,
         },
 
+        icon : {
+            save    : 'resources/Save-icon.png',
+            delete  : 'resources/Button-Delete-icon.png',
+            cancel  : 'resources/Close-2-icon.png',
+            title   : 'resources/part.png',
+            sync : 'resources/sync-icon.png',
+            info : 'resources/info.png',
+
+        },
+
         btn_save : {
         	text: 'Save'
         },

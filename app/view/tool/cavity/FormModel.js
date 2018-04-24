@@ -19,6 +19,9 @@ Ext.define('tool_control_system.view.tool.cavity.FormModel', {
         },
         suppliers : {
             type : 'all_suppliers'
+        },
+        toolparts : {
+            type : 'toolparts'
         }
     }
 

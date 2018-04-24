@@ -33,6 +33,16 @@ Ext.define('tool_control_system.view.part.part_relation.List',{
         { text: 'children_part_name', dataIndex: 'children_part_name', flex: 3 }
     ],
 
+    bbar :[{
+        xtype: 'pagingtoolbar',
+        // pageSize: 50,
+        bind : {
+            store : '{part_relations}'
+        },        
+        emptyMsg: 'Sorry, No Records Are Available At The Moment.',   
+        displayInfo: true
+    }],
+
     buttons : [
         {
             xtype : 'button',

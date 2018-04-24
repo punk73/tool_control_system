@@ -90,7 +90,7 @@ Ext.define('tool_control_system.view.part.part_relation.Form',{
         },
         {
             xtype : 'part_part_relation_List',
-            height : 200
+            height : 270
         }
     ],
 
