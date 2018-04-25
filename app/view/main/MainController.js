@@ -81,6 +81,7 @@ Ext.define('tool_control_system.view.main.MainController', {
 
     clearParam : function (){
         elements = this.getSearchElement();
+        result = [];
         for (var key in elements) {
             // skip loop if the property is from prototype
             if (!elements.hasOwnProperty(key)) continue;
