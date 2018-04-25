@@ -15,6 +15,7 @@ Ext.define('tool_control_system.view.tool.ToolModel', {
 
         }
     },
+    
     stores: {
     	toolparts :{
     		type: 'toolparts'

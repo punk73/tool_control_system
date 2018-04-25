@@ -41,10 +41,9 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
         if (model != null ) {
 
         	viewModel.setData({
-    			tool_name: model.get('name')	
+    			tool_name: model.get('name')
         	})
         }
-
     },
 
     partOnChange : function (){
@@ -57,25 +56,68 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
     	// console.log(model, 'model part')
     	if (model != null) {
         	viewModel.setData({
-    			part_name: model.get('name')	
+    			part_name: model.get('name')
         	})
         }
 
         this.getElement().cavity.enable();
-        this.getElement().is_independent.enable();   
-
+        this.getElement().is_independent.enable();
     },
 
     onSearch : function (component, e){
         if (e.keyCode == 13) {
-            store = this.getView().up('toolview').getViewModel().getStore('toolparts');
+            // store = this.getView().up('toolview').getViewModel().getStore('toolparts');
+            store = this.getViewModel().getStore('toolparts')
             elementValue = this.getElementValue();
-            value = {
-                tool_number : elementValue.search_by_tool,
-                part_number : elementValue.search_by_part,
-                cavity      : elementValue.search_by_cavity
+            value = {}
+            
+            if (elementValue.search_by_tool!='') {
+                value.tool_number = elementValue.search_by_tool
+            }
+            
+            if (elementValue.search_by_part!='') {
+                value.part_number = elementValue.search_by_part
             }
 
+            if (elementValue.search_by_cavity!='') {
+                value.cavity      = elementValue.search_by_cavity
+            }
+
+            // console.log(store)
+            store.load({
+                params:  value,
+                success : function(a,b){
+                    console.log({a,b})
+                }
+            })
+        }
+    },
+
+    onSearchInModal : function (component, e){
+        if (e.keyCode == 13) {
+            // store = this.getView().up('toolview').getViewModel().getStore('toolparts');
+            store = this.getViewModel().getStore('toolparts')
+            
+            value = {}
+            
+            tool_number = Ext.ComponentQuery.query('textfield[name=search_by_tool_modal]')[0]
+            part_number = Ext.ComponentQuery.query('textfield[name=search_by_part_modal]')[0]
+            cavity = Ext.ComponentQuery.query('textfield[name=search_by_cavity_modal]')[0]
+            
+
+            // return;
+
+            if (tool_number.value !='') {
+                value.tool_number = tool_number.value 
+            }
+            
+            if (part_number.value !='') {
+                value.part_number = part_number.value 
+            }
+
+            if (cavity.value !='') {
+                value.cavity      = cavity.value 
+            }    
 
             // console.log(store)
             store.load({
@@ -89,6 +131,10 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
 
     saveOnClick : function (){
     	// console.log('saveOnClick')
+        //reload toolpart store
+        this.reloadToolpart();
+        return;
+
         param = this.getElementValue();
         components = this.getElement();
         store = this.getViewModel().getParent().getStore('toolparts');
@@ -107,10 +153,6 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
             is_independent : is_independent
         }
 
-        // console.log({param, newModel})
-        
-        // return false;
-
         model = new tool_control_system.model.Toolpart(newModel);
         store.add(model);
         store.sync({
@@ -118,9 +160,20 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
                 console.log(batch, option)
             }
         });
+
         
 
         this.cancelOnClick();
+    },
+
+    reloadToolpart : function (){
+        //reload toolpart yg disini
+        toolpart = this.getViewModel().getStore('toolparts');
+        toolpart.load()
+        store = this.getViewModel().getParent().getStore('toolparts');
+        store.load()
+
+        console.log('reloadToolpart')
     },
 
     deleteOnClick : function (sender, record){
@@ -165,8 +218,6 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
             search_by_tool : element.search_by_tool.value,
             search_by_part : element.search_by_part.value,
             search_by_cavity : element.search_by_cavity.value,
-
-
     	}
     },
 
@@ -175,16 +226,16 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
             supplier: Ext.ComponentQuery.query('combobox[name=supplier]')[0],
             tool_number: Ext.ComponentQuery.query('combobox[name=tool_number]')[0],
         	tool_name: Ext.ComponentQuery.query('textfield[name=tool_name]')[1],
-        	part_number: Ext.ComponentQuery.query('combobox[name=part_number]')[0],
+        	
+            part_number: Ext.ComponentQuery.query('combobox[name=part_number]')[0],
         	part_name: Ext.ComponentQuery.query('textfield[name=part_name]')[1],
         	cavity: Ext.ComponentQuery.query('numberfield[name=cavity]')[0],
+
             is_independent: Ext.ComponentQuery.query('checkbox[name=is_independent]')[0],
 
             search_by_tool: Ext.ComponentQuery.query('textfield[name=search_by_tool]')[0],
             search_by_part: Ext.ComponentQuery.query('textfield[name=search_by_part]')[0],
             search_by_cavity: Ext.ComponentQuery.query('textfield[name=search_by_cavity]')[0],
-
-            
 
         	btn_delete: Ext.ComponentQuery.query('button[name=btn_delete]')[2],
         	btn_save: Ext.ComponentQuery.query('button[name=btn_save]')[2]
@@ -218,9 +269,6 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
     	components.part_name.setValue('');
     	components.cavity.setValue(1);
         components.is_independent.checked = false;
-
-        // tools = this.getViewModel().getParent().getStore('tools'); //list store
-        // tools.loadData([], false );
     },
 
     disableAll: function (){
@@ -233,7 +281,6 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
         components.cavity.disable();
         components.btn_save.disable();
         components.btn_delete.disable();
-
     },
 
     enableAll :  function (){
@@ -251,17 +298,16 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
     },
 
     onDeleteRow : function (grid, rowIndex, colIndex){
-            var rec = grid.getStore().getAt(rowIndex);
+        var rec = grid.getStore().getAt(rowIndex);
 
-            Ext.Msg.confirm('Remove Record', 
-              'Are you sure you want to delete?', 
-              function (button) {
-                if (button == 'yes') {
-                  grid.store.remove(rec);
-                  grid.store.sync()
-                }
-            });
-        
+        Ext.Msg.confirm('Remove Record', 
+          'Are you sure you want to delete?', 
+          function (button) {
+            if (button == 'yes') {
+              grid.store.remove(rec);
+              grid.store.sync()
+            }
+        });
     },
 
     checkedOnChange :  function (grid, rowIndex, checked, model){
@@ -280,7 +326,6 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
         console.log({
             grid, rowIndex, checked, model
         })
-
     },
 
     showGrid: function (){
@@ -295,7 +340,7 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
                 maximizable : true,
                 layout: 'fit',
                 modal :true,
-                
+
                 items: [{
                     xtype : 'cavity_list',
                     
@@ -332,13 +377,13 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
                             },
                             items : [{
                                 xtype:'textfield',
-                                name: 'search_by_tool',
+                                name: 'search_by_tool_modal',
                                 margin : 3,
                                 flex: 2,
                                 emptyText : 'Searh',
                                 enableKeyEvents: true,
                                 listeners: {
-                                    keyup: 'onSearch'
+                                    keyup: 'onSearchInModal'
                                 }
                             }] 
                         },
@@ -356,13 +401,13 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
                             },
                             items : [{
                                 xtype:'textfield',
-                                name: 'search_by_part',
+                                name: 'search_by_part_modal',
                                 flex: 2,
                                 margin : 3,
                                 emptyText : 'Searh',
                                 enableKeyEvents: true,
                                 listeners: {
-                                    keyup: 'onSearch'
+                                    keyup: 'onSearchInModal'
                                 }
                             }]  
                         },
@@ -379,13 +424,13 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
                             },
                             items : [{
                                 xtype:'textfield',
-                                name: 'search_by_cavity',
+                                name: 'search_by_cavity_modal',
                                 margin : 3,
                                 flex: 1,
                                 emptyText : 'Searh',
                                 enableKeyEvents: true,
                                 listeners: {
-                                    keyup: 'onSearch'
+                                    keyup: 'onSearchInModal'
                                 }
                             }]  
                         },

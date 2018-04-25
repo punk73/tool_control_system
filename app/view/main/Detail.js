@@ -253,13 +253,6 @@ Ext.define('tool_control_system.view.main.Detail', {
                 bind: {
                   value : '{toolpart.is_independent}'
                 },
-                checked : function(){
-                  console.log(this.value)
-                  console.log("im frustation!")
-
-                  return false;
-                  // return (this.value == "1");
-                },
                 uncheckedValue : 0
             }
 

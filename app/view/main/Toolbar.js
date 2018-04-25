@@ -45,7 +45,9 @@ Ext.define("tool_control_system.view.main.Toolbar", {
             style : {
                 'color' : 'red'
             },
-            text : 9,
+            bind: {
+                text : '{notif.danger}'
+            },
             tooltip: 'Tool Already Over Guarantee!!',
             listeners: {
                 click: 'dangerOnClick'
@@ -57,7 +59,9 @@ Ext.define("tool_control_system.view.main.Toolbar", {
             style : {
                 'color' : 'red'
             },
-            text : 9,
+            bind: {
+                text : '{notif.warning}'
+            },
             tooltip: 'Tool Over Guarantee Within 6 weeks!',
             listeners: {
                 // click: 'onSyncClick'
@@ -69,7 +73,9 @@ Ext.define("tool_control_system.view.main.Toolbar", {
             style : {
                 'color' : 'red'
             },
-            text : 9,
+            bind: {
+                text : '{notif.save}'
+            },
             tooltip: 'SAVE ~',
             listeners: {
                 // click: 'onSyncClick'

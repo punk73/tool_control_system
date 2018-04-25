@@ -14,12 +14,15 @@ Ext.define('tool_control_system.view.tool.cavity.FormModel', {
         tools :{
             type : 'all_tools'
         },
+        
         parts :{
             type : 'all_parts'
         },
+
         suppliers : {
             type : 'all_suppliers'
         },
+
         toolparts : {
             type : 'toolparts'
         }
