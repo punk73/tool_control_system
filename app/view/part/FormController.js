@@ -97,6 +97,10 @@ Ext.define('tool_control_system.view.part.FormController', {
             }
     	})
 
+        //to fire event in list controller
+        // the first argument is the name of event in another controller
+        this.fireEvent('onCancelClicked');
+
         // console.log(this.getViewModel())
     },
 

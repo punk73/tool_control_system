@@ -48,9 +48,11 @@ Ext.define('tool_control_system.view.part.List',{
             }
             // disabled: true
         },
-        {
+        
+        /*{
             xtype : 'button',
             text  : 'Delete',
+            name : 'btn_delete_part_list',
             tooltip : 'Delete Tool From This Part',
             bind : {
                 icon : '{icon.delete}'
@@ -59,7 +61,11 @@ Ext.define('tool_control_system.view.part.List',{
                 click : 'onDelete'
             },
             disabled: true
-        }
-    ]
+        }*/
+    ],
+
+    listeners: {
+        select : 'onRowSelected'
+    }
     
 });

@@ -42,6 +42,11 @@ Ext.define('tool_control_system.view.tool.cavity.List',{
     },
 
     columns: [
+        {   
+            text : 'No',
+            xtype: 'rownumberer'
+        },
+
         { 
             text: 'Tool No',  
             dataIndex: 'tool', 

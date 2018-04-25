@@ -246,37 +246,182 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
         components.is_independent.enable();
     },
 
+    onEditRow : function (){
+        console.log('')
+    },
+
+    onDeleteRow : function (grid, rowIndex, colIndex){
+            var rec = grid.getStore().getAt(rowIndex);
+
+            Ext.Msg.confirm('Remove Record', 
+              'Are you sure you want to delete?', 
+              function (button) {
+                if (button == 'yes') {
+                  grid.store.remove(rec);
+                  grid.store.sync()
+                }
+            });
+        
+    },
+
+    checkedOnChange :  function (grid, rowIndex, checked, model){
+        if (checked) {
+            result = 1;
+        }else{
+            result = 0;
+        }
+
+        model.set({
+            is_independent: result
+        })
+
+        model.store.sync() //tinggal backend nya belum
+
+        console.log({
+            grid, rowIndex, checked, model
+        })
+
+    },
+
     showGrid: function (){
-        console.log('showGrid') 
+
         //make windows
         //make a new windows for showing details;
-        Ext.create('Ext.window.Window', {
-            // title: 'CHART',
-            height: 600,
-            width: 1100,
-            maximizable : true,
-            layout: 'fit',
-            modal :true,
-            // frame: true,
-            items: [{
-                xtype : 'cavity_list',
-                // height : 300,
-                bind : {
-                    store : '{toolparts}'
-                },
+        if (!modal) {
+            var modal = Ext.create('Ext.window.Window', {
+                // title: 'CHART',
+                height: 600,
+                width: 1100,
+                maximizable : true,
+                layout: 'fit',
+                modal :true,
                 
-                bbar : [{
-                    xtype: 'pagingtoolbar',
-                    pageSize: 50,
-                    bind : {
-                        store : '{toolparts}'
-                    },        
-                    emptyMsg: 'Sorry, No Records Are Available At The Moment.',   
-                    displayInfo: true
-                }],
-                //set viewModel here
-            }]
-        }).show();   
+                items: [{
+                    xtype : 'cavity_list',
+                    
+                    bbar : [{
+                        xtype: 'pagingtoolbar',
+                        pageSize: 50,
+                        bind : {
+                            store : '{toolparts}'
+                        },        
+                        emptyMsg: 'Sorry, No Records Are Available At The Moment.',   
+                        displayInfo: true
+                    }],
+
+                    plugin : {
+                        ptype: 'rowediting',
+                        clicksToEdit: 2
+                    },
+
+                    columns: [
+                        {   
+                            text : 'No',
+                            xtype: 'rownumberer'
+                        },
+
+                        { 
+                            text: 'Tool No',  
+                            dataIndex: 'tool', 
+                            enableTextSelection  : true,
+                            flex : 1,
+                            layout: {
+                                type: 'vbox',
+                                pack: 'center',
+                                align: 'stretch'
+                            },
+                            items : [{
+                                xtype:'textfield',
+                                name: 'search_by_tool',
+                                margin : 3,
+                                flex: 2,
+                                emptyText : 'Searh',
+                                enableKeyEvents: true,
+                                listeners: {
+                                    keyup: 'onSearch'
+                                }
+                            }] 
+                        },
+
+                        { 
+                            text: 'Part No',
+                            dataIndex: 'part',
+                            flex : 1,
+                            enableTextSelection  : true,
+
+                            layout: {
+                                type: 'vbox',
+                                pack: 'center',
+                                align: 'stretch'
+                            },
+                            items : [{
+                                xtype:'textfield',
+                                name: 'search_by_part',
+                                flex: 2,
+                                margin : 3,
+                                emptyText : 'Searh',
+                                enableKeyEvents: true,
+                                listeners: {
+                                    keyup: 'onSearch'
+                                }
+                            }]  
+                        },
+
+                        { 
+                            text: 'Cavity', 
+                            dataIndex: 'cavity', 
+                            enableTextSelection  : true,
+                            flex : 1,
+                            layout: {
+                                type: 'vbox',
+                                pack: 'center',
+                                align: 'stretch'
+                            },
+                            items : [{
+                                xtype:'textfield',
+                                name: 'search_by_cavity',
+                                margin : 3,
+                                flex: 1,
+                                emptyText : 'Searh',
+                                enableKeyEvents: true,
+                                listeners: {
+                                    keyup: 'onSearch'
+                                }
+                            }]  
+                        },
+                        
+                        {
+                            xtype : 'checkcolumn',
+                            text : 'Is Suffix<br>Number',
+                            dataIndex : 'is_independent',
+                            flex : 1,
+                            listeners : {
+                                checkchange : 'checkedOnChange'
+                            }
+                            
+                        },
+
+                        {
+                            align: 'center',
+                            width: 50,
+                            xtype: 'actioncolumn',
+                            items: [
+                               {
+                                  xtype: 'button',
+                                  iconCls: 'x-fa fa-remove',
+                                  tooltip: 'Delete',
+                                  scale: 'small',
+                                  handler: 'onDeleteRow',
+                                  margin: 3
+                               }
+                            ]
+                        }
+                    ],
+                }]
+            });
+        }
+        
+        modal.show();   
     }
 
 });

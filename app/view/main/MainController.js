@@ -264,6 +264,22 @@ Ext.define('tool_control_system.view.main.MainController', {
                 console.log({records, operation, success})
             }
         })
+    },
+
+    dangerOnClick : function (){
+        store = this.getViewModel().getStore('datas');
+        store.load({
+            params: {
+                danger : true
+            },
+            callback : function (records, operation, success){
+                if (!success) {
+                    console.log({
+                        records, operation, success
+                    })
+                }
+            }
+        })
     }
 
 });

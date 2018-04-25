@@ -25,7 +25,13 @@ Ext.define('tool_control_system.view.supplier.List', {
     },
 
     columns: [
+        {   
+            text : 'No',
+            xtype: 'rownumberer'
+        },
+
         { text: 'ID',  dataIndex: 'id' },
+        
         { 
             text: 'Code',
             dataIndex: 'code', 

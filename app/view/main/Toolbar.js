@@ -48,7 +48,7 @@ Ext.define("tool_control_system.view.main.Toolbar", {
             text : 9,
             tooltip: 'Tool Already Over Guarantee!!',
             listeners: {
-                // click: 'onSyncClick'
+                click: 'dangerOnClick'
             }
         },{
             xtype:'button',

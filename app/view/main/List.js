@@ -34,7 +34,12 @@ Ext.define('tool_control_system.view.main.List', {
     },
 
     columns: [
-        { text: 'ID',  dataIndex: 'id', width: 50 },
+        {   
+            text : 'No',
+            xtype: 'rownumberer'
+        },
+
+        // { text: 'ID',  dataIndex: 'id', width: 50 },
 
         { 
             
@@ -212,21 +217,23 @@ Ext.define('tool_control_system.view.main.List', {
             }]  /*, flex: 1*/ 
         },
         
-        { text: 'Machine<br>Counter', dataIndex: 'machine_counter', /*, flex: 1*/ },
-        { text: 'Total<br>Delivery', dataIndex: 'total_delivery'/*, flex: 1*/ },
-        { text: 'Total<br>Shoot', dataIndex: 'total_shoot'/*, flex: 1*/ },
-        { text: 'month1', dataIndex: 'month1'/*, flex: 1*/ },
-        { text: 'month2', dataIndex: 'month2'/*, flex: 1*/ },
-        { text: 'month3', dataIndex: 'month3'/*, flex: 1*/ },
-        { text: 'month4', dataIndex: 'month4'/*, flex: 1*/ },
-        { text: 'month5', dataIndex: 'month5'/*, flex: 1*/ },
-        { text: 'Total<br>Qty', dataIndex: 'total_qty'/*, flex: 1*/ },
-        { text: 'Total Shoot <br> Forecast', dataIndex: 'total_shoot_forecast'/*, flex: 1*/ },
-        { text: 'Guarantee<br>Shoot', dataIndex: 'guarantee_shoot'/*, flex: 1*/ },
+        { text: 'Machine<br>Counter', dataIndex: 'machine_counter', xtype: 'numbercolumn', format:'0,000' },
+        { text: 'Total<br>Delivery', dataIndex: 'total_delivery', xtype: 'numbercolumn', format:'0,000' },
+        { text: 'Total<br>Shoot', dataIndex: 'total_shoot', xtype: 'numbercolumn', format:'0,000' },
+        { text: 'month1', dataIndex: 'month1', xtype: 'numbercolumn', format:'0,000' },
+        { text: 'month2', dataIndex: 'month2', xtype: 'numbercolumn', format:'0,000' },
+        { text: 'month3', dataIndex: 'month3', xtype: 'numbercolumn', format:'0,000' },
+        { text: 'month4', dataIndex: 'month4', xtype: 'numbercolumn', format:'0,000'},
+        { text: 'month5', dataIndex: 'month5', xtype: 'numbercolumn', format:'0,000'},
+        { text: 'Total<br>Qty', dataIndex: 'total_qty', xtype: 'numbercolumn', format:'0,000' },
+        { text: 'Total Shoot <br> Forecast', dataIndex: 'total_shoot_forecast', xtype: 'numbercolumn', format:'0,000' },
+        { text: 'Guarantee<br>Shoot', dataIndex: 'guarantee_shoot', xtype: 'numbercolumn', format:'0,000' },
         { 
             text: 'Balance<br>Shoot', 
             dataIndex: 'balance_shoot',
-            renderer : function (value, meta){
+            xtype: 'numbercolumn', 
+            format:'0,000',
+            /*renderer : function (value, meta){
                 if(parseInt(value) >= 0) {
                     meta.style = "background-color:#3bd368;color:white;";
 
@@ -235,11 +242,11 @@ Ext.define('tool_control_system.view.main.List', {
                 }
 
                 return value;
-            }
+            }*/
         },
-        { text: 'Guarantee<br>Remains', dataIndex: 'guarantee_remains'/*, flex: 1*/ },
-        { text: 'Validation<br>Date', dataIndex: 'validation_date'/*, flex: 1*/ },
-        { text: 'Remark', dataIndex: 'remark'/*, flex: 1*/ }
+        { text: 'Guarantee<br>Remains', dataIndex: 'guarantee_remains', xtype: 'numbercolumn', format:'0,000' },
+        { text: 'Validation<br>Date', dataIndex: 'validation_date', xtype: 'numbercolumn', format:'0,000' },
+        { text: 'Remark', dataIndex: 'remark', xtype: 'numbercolumn', format:'0,000' }
     ],
 
     bbar: [{
