@@ -132,8 +132,7 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
     saveOnClick : function (){
     	// console.log('saveOnClick')
         //reload toolpart store
-        this.reloadToolpart();
-        return;
+        // return;
 
         param = this.getElementValue();
         components = this.getElement();
@@ -161,7 +160,8 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
             }
         });
 
-        
+        //reload yng blm berhasil
+        this.reloadToolpart();
 
         this.cancelOnClick();
     },
@@ -354,10 +354,37 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
                         displayInfo: true
                     }],
 
-                    plugin : {
+                    /*plugin : {
                         ptype: 'rowediting',
                         clicksToEdit: 2
-                    },
+                    },*/
+                    plugins: [{
+                        ptype: 'rowediting',
+                        clicksToEdit: 2,
+                        pluginId: 'RowEditing',
+                        // autoUpdate : true
+                        listeners: {
+                            cancelEdit: function(rowEditing, context) {
+                                // Canceling editing of a locally added, unsaved record: remove it
+                                if (context.record.phantom) {
+                                    var store = Ext.data.StoreManager.lookup('Daily_outputs');
+                                    store.remove(context.record);
+                                }
+                                console.log({
+                                    rowEditing, context
+                                })
+                                console.log('cancelEdit')
+                            },
+                            edit:  function (editor, e){
+                                console.log({
+                                    editor, e
+                                })
+
+                                // e.record.commit();
+                                e.record.store.sync();
+                            }
+                        }
+                    }],
 
                     columns: [
                         {   
@@ -422,6 +449,7 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
                                 pack: 'center',
                                 align: 'stretch'
                             },
+                            editor : 'textfield',
                             items : [{
                                 xtype:'textfield',
                                 name: 'search_by_cavity_modal',

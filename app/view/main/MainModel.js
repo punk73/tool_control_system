@@ -10,9 +10,9 @@ Ext.define('tool_control_system.view.main.MainModel', {
         name: 'Automata',
 
         notif : {
-            danger  : 0,
-            warning : 2,
-            save    : 6
+            danger  : null,
+            warning : null,
+            safe    : null
         },
 
         btn_sync: {

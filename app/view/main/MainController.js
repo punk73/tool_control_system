@@ -37,7 +37,11 @@ Ext.define('tool_control_system.view.main.MainController', {
     onSyncClick :  function (){
         console.log('SYNC!!');
         store = this.getViewModel().getStore('datas');
+        // untuk membersihkan searh filtering;
         this.clearParam();
+
+        //kirim ajax untuk hapus part_details dan tool_details hari ini;
+        
         
         store.loadData([], false );
         store.load();
@@ -193,6 +197,11 @@ Ext.define('tool_control_system.view.main.MainController', {
         var viewModel = this.getViewModel();
         var store = viewModel.getStore('part_details');
         store.loadData(data.details, false);
+        store.load({
+            params: {
+                part_id: data.id
+            }
+        })
     },
 
     onDetailClick : function (grid, rowIndex, colIndex){
@@ -267,12 +276,24 @@ Ext.define('tool_control_system.view.main.MainController', {
         })
     },
 
-    dangerOnClick : function (){
+    notifOnClick : function (button){
         store = this.getViewModel().getStore('datas');
+        name = button.name;
+        param = {}
+
+        if (name == 'btn-info') {
+            param.safe = true;
+        }else if (name == 'btn-danger'){
+            param.danger = true;
+        }else if (name == 'btn-warning'){
+            param.warning = true;
+        }
+
+        console.log(param)
+        // return;
+
         store.load({
-            params: {
-                danger : true
-            },
+            params: param,
             callback : function (records, operation, success){
                 if (!success) {
                     console.log({

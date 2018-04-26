@@ -14,7 +14,8 @@ Ext.define('tool_control_system.view.part.list.AllModel', {
     		type : 'parts'
     	},
         part_details : {
-            type : 'part_details'
+            type : 'part_details',
+            autoLoad: false
         }
     }
 

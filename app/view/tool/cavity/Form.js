@@ -112,6 +112,8 @@ Ext.define('tool_control_system.view.tool.cavity.Form',{
             bind:{
                 value: '{cavity}'
             },
+            minValue : 0.1,
+            step : 0.1,
             fieldLabel: 'Cavity',
             disabled: true,
             allowBlank: false

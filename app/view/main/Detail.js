@@ -155,6 +155,7 @@ Ext.define('tool_control_system.view.main.Detail', {
       //override the buttons;
       buttons:[]
     },
+
     {
       xtype :'panel',
       layout: 'border',
@@ -186,6 +187,7 @@ Ext.define('tool_control_system.view.main.Detail', {
         }
       ]
     },
+    
     {
       title : 'Forcast & Pck31 Data',
       xtype :'panel',

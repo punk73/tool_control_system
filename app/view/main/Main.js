@@ -123,7 +123,31 @@ Ext.define('tool_control_system.view.main.Main', {
         var a = this.access_level;
         
         if (a == 1) {
-            
+            self = this;
+            //send ajax to determine count data
+            Ext.Ajax.request({
+                url: 'http://'+tool_control_system.util.Config.hostname()+'/tool_control/public/api/datas/count',
+                method: 'GET',
+                params: {
+                    token : token
+                },
+                success: function (response, opts){
+                    console.log('success')
+                    //console.log({response, opts})
+                    res = JSON.parse(response.responseText);
+                    data = res.data;
+
+                    //set to viewModel
+                    viewModel = self.getViewModel();
+                    console.log({data,viewModel})
+                    viewModel.set('notif', data)
+
+                },
+                failure : function(response, opts){
+
+                }
+            })
+
             this.items = [
                 {
                     title: 'Home',

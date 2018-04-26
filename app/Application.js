@@ -63,10 +63,10 @@ Ext.define('tool_control_system.Application', {
                     xtype: 'app-main',
                     access_level : level
                 });
+
             },
             failure: function(response, opts) {
                 // console.log({response, opts})
-                
                 Ext.create({
                     xtype: 'login'
                 });

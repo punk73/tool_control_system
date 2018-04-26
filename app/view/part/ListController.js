@@ -61,8 +61,11 @@ Ext.define('tool_control_system.view.part.ListController', {
     },
 
     onCancel : function (){
-        btn_delete = Ext.ComponentQuery.query('button[name=btn_delete_part_list]')[0];
-        btn_delete.disable();
+        //tidak jadi karena button dihapus
+        /*btn_delete = Ext.ComponentQuery.query('button[name=btn_delete_part_list]')[0];
+        if (typeof btn_delete != undefined) {
+            btn_delete.disable();
+        }*/
     },
 
     //this is listener. this controller listen to another controller to fire specific event that already 

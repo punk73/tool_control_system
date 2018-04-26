@@ -15,19 +15,13 @@ Ext.define('tool_control_system.view.tool.cavity.List',{
 
     xtype: 'cavity_list',
 
-    autoScroll: true,
+    // autoScroll: true, //kalau di true, nanti editor nya ga jalan
 
     viewConfig  : {
         stripeRows           : true,
         forcaFit             : true,
         enableTextSelection  : true
     },
-
-    /*selModel: 'rowmodel',
-    plugins: {
-        ptype: 'rowediting',
-        clicksToEdit: 1
-    },*/
 
     height: 140,
 
@@ -99,6 +93,9 @@ Ext.define('tool_control_system.view.tool.cavity.List',{
             dataIndex: 'cavity', 
             enableTextSelection  : true,
             flex : 1,
+            editor : {
+                xtype : 'textfield'
+            },
             layout: {
                 type: 'vbox',
                 pack: 'center',

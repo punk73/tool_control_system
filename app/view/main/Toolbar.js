@@ -32,6 +32,7 @@ Ext.define("tool_control_system.view.main.Toolbar", {
             format: 'Y-m-d',          
             allowBlank: true,
             emptyText:'yyyy-mm-dd',
+            maxValue : new Date(),
             value: new Date(),
             fieldLabel:'Tanggal',
             listeners: {
@@ -50,7 +51,7 @@ Ext.define("tool_control_system.view.main.Toolbar", {
             },
             tooltip: 'Tool Already Over Guarantee!!',
             listeners: {
-                click: 'dangerOnClick'
+                click: 'notifOnClick'
             }
         },{
             xtype:'button',
@@ -62,9 +63,9 @@ Ext.define("tool_control_system.view.main.Toolbar", {
             bind: {
                 text : '{notif.warning}'
             },
-            tooltip: 'Tool Over Guarantee Within 6 weeks!',
+            tooltip: 'Tool Over Guarantee Within 5 months!',
             listeners: {
-                // click: 'onSyncClick'
+                click: 'notifOnClick'
             }
         },{
             xtype:'button',
@@ -74,11 +75,11 @@ Ext.define("tool_control_system.view.main.Toolbar", {
                 'color' : 'red'
             },
             bind: {
-                text : '{notif.save}'
+                text : '{notif.safe}'
             },
             tooltip: 'SAVE ~',
             listeners: {
-                // click: 'onSyncClick'
+                click: 'notifOnClick'
             }
         }
     ]

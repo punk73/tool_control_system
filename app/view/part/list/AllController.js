@@ -72,9 +72,19 @@ Ext.define('tool_control_system.view.part.list.AllController', {
 
     onSelectItem: function (sender, item){
         var data = item.data;
+        // console.log(data)
         var viewModel = this.getViewModel();
         var store = viewModel.getStore('part_details');
         store.loadData(data.details, false);
+        store.load({
+            params: {
+                part_id: data.id
+            },
+            callback: function (){
+                
+            }
+        })
+        
     }
 
 });
