@@ -65,7 +65,6 @@ Ext.define('tool_control_system.view.main.MainController', {
             })
 
         }
-
     },
 
     getElementValue : function (){
@@ -77,6 +76,9 @@ Ext.define('tool_control_system.view.main.MainController', {
             if (!elements.hasOwnProperty(key)) continue;
             if (elements[key].value != '') {
                 result[key] = elements[key].value; 
+                if (key == 'trans_date') {
+                    result[key] = elements[key].rawValue;
+                }
             }                
         }
 
@@ -102,7 +104,7 @@ Ext.define('tool_control_system.view.main.MainController', {
             model: Ext.ComponentQuery.query('textfield[name=search_by_model]')[0],
             no_of_tooling: Ext.ComponentQuery.query('textfield[name=search_by_no_of_tooling]')[0],
             cavity: Ext.ComponentQuery.query('textfield[name=search_by_cavity]')[0],
-            
+            trans_date: Ext.ComponentQuery.query('textfield[name=trans_date]')[0],
         }
     },
 
@@ -263,7 +265,7 @@ Ext.define('tool_control_system.view.main.MainController', {
     },
 
     onTransDateChange : function (){
-        transDate = Ext.ComponentQuery.query('textfield[name=trans_date]')[0].rawValue;
+        /*transDate = Ext.ComponentQuery.query('textfield[name=trans_date]')[0].rawValue;
         modelView = this.getViewModel();
         store = modelView.getStore('datas')
 
@@ -273,6 +275,23 @@ Ext.define('tool_control_system.view.main.MainController', {
             callback : function (records, operation, success){
                 console.log({records, operation, success})
             }
+        })*/
+
+        params = this.getElementValue();
+        store = this.getViewModel().getStore('datas');
+        console.log({params, store})
+        // return;
+
+        store.loadData([], false);
+        store.load({
+            params: params,
+            callback: function (records, operation, success){
+                if (success && store.totalCount == 0 ){
+                    var message = '';
+                    Ext.Msg.alert('Info', message + 'Data Kosong!');
+                }   
+            }
+
         })
     },
 
@@ -300,6 +319,31 @@ Ext.define('tool_control_system.view.main.MainController', {
                         records, operation, success
                     })
                 }
+            }
+        })
+    },
+
+    reloadNotifOnClick : function (button){
+        Ext.Ajax.request({
+            url: 'http://'+tool_control_system.util.Config.hostname()+'/tool_control/public/api/datas/count',
+            method: 'GET',
+            params: {
+                token : token
+            },
+            success: function (response, opts){
+                // console.log('success')
+                //console.log({response, opts})
+                res = JSON.parse(response.responseText);
+                data = res.data;
+
+                //set to viewModel
+                viewModel = self.getViewModel();
+                // console.log({data,viewModel})
+                viewModel.set('notif', data)
+
+            },
+            failure : function(response, opts){
+
             }
         })
     }

@@ -244,8 +244,8 @@ Ext.define('tool_control_system.view.main.List', {
                 return value;
             }*/
         },
-        { text: 'Guarantee<br>Remains', dataIndex: 'guarantee_remains', xtype: 'numbercolumn', format:'0,000' },
-        { text: 'Validation<br>Date', dataIndex: 'validation_date', xtype: 'numbercolumn', format:'0,000' },
+        { text: 'Guarantee<br>Remains<br>(In Month)', dataIndex: 'guarantee_remains', xtype: 'numbercolumn', format:'0,000' },
+        { text: 'Validation<br>Date', dataIndex: 'validation_date' },
         { text: 'Remark', dataIndex: 'remark', xtype: 'numbercolumn', format:'0,000' }
     ],
 

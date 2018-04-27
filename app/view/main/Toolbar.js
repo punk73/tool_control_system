@@ -81,6 +81,17 @@ Ext.define("tool_control_system.view.main.Toolbar", {
             listeners: {
                 click: 'notifOnClick'
             }
+        },{
+            xtype:'button',
+            name : 'btn-reload-notif',
+            bind:{
+                icon : '{icons.sync}',
+            },
+            // text : 'Reload',
+            tooltip: 'Reload Notification',
+            listeners: {
+                click: 'reloadNotifOnClick'
+            }
         }
     ]
         

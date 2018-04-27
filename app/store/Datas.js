@@ -26,7 +26,9 @@ Ext.define('tool_control_system.store.Datas', {
         
         reader: {
             type: 'json',
-            rootProperty: 'data'
+            rootProperty: 'data',
+            totalProperty: 'total',
+            idProperty: 'id'
         }
     },
 

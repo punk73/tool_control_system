@@ -191,15 +191,15 @@ Ext.define('tool_control_system.model.Data', {
             name: 'total_shoot_forecast', 
             type: 'auto',
             mapping : function (data){
-                /*if (data.part) {
+                if (data.part) {
                     if (data.forecast) {
                         return (data.part.total_delivery+data.forecast.total) / data.cavity ;
                     }
 
                     return data.part.total_delivery / data.cavity
-                }*/
+                }
 
-                return data.total_shoot;
+                // return data.total_shoot;
 
             } 
         }, // ( pck31.total_delivery + sum(months) ) / toolpart.cavity
@@ -247,7 +247,10 @@ Ext.define('tool_control_system.model.Data', {
         //belum ada //atau bisa jadi diambil dari tanggal terakhir isi machine counter
         { 
                 name: 'validation_date', 
-                type: 'auto' 
+                type: 'auto',
+                mapping:  function (data){
+                    return data.trans_date
+                }
         },
 
         { 
