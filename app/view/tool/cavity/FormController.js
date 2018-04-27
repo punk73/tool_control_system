@@ -103,6 +103,7 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
             tool_number = Ext.ComponentQuery.query('textfield[name=search_by_tool_modal]')[0]
             part_number = Ext.ComponentQuery.query('textfield[name=search_by_part_modal]')[0]
             cavity = Ext.ComponentQuery.query('textfield[name=search_by_cavity_modal]')[0]
+            supplier_name = Ext.ComponentQuery.query('textfield[name=search_by_supplier_name_modal]')[0]
             
 
             // return;
@@ -118,6 +119,10 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
             if (cavity.value !='') {
                 value.cavity      = cavity.value 
             }    
+
+            if (cavity.supplier_name !='') {
+                value.supplier_name  = supplier_name.value 
+            }            
 
             // console.log(store)
             store.load({
@@ -354,10 +359,6 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
                         displayInfo: true
                     }],
 
-                    /*plugin : {
-                        ptype: 'rowediting',
-                        clicksToEdit: 2
-                    },*/
                     plugins: [{
                         ptype: 'rowediting',
                         clicksToEdit: 2,
@@ -391,6 +392,31 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
                             text : 'No',
                             xtype: 'rownumberer'
                         },
+
+                        { 
+                            text: 'Supplier Name',  
+                            dataIndex: 'supplier_name', 
+                            enableTextSelection  : true,
+                            flex : 1,
+                            layout: {
+                                type: 'vbox',
+                                pack: 'center',
+                                align: 'stretch'
+                            },
+                            items : [{
+                                xtype:'textfield',
+                                name: 'search_by_supplier_name_modal',
+                                margin : 3,
+                                flex: 2,
+                                emptyText : 'Searh',
+                                tooltip :'Search By Supplier',
+                                enableKeyEvents: true,
+                                listeners: {
+                                    keyup: 'onSearchInModal'
+                                }
+                            }] 
+                        },
+
 
                         { 
                             text: 'Tool No',  

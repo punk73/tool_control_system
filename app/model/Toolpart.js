@@ -6,6 +6,24 @@ Ext.define('tool_control_system.model.Toolpart', {
         { name: 'tool_id', type: 'int' },
         { name: 'part_id', type: 'int' },
         { name: 'cavity', type: 'int' },
+        {
+            name : 'is_independent', 
+            type : 'int'
+        },
+
+        /*order is MATTER !!!!!!! if put this under the tool, everythings will MESS UP*/
+        { 
+            name: 'supplier_name', 
+            type: 'auto',
+            mapping: function(data){
+                if (data.tool) {
+                  if(data.tool.supplier){
+                    return data.tool.supplier.name;
+                  }
+                }
+            }
+        },
+
         { 
         	name: 'tool', 
         	type: 'auto',
@@ -15,6 +33,7 @@ Ext.define('tool_control_system.model.Toolpart', {
                 }
         	}
         },
+
         { 
         	name: 'part',
         	type: 'auto', 
@@ -24,10 +43,7 @@ Ext.define('tool_control_system.model.Toolpart', {
                     
                 }
 	        } 
-	    },{
-            name : 'is_independent', 
-            type : 'int'
-        }
+	    }
     ]
 
 });

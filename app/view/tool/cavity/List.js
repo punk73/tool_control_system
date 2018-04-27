@@ -41,6 +41,30 @@ Ext.define('tool_control_system.view.tool.cavity.List',{
             xtype: 'rownumberer'
         },
 
+        /*{ 
+            text: 'Supplier Name',  
+            dataIndex: 'supplier_name', 
+            enableTextSelection  : true,
+            flex : 1,
+            layout: {
+                type: 'vbox',
+                pack: 'center',
+                align: 'stretch'
+            },
+            items : [{
+                xtype:'textfield',
+                name: 'search_by_supplier_name_modal',
+                margin : 3,
+                flex: 2,
+                emptyText : 'Searh',
+                tooltip :'Search By Supplier',
+                enableKeyEvents: true,
+                listeners: {
+                    keyup: 'onSearchInModal'
+                }
+            }] 
+        },*/
+
         { 
             text: 'Tool No',  
             dataIndex: 'tool', 
