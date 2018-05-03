@@ -53,7 +53,7 @@ Ext.define("tool_control_system.view.main.Toolbar", {
             listeners: {
                 click: 'notifOnClick'
             }
-        },{
+        },/*{
             xtype:'button',
             name : 'btn-warning',
             icon : 'resources/warning.png',
@@ -67,7 +67,7 @@ Ext.define("tool_control_system.view.main.Toolbar", {
             listeners: {
                 click: 'notifOnClick'
             }
-        },{
+        },*/{
             xtype:'button',
             name : 'btn-info',
             icon : 'resources/info.png',
