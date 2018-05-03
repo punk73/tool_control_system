@@ -5,7 +5,7 @@ Ext.define('tool_control_system.model.Toolpart', {
         { name: 'id', type: 'int' },
         { name: 'tool_id', type: 'int' },
         { name: 'part_id', type: 'int' },
-        { name: 'cavity', type: 'int' },
+        { name: 'cavity', type: 'float' },
         {
             name : 'is_independent', 
             type : 'int'

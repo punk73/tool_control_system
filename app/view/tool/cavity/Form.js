@@ -45,7 +45,7 @@ Ext.define('tool_control_system.view.tool.cavity.Form',{
             valueField:'id',
             fieldLabel: 'Supplier',
             listeners:{
-                'change' : 'suppliersOnChange'
+                'select' : 'suppliersOnChange'
             },
             allowBlank: false
         },
@@ -67,7 +67,7 @@ Ext.define('tool_control_system.view.tool.cavity.Form',{
             queryMode: 'local',
             fieldLabel: 'Tool Number',
             listeners:{
-                'change' : 'toolOnChange'
+                'select' : 'toolOnChange'
             },
             allowBlank: false
         },{
@@ -90,7 +90,7 @@ Ext.define('tool_control_system.view.tool.cavity.Form',{
                 store: '{parts}'
             },
             listeners:{
-                'change' : 'partOnChange'
+                'select' : 'partOnChange'
             },
             disabled: true,
             queryMode: 'local', 

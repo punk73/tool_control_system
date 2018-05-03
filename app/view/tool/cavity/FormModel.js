@@ -12,11 +12,13 @@ Ext.define('tool_control_system.view.tool.cavity.FormModel', {
     },
     stores:{
         tools :{
-            type : 'all_tools'
+            type : 'all_tools',
+            autoLoad: false
         },
         
         parts :{
-            type : 'all_parts'
+            type : 'all_parts',
+            autoLoad: false
         },
 
         suppliers : {

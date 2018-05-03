@@ -3,31 +3,35 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
     alias: 'controller.tool-cavity-form',
 
     suppliersOnChange : function (){
-        elementValue = this.getElementValue();
-        tools = this.getViewModel().getStore('tools');
-        parts = this.getViewModel().getStore('parts');
-        supplier_id = elementValue.supplier_id;
-        element = this.getElement();
-        element.tool_number.enable();
-        element.part_number.enable();
+        self = this;
 
-        params = {
-            supplier_id : supplier_id
-        }
+        setTimeout(function() {
+            elementValue = self.getElementValue();
+            tools = self.getViewModel().getStore('tools');
+            parts = self.getViewModel().getStore('parts');
+            supplier_id = elementValue.supplier_id;
+            element = self.getElement();
+            element.tool_number.enable();
+            element.part_number.enable();
 
-        tools.load({
-            params : params,
-            callback : function (a,b,c){
-                console.log({a,b,c})
+            params = {
+                supplier_id : supplier_id
             }
-        })
 
-        parts.load({
-            params : params,
-            callback : function (a,b,c){
-                console.log({a,b,c})
-            }
-        })
+            tools.load({
+                params : params,
+                callback : function (a,b,c){
+                    console.log({a,b,c})
+                }
+            })
+
+            parts.load({
+                params : params,
+                callback : function (a,b,c){
+                    console.log({a,b,c})
+                }
+            })
+        }, 100);
     },
 
     toolOnChange : function (){
