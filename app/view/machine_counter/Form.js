@@ -77,6 +77,7 @@ Ext.define('tool_control_system.view.machine_counter.Form',{
             name: 'machine_counter',
             fieldLabel: 'Machine Counter',
             disabled: true,
+            autoStripChars: true,
             minValue: 0,
             bind: {
                 value : '{model.machine_counter}'
