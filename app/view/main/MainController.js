@@ -198,12 +198,23 @@ Ext.define('tool_control_system.view.main.MainController', {
         var data = item.data;
         var viewModel = this.getViewModel();
         var store = viewModel.getStore('part_details');
+
+        /*console.log({
+            data,
+            viewModel,
+            store
+        })*/
+        pivot = data.pivot;
+        viewModel.set('toolpart', pivot )
+
         store.loadData(data.details, false);
         store.load({
             params: {
                 part_id: data.id
             }
         })
+
+        //ganti cavity disini
     },
 
     onDetailClick : function (grid, rowIndex, colIndex){
