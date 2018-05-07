@@ -1,6 +1,8 @@
 Ext.define('tool_control_system.view.part.list.AllController', {
     extend: 'Ext.app.ViewController',
+    
     alias: 'controller.part-list-all',
+    
 
     onSearch : function (component, e){
     	if (e.keyCode == 13) {
@@ -84,6 +86,42 @@ Ext.define('tool_control_system.view.part.list.AllController', {
                 
             }
         })
+        
+    },
+
+    showSemiPart :  function (grid, rowIndex, colIndex){
+        var model = grid.getStore().getAt(rowIndex);
+        var data = model.data;
+        var self = this;
+        console.log({self})
+        this.fireEvent('onInit');
+        this.fireEvent('onCancelClicked')
+
+        model.load({
+            params: {
+                id : model.id
+            },
+            success: function(part){
+
+                //to fire event in list controller
+                // the first argument is the name of event in another controller
+                self.fireEvent('changeParamPartRelation');
+
+                Ext.create('Ext.window.Window', {
+                    // title: 'CHART',
+                    height: 600,
+                    width: 1100,
+                    maximizable : true,
+                    layout: 'fit',
+                    modal :true,
+                    items: [{
+                        xtype : 'part_part_relation_List',
+
+                    }]
+                }).show();
+            }
+        })
+
         
     }
 

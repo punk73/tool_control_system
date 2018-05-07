@@ -24,6 +24,24 @@ Ext.define('tool_control_system.model.Part_relation', {
         		}
         	}
         },
+        { 
+            name: 'parent_part_no', 
+            type: 'auto',
+            mapping : function (data){
+                if (data.parent_part) {
+                    return data.parent_part.no
+                }
+            }
+        },
+        { 
+            name: 'children_part_no', 
+            type: 'auto',
+            mapping : function (data){
+                if (data.children_part) {
+                    return data.children_part.no
+                }
+            }
+        },
 
 
     ]

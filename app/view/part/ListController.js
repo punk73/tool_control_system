@@ -66,6 +66,7 @@ Ext.define('tool_control_system.view.part.ListController', {
         if (typeof btn_delete != undefined) {
             btn_delete.disable();
         }*/
+        console.log('onCancel triggered')
     },
 
     //this is listener. this controller listen to another controller to fire specific event that already 

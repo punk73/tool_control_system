@@ -14,7 +14,8 @@ Ext.define('tool_control_system.view.part.list.All', {
         'tool_control_system.view.part.list.Part_details',
         //viewController & viewModel
         'tool_control_system.view.part.list.AllController',
-        'tool_control_system.view.part.list.AllModel'
+        'tool_control_system.view.part.list.AllModel',
+        'tool_control_system.view.part.part_relation.List',
     ],
 
     controller: 'part-list-all',

@@ -1,7 +1,8 @@
 Ext.define('tool_control_system.view.part.part_relation.FormController', {
     extend: 'Ext.app.ViewController',
+    
     alias: 'controller.part-part_relation-form',
-
+    
     onSaveClick: function (){
     	param = this.getElementValue();
     	components = this.getElement();
@@ -238,6 +239,22 @@ Ext.define('tool_control_system.view.part.part_relation.FormController', {
 
     	components.parent_part_name.enable();
     	components.children_part_name.enable();
+    },
+
+    changesPartRelationsStore : function (){
+        console.log('changesPartRelationsStore')
+        console.log('asdfhsad;hklfsadfsajkl')
+    },
+
+    //this is listener. this controller listen to another controller to fire specific event that already 
+    //configured like below
+    listen : {
+        controller : {
+            'part-list-all' : { //this is controller alias name
+                //name of the event : //method to trigger here
+                'onInit': 'changesPartRelationsStore'
+            }
+        }
     }
 
 });

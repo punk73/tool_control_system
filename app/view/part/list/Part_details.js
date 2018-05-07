@@ -26,8 +26,13 @@ Ext.define('tool_control_system.view.part.list.Part_details',{
     },
 
     columns: [
-        { text: 'Total Delivery',  dataIndex: 'total_delivery', flex: 2 },
-        { text: 'Total Qty', dataIndex: 'total_qty', flex: 2 },
+        {   
+            text : 'No',
+            xtype: 'rownumberer'
+        },
+        
+        { text: 'Total Delivery', xtype:'numbercolumn',  dataIndex: 'total_delivery', format:'0,000', flex: 2 },
+        // { text: 'Total Qty', xtype:'numbercolumn', dataIndex: 'total_qty', format:'0,000', flex: 2 },
         { text: 'Transaction Date', dataIndex: 'trans_date', flex: 2 }
     ],
 });

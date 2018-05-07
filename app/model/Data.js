@@ -193,6 +193,7 @@ Ext.define('tool_control_system.model.Data', {
 
                     return data.part.total_delivery
                 }
+                // return data.forecast.total;
             }  
         }, //pck31.total_delivery + sum(months)
 
@@ -228,15 +229,19 @@ Ext.define('tool_control_system.model.Data', {
             name: 'balance_shoot', 
             type: 'auto',
             mapping: function(data){
-                /*var tool = data.tool, part = data.part, forecast = data.forecast;
-                if (tool) {
-                    if (part) {
-                        if (forecast) {
-                            return  tool.guarantee_shoot - (part.total_delivery+forecast.total)/data.cavity;
-                        }
+                var tool = data.tool, part = data.part, forecast = data.forecast;
+
+                // return part.pivot.cavity;
+                // return data.guarantee_shoot
+                //return (part.total_delivery+forecast.total )/part.pivot.cavity;
+                if (part) {
+                    if (forecast) {
+                        
+                        return  (data.guarantee_shoot - ((part.total_delivery+forecast.total)/part.pivot.cavity) );
                     }
-                }*/
-                return data.balance_shoot;
+                }
+                
+                //return data.balance_shoot;
             }  
         }, //tool (guarantee_shoot - total_shoot)
 

@@ -59,8 +59,10 @@ Ext.define('tool_control_system.view.main.List', {
             renderer : function (value, meta){
                 // console.log({value, meta})
                 data = this.up().grid.getStore().getAt(meta.rowIndex).data//.getStore().getAt(meta.rowIndex)
-                balance_shoot = data.balance_shoot;
-                if(parseInt(balance_shoot) >= 0) {
+                // console.log({data})
+                guarantee_after_forecast = data.guarantee_after_forecast;
+                //yg habis dalam 6 bulan kedepan 
+                if(parseInt(guarantee_after_forecast) > 6) {
                     meta.style = "background-color:#3bd368;color:white;";
                     // return 'OK';
                 } else {
@@ -246,8 +248,8 @@ Ext.define('tool_control_system.view.main.List', {
             }*/
         },
         { text: 'Guarantee<br>Remains<br>(In Month)', dataIndex: 'guarantee_remains', xtype: 'numbercolumn', format:'0,000' },
-        { text: 'Validation<br>Date', dataIndex: 'validation_date' },
-        { text: 'Remark', dataIndex: 'remark', xtype: 'numbercolumn', format:'0,000' }
+        /*{ text: 'Validation<br>Date', dataIndex: 'validation_date' },
+        { text: 'Remark', dataIndex: 'remark', xtype: 'numbercolumn', format:'0,000' }*/
     ],
 
     bbar: [{

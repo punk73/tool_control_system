@@ -28,9 +28,13 @@ Ext.define('tool_control_system.view.part.part_relation.List',{
     },
 
     columns: [
-        { text: 'ID',  dataIndex: 'id', flex: 1 },
-        { text: 'parent_part_name',  dataIndex: 'parent_part_name', flex: 3 },
-        { text: 'children_part_name', dataIndex: 'children_part_name', flex: 3 }
+        // { text: 'ID',  dataIndex: 'id', flex: 1 },
+        {   
+            text : 'No',
+            xtype: 'rownumberer'
+        },
+        { text: 'parent_part_name',  dataIndex: 'parent_part_no', flex: 3 },
+        { text: 'children_part_name', dataIndex: 'children_part_no', flex: 3 }
     ],
 
     bbar :[{

@@ -14,6 +14,8 @@ Ext.define('tool_control_system.store.Parts', {
 
         enablePaging:true,
 
+        appendId: true,
+        
         extraParams: {
             token : tool_control_system.util.Config.getToken() //
         },

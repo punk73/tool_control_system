@@ -26,6 +26,27 @@ Ext.define('tool_control_system.view.part.list.Parts',{
     },
 
     columns: [
+        {   
+            text : 'No',
+            xtype: 'rownumberer'
+        },
+
+        {
+            align: 'center',
+            width: 50,
+            xtype: 'actioncolumn',
+            items: [
+               {
+                  xtype: 'button',
+                  iconCls: 'x-fa fa-info',
+                  tooltip: 'Details',
+                  scale: 'small',
+                  handler: 'showSemiPart',
+                  margin: 3
+               }
+            ]
+        },
+        
         { text: 'Part Number',  dataIndex: 'no', flex: 2, 
             layout: {
                 type: 'vbox',
@@ -91,7 +112,7 @@ Ext.define('tool_control_system.view.part.list.Parts',{
                 }
             }] 
         },
-        { text: 'First Value', dataIndex: 'first_value', flex: 2, layout: {
+        { text: 'First Value', dataIndex: 'first_value', xtype:'numbercolumn', format:'0,000', flex: 2, layout: {
                 type: 'vbox',
                 pack: 'center',
                 align: 'stretch'
