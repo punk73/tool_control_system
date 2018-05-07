@@ -225,6 +225,7 @@ Ext.define('tool_control_system.view.main.List', {
         { text: 'month3', dataIndex: 'month3', xtype: 'numbercolumn', format:'0,000' },
         { text: 'month4', dataIndex: 'month4', xtype: 'numbercolumn', format:'0,000'},
         { text: 'month5', dataIndex: 'month5', xtype: 'numbercolumn', format:'0,000'},
+        { text: 'month6', dataIndex: 'month6', xtype: 'numbercolumn', format:'0,000'},
         { text: 'Total<br>Qty', dataIndex: 'total_qty', xtype: 'numbercolumn', format:'0,000' },
         { text: 'Total Shoot <br> Forecast', dataIndex: 'total_shoot_forecast', xtype: 'numbercolumn', format:'0,000' },
         { text: 'Guarantee<br>Shoot', dataIndex: 'guarantee_shoot', xtype: 'numbercolumn', format:'0,000' },

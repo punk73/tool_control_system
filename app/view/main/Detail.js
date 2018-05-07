@@ -319,6 +319,13 @@ Ext.define('tool_control_system.view.main.Detail', {
               bind:{
                   value: '{forecast.month5}'
               }
+            },{
+              xtype: 'textfield',
+              fieldLabel: 'Month 6th',
+              emptyText : 'Data Empty',
+              bind:{
+                  value: '{forecast.month6}'
+              }
             }
           ]
         }, {

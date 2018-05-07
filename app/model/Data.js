@@ -173,6 +173,16 @@ Ext.define('tool_control_system.model.Data', {
         }, //forecast
 
         { 
+            name: 'month6', 
+            type: 'auto',
+            mapping: function(data){
+                if (data.forecast) {
+                  return data.forecast.month6;  
+                }
+            }  
+        },
+
+        { 
             name: 'total_qty', //untuk total qty untill
             type: 'auto',
             mapping: function(data){
