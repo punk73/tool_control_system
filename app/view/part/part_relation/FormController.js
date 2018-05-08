@@ -42,7 +42,7 @@ Ext.define('tool_control_system.view.part.part_relation.FormController', {
             }
 
             if (search_by_children_part_no != '') {
-                param.parent_part_no = search_by_children_part_no
+                param.children_part_no = search_by_children_part_no
             }
 
             console.log({

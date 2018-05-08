@@ -42,9 +42,12 @@ Ext.define('tool_control_system.view.main.MainController', {
 
         //kirim ajax untuk hapus part_details dan tool_details hari ini;
         
-        
         store.loadData([], false );
-        store.load();
+        store.load({
+            params: {
+                hard_load: true //hapus tool_details
+            }
+        });
     },
 
     onSearch : function (component, e){
