@@ -31,50 +31,28 @@ Ext.define('tool_control_system.view.part.part_relation.FormController', {
     onSearch : function(component, e){
 
     	if (e.keyCode == 13) {
-    		part_no = this.getElementValue().no;
-    		store = this.getViewModel().getStore('parts');
-    		viewModel = this.getViewModel();
-    		element = this.getElement();
-            tools = this.getViewModel().getParent().getStore('tools'); //list store
-            tools.loadData([], false); //kosongkan dulu
-            self = this;
-            
-            store.load({
-                params: {
-                    no: part_no
-                },
-                callback: function (records,operation,success){
-                    var model = store.findRecord('no', part_no);
-                    // console.log(model.id, tools)
-                    if(model != null){
-                        //for setup date of first value
-                        
-                        viewModel.setData({
-                            model : model,
-                            btn_save: {
-                                text: 'Update'
-                            }
-                        });
+    		search_by_children_part_no = this.getElementValue().search_by_children_part_no;
+            search_by_parent_part_no = this.getElementValue().search_by_parent_part_no;
 
-                        tools.loadData(model.get('tools'), false); //kosongkan dulu
-                        
-                        self.enableAll();
-                        element.no.disable();
-                        element.btn_delete.enable();
-                        element.name.focus();
-                    }
-                    else{
-                        if( viewModel.getData().model.no == '' || viewModel.getData().model.no == null ){
-                            // console.log(viewModel.getData())
-                            Ext.Msg.alert('Info','You need to specify this data' );
-                        }else{ //buat baru
-                            self.enableAll();
-                            // console.log('buat baru')
-                            element.name.focus();
-                        }
-                    }        
-                }
+    		store = this.getViewModel().getStore('part_relations');
+    		param = {}
+
+            if (search_by_parent_part_no != '') {
+                param.parent_part_no = search_by_parent_part_no
+            }
+
+            if (search_by_children_part_no != '') {
+                param.parent_part_no = search_by_children_part_no
+            }
+
+            console.log({
+                store, param
             })
+
+            store.load({
+                params: param
+            })
+            
     	}
     },
 
@@ -192,10 +170,12 @@ Ext.define('tool_control_system.view.part.part_relation.FormController', {
     getElementValue : function (){
     	components = this.getElement();
     	return {
-	        parent_part_number 		: components.parent_part_number.value,
-	        parent_part_name 		: components.parent_part_name.value,
-	        children_part_number 	: components.children_part_number.value,
-	        children_part_name 		: components.children_part_name.value,
+	        parent_part_number 		    : components.parent_part_number.value,
+	        parent_part_name 		    : components.parent_part_name.value,
+	        children_part_number 	    : components.children_part_number.value,
+	        children_part_name 		    : components.children_part_name.value,
+            search_by_parent_part_no    : components.search_by_parent_part_no.value,
+            search_by_children_part_no  : components.search_by_children_part_no.value
 	    }
     },
 
@@ -205,6 +185,10 @@ Ext.define('tool_control_system.view.part.part_relation.FormController', {
         	parent_part_name: Ext.ComponentQuery.query('textfield[name=parent_part_name]')[0],
         	children_part_number: Ext.ComponentQuery.query('combobox[name=children_part_number]')[0],
         	children_part_name: Ext.ComponentQuery.query('textfield[name=children_part_name]')[0],
+
+            search_by_parent_part_no: Ext.ComponentQuery.query('textfield[name=search_by_parent_part_no]')[0],
+            search_by_children_part_no: Ext.ComponentQuery.query('textfield[name=search_by_children_part_no]')[0],
+
         	btn_save: Ext.ComponentQuery.query('button[name=btn_save_part_relation]')[0],
         	btn_cancel: Ext.ComponentQuery.query('button[name=btn_cancel_part_relation]')[0],
         	btn_delete: Ext.ComponentQuery.query('button[name=btn_delete_part_relation]')[0]
@@ -241,9 +225,18 @@ Ext.define('tool_control_system.view.part.part_relation.FormController', {
     	components.children_part_name.enable();
     },
 
-    changesPartRelationsStore : function (){
-        console.log('changesPartRelationsStore')
-        console.log('asdfhsad;hklfsadfsajkl')
+    changesPartRelationsStore : function (id){
+        store = this.getViewModel().getStore('part_relations');
+        viewModel = this.getViewModel();
+        console.log(id)
+        store.load({
+            params: {
+                children_part_id : id
+            },
+            success : function (){
+                console.log()
+            }
+        })
     },
 
     //this is listener. this controller listen to another controller to fire specific event that already 
@@ -253,7 +246,12 @@ Ext.define('tool_control_system.view.part.part_relation.FormController', {
             'part-list-all' : { //this is controller alias name
                 //name of the event : //method to trigger here
                 'onInit': 'changesPartRelationsStore'
-            }
+            },
+
+            'main' : { //this is controller alias name
+                //name of the event : //method to trigger here
+                'onInit': 'changesPartRelationsStore'
+            },
         }
     }
 

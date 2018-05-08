@@ -17,6 +17,11 @@ Ext.define('tool_control_system.view.part.part_relation.List',{
 
     emptyText: 'No Data',
 
+    viewConfig  : {
+        stripeRows          : true,
+        enableTextSelection : true
+    },
+
     frame: true,
 
     style:{
@@ -33,8 +38,48 @@ Ext.define('tool_control_system.view.part.part_relation.List',{
             text : 'No',
             xtype: 'rownumberer'
         },
-        { text: 'parent_part_name',  dataIndex: 'parent_part_no', flex: 3 },
-        { text: 'children_part_name', dataIndex: 'children_part_no', flex: 3 }
+        { 
+            text: 'Parent Part No',  
+            dataIndex: 'parent_part_no', 
+            flex: 1,
+            layout: {
+                type: 'vbox',
+                pack: 'center',
+                align: 'stretch'
+            },
+            items : [{
+                xtype:'textfield',
+                name: 'search_by_parent_part_no',
+                margin : 4,
+                flex: 1,
+                emptyText : 'Searh',
+                enableKeyEvents: true,
+                listeners: {
+                    keyup: 'onSearch'
+                }
+            }]
+        },
+        { 
+            text: 'Children Part No', 
+            dataIndex: 'children_part_no', 
+            flex : 1,
+            layout: {
+                type: 'vbox',
+                pack: 'center',
+                align: 'stretch'
+            },
+            items : [{
+                xtype:'textfield',
+                name: 'search_by_children_part_no',
+                margin : 4,
+                flex: 1,
+                emptyText : 'Searh',
+                enableKeyEvents: true,
+                listeners: {
+                    keyup: 'onSearch'
+                }
+            }]
+        }
     ],
 
     bbar :[{

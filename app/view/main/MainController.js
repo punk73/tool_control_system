@@ -357,6 +357,41 @@ Ext.define('tool_control_system.view.main.MainController', {
 
             }
         })
+    },
+
+    showSemiPart :  function (grid, rowIndex, colIndex){
+        var model = grid.getStore().getAt(rowIndex);
+        var data = model.data;
+        var self = this;
+        
+        // this.fireEvent('onInit');
+        console.log('showSemiPart')
+
+        model.load({
+            params: {
+                id : model.id
+            },
+            success: function(part){
+
+                //to fire event in list controller
+                // the first argument is the name of event in another controller
+                Ext.create('Ext.window.Window', {
+                    // title: 'CHART',
+                    height: 600,
+                    width: 1000,
+                    maximizable : true,
+                    layout: 'fit',
+                    modal :true,
+                    items: [{
+                        xtype : 'part_part_relation_List',
+
+                    }]
+                }).show();
+
+                // console.log(part)
+                self.fireEvent('onInit', part.id  );
+            }
+        })
     }
 
 });

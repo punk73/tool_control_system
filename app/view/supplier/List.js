@@ -7,15 +7,15 @@ Ext.define('tool_control_system.view.supplier.List', {
         'tool_control_system.store.Suppliers'
     ],
 
+    viewConfig  : {
+        stripeRows          : true,
+        enableTextSelection : true
+    },
     //store nya di bind refer ke viewModel.data.stores
     bind: {
         store : '{suppliers}'
     },
     
-    viewConfig  : {
-        stripeRows          : true,
-        enableTextSelection : true
-    },
 
     // layout : 'fit',
     frame: true,
@@ -73,7 +73,6 @@ Ext.define('tool_control_system.view.supplier.List', {
                 emptyText : 'Searh'
             }]
         }
-    ]
-    
+    ] 
 
 });

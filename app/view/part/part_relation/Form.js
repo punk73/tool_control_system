@@ -58,7 +58,7 @@ Ext.define('tool_control_system.view.part.part_relation.Form',{
             bind:{
                 value: '{parent_part_name}',
             },
-            disabled : true
+            readOnly : true
         },
         {
             xtype: 'combobox',
@@ -86,7 +86,7 @@ Ext.define('tool_control_system.view.part.part_relation.Form',{
             bind:{
                 value: '{children_part_name}',
             },
-            disabled : true
+            readOnly : true
         },
         {
             xtype : 'part_part_relation_List',

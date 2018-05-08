@@ -3,6 +3,9 @@ Ext.define('tool_control_system.view.part.list.AllController', {
     
     alias: 'controller.part-list-all',
     
+    requires : [
+        'tool_control_system.view.part.part_relation.FormController'
+    ],
 
     onSearch : function (component, e){
     	if (e.keyCode == 13) {
@@ -93,9 +96,9 @@ Ext.define('tool_control_system.view.part.list.AllController', {
         var model = grid.getStore().getAt(rowIndex);
         var data = model.data;
         var self = this;
-        console.log({self})
-        this.fireEvent('onInit');
-        this.fireEvent('onCancelClicked')
+        
+        // this.fireEvent('onInit');
+        console.log('showSemiPart')
 
         model.load({
             params: {
@@ -105,8 +108,6 @@ Ext.define('tool_control_system.view.part.list.AllController', {
 
                 //to fire event in list controller
                 // the first argument is the name of event in another controller
-                self.fireEvent('changeParamPartRelation');
-
                 Ext.create('Ext.window.Window', {
                     // title: 'CHART',
                     height: 600,
@@ -119,10 +120,11 @@ Ext.define('tool_control_system.view.part.list.AllController', {
 
                     }]
                 }).show();
+
+                // console.log(part)
+                self.fireEvent('onInit', part.id  );
             }
         })
-
-        
     }
 
 });
