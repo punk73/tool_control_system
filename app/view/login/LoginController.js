@@ -59,11 +59,11 @@ Ext.define('tool_control_system.view.login.LoginController', {
                         localStorage.setItem('user', response.responseText );
 
                         // console.log(level) 
-                        Ext.create({
+                        /*Ext.create({
                             xtype: 'app-main',
 
                             access_level : level
-                        });
+                        });*/
 
                         location.reload(); //this reload is to make sure that every store get to proper token
                     },

@@ -392,6 +392,14 @@ Ext.define('tool_control_system.view.main.MainController', {
                 self.fireEvent('onInit', part.id  );
             }
         })
+    },
+
+    listen : {
+        controller: {
+            'users-form': {
+                'logout' : 'onLogOut'
+            }
+        }
     }
 
 });

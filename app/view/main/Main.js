@@ -23,6 +23,9 @@ Ext.define('tool_control_system.view.main.Main', {
         'tool_control_system.view.part.Part',
         'tool_control_system.view.tool.Tool',
         'tool_control_system.view.machine_counter.Machine_counter',
+
+        'tool_control_system.view.users.Form',
+
         'tool_control_system.view.main.Detail' //muncul dan dipanggil di controller
 
     ],
@@ -103,6 +106,12 @@ Ext.define('tool_control_system.view.main.Main', {
                 xtype : 'machine_counterview'
             }]
         },{
+            title : 'Users',
+            iconCls: 'fa-users',
+            items: [{
+                xtype: 'users_form'
+            }]
+        },{
             title: 'Log out',
             // xtype: 'button',
             iconCls: 'fa-sign-out',
@@ -179,6 +188,12 @@ Ext.define('tool_control_system.view.main.Main', {
                     iconCls: 'fa-cog',
                     items: [{
                         xtype : 'machine_counterview'
+                    }]
+                },{
+                    title : 'Users',
+                    iconCls: 'fa-users',
+                    items: [{
+                        xtype: 'users_form'
                     }]
                 },{
                     title: 'Log out',
