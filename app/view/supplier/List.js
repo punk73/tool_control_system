@@ -27,6 +27,7 @@ Ext.define('tool_control_system.view.supplier.List', {
     columns: [
         {   
             text : 'No',
+            width : 60,
             xtype: 'rownumberer'
         },
 

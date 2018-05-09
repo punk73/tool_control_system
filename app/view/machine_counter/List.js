@@ -31,6 +31,12 @@ Ext.define('tool_control_system.view.machine_counter.List',{
     frame : true,
 
     columns: [
+        {   
+            xtype: 'rownumberer',
+            width: 65,
+            text : 'No',
+        },
+
         { 
             text: 'Tool Number',  
             dataIndex: 'no', 

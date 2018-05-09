@@ -3,7 +3,20 @@ Ext.define('tool_control_system.view.supplier.SupplierController', {
     alias: 'controller.supplier-supplier',
 
     onSyncClick: function (){
-    	alert('sync!')
+    	Ext.Ajax.request({
+            url: 'http://'+tool_control_system.util.Config.hostname()+'/tool_control/public/api/suppliers/sync',
+            method: 'POST',
+            headers:{
+                Authorization : 'Bearer ' + tool_control_system.util.Config.getToken()
+            },
+            success: function (response, opts){
+                alert('Sync!')        
+            },
+            failure: function(response, opts) {
+                alert('Sync Failed!!')
+            }
+        });
+        
     },
 
     onSearch : function (component, e){

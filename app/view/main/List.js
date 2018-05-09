@@ -35,8 +35,9 @@ Ext.define('tool_control_system.view.main.List', {
 
     columns: [
         {   
+            xtype: 'rownumberer',
+            width : 60,
             text : 'No',
-            xtype: 'rownumberer'
         },
 
         // { text: 'ID',  dataIndex: 'id', width: 50 },
