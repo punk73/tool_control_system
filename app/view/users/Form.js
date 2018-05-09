@@ -87,6 +87,10 @@ Ext.define('tool_control_system.view.users.Form',{
                 // keyup: 'onEnter'
             },
             allowBlank: false
+        }, {
+            xtype: 'displayfield',
+            hideEmptyLabel: false,
+            value: '<b>*After succesfully changes password, you need to login with new password</b>'
         }
         ],
         buttons: [{
