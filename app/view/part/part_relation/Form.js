@@ -32,34 +32,7 @@ Ext.define('tool_control_system.view.part.part_relation.Form',{
     },
 
     items : [
-        {
-            xtype: 'combobox',
-            name: 'parent_part_number',
-            emptyText: 'Parent Part Number',
-            displayField:'no',
-            bind:{
-                value: '{model.parent_part_id}',
-                store: '{parts}'
-            },
-            listeners:{
-                'change' : 'ParentPartOnChange'
-            },
-            queryMode: 'local', 
-            valueField:'id',
-            fieldLabel: 'Parent Part Number',
-            allowBlank: false
-        },
-        {
-            xtype: 'textfield',
-            name: 'parent_part_name',
-            fieldLabel: 'Parent Part Name',
-            allowBlank: false,
-            emptyText : 'Type and Enter',
-            bind:{
-                value: '{parent_part_name}',
-            },
-            readOnly : true
-        },
+        
         {
             xtype: 'combobox',
             name: 'children_part_number',
@@ -85,6 +58,34 @@ Ext.define('tool_control_system.view.part.part_relation.Form',{
             emptyText : 'Children Part Name',
             bind:{
                 value: '{children_part_name}',
+            },
+            readOnly : true
+        },
+        {
+            xtype: 'combobox',
+            name: 'parent_part_number',
+            emptyText: 'Parent Part Number',
+            displayField:'no',
+            bind:{
+                value: '{model.parent_part_id}',
+                store: '{parts}'
+            },
+            listeners:{
+                'change' : 'ParentPartOnChange'
+            },
+            queryMode: 'local', 
+            valueField:'id',
+            fieldLabel: 'Parent Part Number',
+            allowBlank: false
+        },
+        {
+            xtype: 'textfield',
+            name: 'parent_part_name',
+            fieldLabel: 'Parent Part Name',
+            allowBlank: false,
+            emptyText : 'Type and Enter',
+            bind:{
+                value: '{parent_part_name}',
             },
             readOnly : true
         },

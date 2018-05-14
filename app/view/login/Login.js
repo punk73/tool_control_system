@@ -18,12 +18,16 @@ Ext.define('tool_control_system.view.login.Login', {
     
     autoShow: true,
 
+    /*bodyStyle: {
+        "background-image" : "url(resources/background.jpg) !important",
+    },*/
+
     /*style: { 
         "background-image" : "url(resources/background.jpg) !important",
         "background-color" : 'red !important'
-    },
-
-    bodyCls: 'popWindow',*/
+    },*/
+    
+    /*bodyCls: 'popWindow',*/
 
     /*styles : {
         'background-image': 'resources/background.jpg'
