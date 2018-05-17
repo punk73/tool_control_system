@@ -8,8 +8,8 @@ Ext.define('tool_control_system.view.part.Form',{
         'tool_control_system.view.part.FormController',
         'tool_control_system.view.part.FormModel',
         'tool_control_system.store.Parts',
-        'tool_control_system.store.All_suppliers'
-
+        'tool_control_system.store.All_suppliers',
+        'tool_control_system.util.SupplierCombobox',
     ],
 
     margin : '10',
@@ -92,8 +92,8 @@ Ext.define('tool_control_system.view.part.Form',{
             emptyText:'yyyy-mm-dd',
             disabled:  true
         },{
-            xtype: 'combobox',
-            name: 'supplier_id',
+            xtype: 'supplier_combobox',
+            /*name: 'supplier_id',
             store : {
                 type : 'all_suppliers'
             },
@@ -106,7 +106,7 @@ Ext.define('tool_control_system.view.part.Form',{
                 value: '{model.supplier_id}',
             },
             allowBlank: false,
-            disabled:  true
+            disabled:  true*/
         },{
             xtype : 'part_list',
             height: 155,

@@ -8,7 +8,7 @@ Ext.define('tool_control_system.view.tool.Form',{
         'tool_control_system.view.tool.FormController',
         'tool_control_system.view.tool.FormModel',
         'tool_control_system.store.All_suppliers',
-
+        'tool_control_system.util.SupplierCombobox',
     ],
 
     controller: 'tool-form',
@@ -112,8 +112,8 @@ Ext.define('tool_control_system.view.tool.Form',{
             emptyText:'yyyy-mm-dd',
             disabled:  true
         },{
-            xtype: 'combobox',
-            name: 'supplier_id',
+            xtype: 'supplier_combobox',
+            /*name: 'supplier_id',
             emptyText: 'Supplier',
             store: {
                 type:'all_suppliers'
@@ -126,7 +126,7 @@ Ext.define('tool_control_system.view.tool.Form',{
             queryMode: 'local', 
             fieldLabel: 'Supplier',
             allowBlank: false,
-            disabled:  true
+            disabled:  true*/
     }],
 
     buttons : [{

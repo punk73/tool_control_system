@@ -9,6 +9,7 @@ Ext.define('tool_control_system.view.tool.cavity.Form',{
         'tool_control_system.view.tool.cavity.FormModel',
         'tool_control_system.view.tool.cavity.List',
         'tool_control_system.store.All_parts',
+        'tool_control_system.util.SupplierCombobox',
         'tool_control_system.store.All_tools'
 
     ],
@@ -33,9 +34,13 @@ Ext.define('tool_control_system.view.tool.cavity.Form',{
 
     items:[
         {
-            xtype: 'combobox',
+            xtype: 'supplier_combobox',
             name: 'supplier',
-            emptyText: 'Select Supplier',
+            disabled:  false,
+            listeners:{
+                'select' : 'suppliersOnChange'
+            },
+            /*emptyText: 'Select Supplier',
             bind:{
                 // value: '{tool_id}',
                 store: '{suppliers}'
@@ -44,10 +49,7 @@ Ext.define('tool_control_system.view.tool.cavity.Form',{
             displayField:'name',
             valueField:'id',
             fieldLabel: 'Supplier',
-            listeners:{
-                'select' : 'suppliersOnChange'
-            },
-            allowBlank: false
+            allowBlank: false*/
         },
         {
             xtype: 'combobox',
