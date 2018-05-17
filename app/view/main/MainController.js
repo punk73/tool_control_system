@@ -37,7 +37,7 @@ Ext.define('tool_control_system.view.main.MainController', {
     onSyncClick :  function (){
         console.log('SYNC!!');
         store = this.getViewModel().getStore('datas');
-        // untuk membersihkan searh filtering;
+        // untuk membersihkan search filtering;
         this.clearParam();
 
         //kirim ajax untuk hapus part_details dan tool_details hari ini;
@@ -338,6 +338,13 @@ Ext.define('tool_control_system.view.main.MainController', {
     },
 
     reloadNotifOnClick : function (button){
+        var self = this;
+        var myMask = new Ext.LoadMask({
+            msg    : 'Please wait...',
+            target : self.getView()
+        });
+        myMask.show();
+
         Ext.Ajax.request({
             url: 'http://'+tool_control_system.util.Config.hostname()+'/tool_control/public/api/datas/count',
             method: 'GET',
@@ -354,10 +361,10 @@ Ext.define('tool_control_system.view.main.MainController', {
                 viewModel = self.getViewModel();
                 // console.log({data,viewModel})
                 viewModel.set('notif', data)
-
+                myMask.hide();
             },
             failure : function(response, opts){
-
+                myMask.hide();
             }
         })
     },

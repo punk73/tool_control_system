@@ -85,7 +85,7 @@ Ext.define('tool_control_system.view.main.List', {
                 xtype:'textfield',
                 name: 'search_by_tool_no',
                 margin : 4,
-                emptyText : 'Searh',
+                emptyText : 'search',
                 enableKeyEvents: true,
                 listeners: {
                     keyup: 'onSearch'
@@ -105,7 +105,7 @@ Ext.define('tool_control_system.view.main.List', {
                 xtype:'textfield',
                 name: 'search_by_tool_name',
                 margin : 4,
-                emptyText : 'Searh',
+                emptyText : 'search',
                 tooltip: 'Type Part No Here',
                 enableKeyEvents: true,
                 listeners: {
@@ -126,7 +126,7 @@ Ext.define('tool_control_system.view.main.List', {
                 xtype:'textfield',
                 name: 'search_by_part_no',
                 margin : 4,
-                emptyText : 'Searh',
+                emptyText : 'search',
                 tooltip: 'Type Part No Here',
                 enableKeyEvents: true,
                 listeners: {
@@ -148,7 +148,7 @@ Ext.define('tool_control_system.view.main.List', {
                 xtype:'textfield',
                 name: 'search_by_supplier_name',
                 margin : 4,
-                emptyText : 'Searh',
+                emptyText : 'search',
                 tooltip: 'Type Part No Here',
                 enableKeyEvents: true,
                 listeners: {
@@ -169,7 +169,7 @@ Ext.define('tool_control_system.view.main.List', {
                 xtype:'textfield',
                 name: 'search_by_model',
                 margin : 4,
-                emptyText : 'Searh',
+                emptyText : 'search',
                 tooltip: 'Type Part No Here',
                 enableKeyEvents: true,
                 listeners: {
@@ -190,7 +190,7 @@ Ext.define('tool_control_system.view.main.List', {
                 xtype:'textfield',
                 name: 'search_by_no_of_tooling',
                 margin : 4,
-                emptyText : 'Searh',
+                emptyText : 'search',
                 tooltip: 'Type Part No Here',
                 enableKeyEvents: true,
                 listeners: {
@@ -211,7 +211,7 @@ Ext.define('tool_control_system.view.main.List', {
                 xtype:'textfield',
                 name: 'search_by_cavity',
                 margin : 4,
-                emptyText : 'Searh',
+                emptyText : 'search',
                 tooltip: 'Type Part No Here',
                 enableKeyEvents: true,
                 listeners: {

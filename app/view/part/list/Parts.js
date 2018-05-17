@@ -57,7 +57,7 @@ Ext.define('tool_control_system.view.part.list.Parts',{
                 xtype:'textfield',
                 name: 'search_part_by_no',
                 margin : 2,
-                emptyText : 'Searh',
+                emptyText : 'search',
                 enableKeyEvents: true,
                 listeners: {
                     keyup: 'onSearch'
@@ -73,7 +73,7 @@ Ext.define('tool_control_system.view.part.list.Parts',{
                 xtype:'textfield',
                 name: 'search_part_by_name',
                 margin : 2,
-                emptyText : 'Searh',
+                emptyText : 'search',
                 enableKeyEvents: true,
                 listeners: {
                     keyup: 'onSearch'
@@ -89,7 +89,7 @@ Ext.define('tool_control_system.view.part.list.Parts',{
                 xtype:'textfield',
                 name: 'search_part_by_supplier',
                 margin : 2,
-                emptyText : 'Searh',
+                emptyText : 'search',
                 enableKeyEvents: true,
                 listeners: {
                     keyup: 'onSearch'
@@ -105,7 +105,7 @@ Ext.define('tool_control_system.view.part.list.Parts',{
                 xtype:'textfield',
                 name: 'search_part_by_model',
                 margin : 2,
-                emptyText : 'Searh',
+                emptyText : 'search',
                 enableKeyEvents: true,
                 listeners: {
                     keyup: 'onSearch'
@@ -121,7 +121,7 @@ Ext.define('tool_control_system.view.part.list.Parts',{
                 xtype:'textfield',
                 name: 'search_part_by_first_value',
                 margin : 2,
-                emptyText : 'Searh',
+                emptyText : 'search',
                 enableKeyEvents: true,
                 listeners: {
                     keyup: 'onSearch'
@@ -141,7 +141,7 @@ Ext.define('tool_control_system.view.part.list.Parts',{
                 xtype:'textfield',
                 name: 'search_part_by_date_of_first_value',
                 margin : 2,
-                emptyText : 'Searh',
+                emptyText : 'search',
                 enableKeyEvents: true,
                 listeners: {
                     keyup: 'onSearch'

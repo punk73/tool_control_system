@@ -75,6 +75,7 @@ Ext.define('tool_control_system.view.tool.Form',{
                 value: '{model.start_value}'
             },
             minValue: 0,
+            maxValue:999999999999, //900 juta
             autoStripChars: true,
             allowBlank: false,
             disabled:  true

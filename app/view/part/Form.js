@@ -75,6 +75,7 @@ Ext.define('tool_control_system.view.part.Form',{
             fieldLabel: 'First Total Delivery Value',
             allowBlank: false,
             minValue: 0,
+            maxValue:999999999999, //900 juta
             autoStripChars: true,
             bind:{
                 value: '{model.first_value}',

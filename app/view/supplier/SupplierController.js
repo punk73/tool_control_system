@@ -3,6 +3,13 @@ Ext.define('tool_control_system.view.supplier.SupplierController', {
     alias: 'controller.supplier-supplier',
 
     onSyncClick: function (){
+        var self = this;
+        var myMask = new Ext.LoadMask({
+            msg    : 'Please wait...',
+            target : self.getView()
+        });
+        myMask.show();
+
     	Ext.Ajax.request({
             url: 'http://'+tool_control_system.util.Config.hostname()+'/tool_control/public/api/suppliers/sync',
             method: 'POST',
@@ -10,10 +17,12 @@ Ext.define('tool_control_system.view.supplier.SupplierController', {
                 Authorization : 'Bearer ' + tool_control_system.util.Config.getToken()
             },
             success: function (response, opts){
-                alert('Sync!')        
+                alert('Sync!')     
+                myMask.hide();   
             },
             failure: function(response, opts) {
                 alert('Sync Failed!!')
+                myMask.hide();
             }
         });
         

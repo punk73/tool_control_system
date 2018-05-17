@@ -50,7 +50,7 @@ Ext.define('tool_control_system.view.machine_counter.List',{
                 xtype:'textfield',
                 name: 'search_by_tool_no_machine',
                 margin : 4,
-                emptyText : 'Searh Tool No',
+                emptyText : 'search Tool No',
                 enableKeyEvents: true,
                 flex :1,
                 listeners: {
@@ -72,7 +72,7 @@ Ext.define('tool_control_system.view.machine_counter.List',{
                 xtype:'textfield',
                 name: 'search_by_tool_name_machine',
                 margin : 4,
-                emptyText : 'Searh Tool Name',
+                emptyText : 'search Tool Name',
                 enableKeyEvents: true,
                 flex : 2,
                 listeners: {

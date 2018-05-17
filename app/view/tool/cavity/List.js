@@ -56,7 +56,7 @@ Ext.define('tool_control_system.view.tool.cavity.List',{
                 name: 'search_by_supplier_name_modal',
                 margin : 3,
                 flex: 2,
-                emptyText : 'Searh',
+                emptyText : 'search',
                 tooltip :'Search By Supplier',
                 enableKeyEvents: true,
                 listeners: {
@@ -80,7 +80,7 @@ Ext.define('tool_control_system.view.tool.cavity.List',{
                 name: 'search_by_tool',
                 margin : 3,
                 flex: 2,
-                emptyText : 'Searh',
+                emptyText : 'search',
                 enableKeyEvents: true,
                 listeners: {
                     keyup: 'onSearch'
@@ -104,7 +104,7 @@ Ext.define('tool_control_system.view.tool.cavity.List',{
                 name: 'search_by_part',
                 flex: 2,
                 margin : 3,
-                emptyText : 'Searh',
+                emptyText : 'search',
                 enableKeyEvents: true,
                 listeners: {
                     keyup: 'onSearch'
@@ -130,7 +130,7 @@ Ext.define('tool_control_system.view.tool.cavity.List',{
                 name: 'search_by_cavity',
                 margin : 3,
                 flex: 1,
-                emptyText : 'Searh',
+                emptyText : 'search',
                 enableKeyEvents: true,
                 listeners: {
                     keyup: 'onSearch'

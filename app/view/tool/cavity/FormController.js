@@ -412,7 +412,7 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
                                 name: 'search_by_supplier_name_modal',
                                 margin : 3,
                                 flex: 2,
-                                emptyText : 'Searh',
+                                emptyText : 'search',
                                 tooltip :'Search By Supplier',
                                 enableKeyEvents: true,
                                 listeners: {
@@ -437,7 +437,7 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
                                 name: 'search_by_tool_modal',
                                 margin : 3,
                                 flex: 2,
-                                emptyText : 'Searh',
+                                emptyText : 'search',
                                 enableKeyEvents: true,
                                 listeners: {
                                     keyup: 'onSearchInModal'
@@ -461,7 +461,7 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
                                 name: 'search_by_part_modal',
                                 flex: 2,
                                 margin : 3,
-                                emptyText : 'Searh',
+                                emptyText : 'search',
                                 enableKeyEvents: true,
                                 listeners: {
                                     keyup: 'onSearchInModal'
@@ -485,7 +485,7 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
                                 name: 'search_by_cavity_modal',
                                 margin : 3,
                                 flex: 1,
-                                emptyText : 'Searh',
+                                emptyText : 'search',
                                 enableKeyEvents: true,
                                 listeners: {
                                     keyup: 'onSearchInModal'

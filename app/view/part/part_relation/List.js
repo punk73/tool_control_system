@@ -52,7 +52,7 @@ Ext.define('tool_control_system.view.part.part_relation.List',{
                 name: 'search_by_parent_part_no',
                 margin : 4,
                 flex: 1,
-                emptyText : 'Searh',
+                emptyText : 'search',
                 enableKeyEvents: true,
                 listeners: {
                     keyup: 'onSearch'
@@ -73,7 +73,7 @@ Ext.define('tool_control_system.view.part.part_relation.List',{
                 name: 'search_by_children_part_no',
                 margin : 4,
                 flex: 1,
-                emptyText : 'Searh',
+                emptyText : 'search',
                 enableKeyEvents: true,
                 listeners: {
                     keyup: 'onSearch'

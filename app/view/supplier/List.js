@@ -46,7 +46,7 @@ Ext.define('tool_control_system.view.supplier.List', {
                 xtype:'textfield',
                 name: 'search_by_code',
                 margin : 4,
-                emptyText : 'Searh',
+                emptyText : 'search',
                 enableKeyEvents: true,
                 listeners: {
                     keyup: 'onSearch'
@@ -71,7 +71,7 @@ Ext.define('tool_control_system.view.supplier.List', {
                 listeners: {
                     keyup: 'onSearch'
                 },
-                emptyText : 'Searh'
+                emptyText : 'search'
             }]
         }
     ] 
