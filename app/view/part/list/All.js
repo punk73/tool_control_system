@@ -48,6 +48,7 @@ Ext.define('tool_control_system.view.part.list.All', {
     },{
         xtype : 'part_list_part_details',
         region: 'south',
+        maxHeight : 200,
         collapsible: true,
         split: {
             size: 10
