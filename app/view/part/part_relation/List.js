@@ -39,6 +39,27 @@ Ext.define('tool_control_system.view.part.part_relation.List',{
             xtype: 'rownumberer'
         },
         { 
+            text: 'Children Part No', 
+            dataIndex: 'children_part_no', 
+            flex : 1,
+            layout: {
+                type: 'vbox',
+                pack: 'center',
+                align: 'stretch'
+            },
+            items : [{
+                xtype:'textfield',
+                name: 'search_by_children_part_no',
+                margin : 4,
+                flex: 1,
+                emptyText : 'search',
+                enableKeyEvents: true,
+                listeners: {
+                    keyup: 'onSearch'
+                }
+            }]
+        },
+        { 
             text: 'Parent Part No',  
             dataIndex: 'parent_part_no', 
             flex: 1,
@@ -59,27 +80,7 @@ Ext.define('tool_control_system.view.part.part_relation.List',{
                 }
             }]
         },
-        { 
-            text: 'Children Part No', 
-            dataIndex: 'children_part_no', 
-            flex : 1,
-            layout: {
-                type: 'vbox',
-                pack: 'center',
-                align: 'stretch'
-            },
-            items : [{
-                xtype:'textfield',
-                name: 'search_by_children_part_no',
-                margin : 4,
-                flex: 1,
-                emptyText : 'search',
-                enableKeyEvents: true,
-                listeners: {
-                    keyup: 'onSearch'
-                }
-            }]
-        }
+        
     ],
 
     bbar :[{
