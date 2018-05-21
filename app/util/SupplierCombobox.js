@@ -6,6 +6,7 @@ Ext.define('tool_control_system.util.SupplierCombobox', {
     store : {
         type : 'all_suppliers'
     },
+    forceSelection : true,
     displayField:'name',
     emptyText : 'Supplier',
     valueField: 'id',

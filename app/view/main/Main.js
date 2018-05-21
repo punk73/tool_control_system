@@ -26,8 +26,8 @@ Ext.define('tool_control_system.view.main.Main', {
 
         'tool_control_system.view.users.Form',
 
-        'tool_control_system.view.main.Detail' //muncul dan dipanggil di controller
-
+        'tool_control_system.view.main.Detail', //muncul dan dipanggil di controller
+        'tool_control_system.view.part.part_relation.Form',
     ],
 
     controller: 'main',
@@ -61,6 +61,7 @@ Ext.define('tool_control_system.view.main.Main', {
 
     tabBar: {
         flex: 1,
+        scrollable : 'vertical',
         layout: {
             align: 'stretch',
             overflowHandler: 'none'
@@ -69,7 +70,9 @@ Ext.define('tool_control_system.view.main.Main', {
 
     responsiveConfig: {
         tall: {
-            headerPosition: 'top'
+            headerPosition: 'top',
+            // scrollable : 'horizontal',
+
         },
         wide: {
             headerPosition: 'left'
@@ -84,6 +87,7 @@ Ext.define('tool_control_system.view.main.Main', {
         },
         tabConfig: {
             plugins: 'responsive',
+
             responsiveConfig: {
                 wide: {
                     iconAlign: 'left',
@@ -175,9 +179,21 @@ Ext.define('tool_control_system.view.main.Main', {
                     title: 'Master Parts',
                     iconCls: 'fa-cog',
                     items: [{
-                        xtype : 'partview'
+                        xtype : 'partview',
+                        /*activeTab: 0,
+                        xtype : 'tabpanel',
+                        items : [
+                            {xtype: 'partview'},
+                            {xtype: 'part_part_relation_form'}
+                        ]*/
                     }]
-                }, {
+                },{
+                    title: 'Semi Parts',
+                    iconCls: 'fa-cog',
+                    items: [{
+                        xtype : 'part_part_relation_form'
+                    }]
+                },{
                     title: 'Master Tools',
                     iconCls: 'fa-wrench',
                     items: [{
