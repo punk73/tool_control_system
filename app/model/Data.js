@@ -229,19 +229,19 @@ Ext.define('tool_control_system.model.Data', {
             name: 'balance_shoot', 
             type: 'auto',
             mapping: function(data){
-                var tool = data.tool, part = data.part, forecast = data.forecast;
-
-                // return part.pivot.cavity;
-                // return data.guarantee_shoot
-                //return (part.total_delivery+forecast.total )/part.pivot.cavity;
-                if (part) {
-                    if (forecast) {
-                        
-                        return  (data.guarantee_shoot - ((part.total_delivery+forecast.total)/part.pivot.cavity) );
-                    }
+                /*non aktifkan sementara*/
+                /**/
+                if (data.detail != null) {
+                    return data.detail.balance_shoot;
+                }else{
+                    var tool = data.tool, part = data.part, forecast = data.forecast;
+                    if (part) {
+                        if (forecast) {
+                            // ini udah bener
+                            return  (data.guarantee_shoot - ((part.total_delivery+forecast.total)/part.pivot.cavity) );
+                        }
+                    }  
                 }
-                
-                //return data.balance_shoot;
             }  
         }, //tool (guarantee_shoot - total_shoot)
 
