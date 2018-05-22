@@ -210,10 +210,14 @@ Ext.define('tool_control_system.view.main.MainController', {
         pivot = data.pivot;
         viewModel.set('toolpart', pivot )
 
+        trans_date = this.getElementValue().trans_date
+        console.log(trans_date)
+
         store.loadData(data.details, false);
         store.load({
             params: {
-                part_id: data.id
+                part_id: data.id,
+                trans_date : trans_date
             }
         })
 
@@ -229,14 +233,20 @@ Ext.define('tool_control_system.view.main.MainController', {
         var viewModelParts = viewModel.getStore('parts');
         var viewModelTools = viewModel.getStore('tools');
         var viewModelToolDetails =viewModel.getStore('tool_details');
+        var trans_date = this.getElementValue().trans_date;
 
+        // console.log(trans_date)
         //load data untuk parts
         viewModelParts.loadData(parts, false );
         viewModelTools.loadData(model, false );
 
         viewModelToolDetails.loadData([], false );
+
         viewModelToolDetails.load({
-            params: {tool_id: model.id },
+            params: {
+                tool_id: model.id,
+                trans_date : trans_date
+            },
             callback: function (records, operation, success){
                 // console.log({records, operation, success})
                 // viewModelToolDetails.loadData(records, false);   
