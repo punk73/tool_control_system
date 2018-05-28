@@ -173,7 +173,15 @@ Ext.define('tool_control_system.view.part.list.Parts',{
             store : '{parts}'
         },        
         emptyMsg: 'Sorry, No Records Are Available At The Moment.',   
-        displayInfo: true
+        displayInfo: true,
+        items:[{
+            bind : {
+                icon : '{icon.download}'
+            },
+            tooltip: 'download data',
+            xtype:'button',
+            handler: 'onDownload'
+        }]
     }],
 
     listeners : {

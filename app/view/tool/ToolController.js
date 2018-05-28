@@ -37,6 +37,15 @@ Ext.define('tool_control_system.view.tool.ToolController', {
     	}
 
     	return result;
-    }
+    },
+
+    onDownload (){
+        console.log('onDownload')
+        self = this;
+        token = '?token='+ tool_control_system.util.Config.getToken();
+        url = 'http://'+tool_control_system.util.Config.hostname()+'/tool_control/public/api/tools/download' + token
+
+        window.location = url
+    },
 
 });

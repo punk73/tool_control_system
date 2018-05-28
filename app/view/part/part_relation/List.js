@@ -90,7 +90,15 @@ Ext.define('tool_control_system.view.part.part_relation.List',{
             store : '{part_relations}'
         },        
         emptyMsg: 'Sorry, No Records Are Available At The Moment.',   
-        displayInfo: true
+        displayInfo: true,
+        items:[{
+            bind : {
+                icon : '{icons.download}'
+            },
+            tooltip: 'download data',
+            xtype:'button',
+            handler: 'onDownload'
+        }]
     }],
 
     buttons : [

@@ -28,7 +28,15 @@ Ext.define('tool_control_system.view.main.MainModel', {
         },
 
         icons: {
-            sync : 'resources/sync-icon.png'
+            sync : 'resources/sync-icon.png',
+            save    : 'resources/Save-icon.png',
+            delete  : 'resources/Button-Delete-icon.png',
+            cancel  : 'resources/Close-2-icon.png',
+            title   : 'resources/part.png',
+            sync : 'resources/sync-icon.png',
+            info : 'resources/info.png',
+            download : 'resources/download.png',
+        
         }
         //loremIpsum: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
     },

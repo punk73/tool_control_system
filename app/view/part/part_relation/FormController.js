@@ -239,6 +239,15 @@ Ext.define('tool_control_system.view.part.part_relation.FormController', {
         })
     },
 
+    onDownload (){
+        console.log('onDownload')
+        self = this;
+        token = '?token='+ tool_control_system.util.Config.getToken();
+        url = 'http://'+tool_control_system.util.Config.hostname()+'/tool_control/public/api/part_relations/download' + token
+
+        window.location = url
+    },
+
     //this is listener. this controller listen to another controller to fire specific event that already 
     //configured like below
     listen : {

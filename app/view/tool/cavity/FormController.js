@@ -360,7 +360,15 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
                             store : '{toolparts}'
                         },        
                         emptyMsg: 'Sorry, No Records Are Available At The Moment.',   
-                        displayInfo: true
+                        displayInfo: true,
+                        items:[{
+                            bind : {
+                                icon : '{icons.download}'
+                            },
+                            tooltip: 'download data',
+                            xtype:'button',
+                            handler: 'onDownload'
+                        }]
                     }],
 
                     plugins: [{
@@ -525,6 +533,15 @@ Ext.define('tool_control_system.view.tool.cavity.FormController', {
         }
         
         modal.show();   
-    }
+    },
+
+    onDownload (){
+        console.log('onDownload')
+        self = this;
+        token = '?token='+ tool_control_system.util.Config.getToken();
+        url = 'http://'+tool_control_system.util.Config.hostname()+'/tool_control/public/api/toolparts/download' + token
+
+        window.location = url
+    },
 
 });

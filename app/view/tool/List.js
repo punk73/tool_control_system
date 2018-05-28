@@ -92,4 +92,24 @@ Ext.define('tool_control_system.view.tool.List',{
             flex: 1,
         },
     ],
+
+    bbar : {
+        xtype: 'pagingtoolbar',
+        pageSize: 50,
+        bind : {
+            store : '{tools}'
+        },        
+        emptyMsg: 'Sorry, No Records Are Available At The Moment.',   
+        displayInfo: true,
+        items:[{
+            bind : {
+                icon : '{icons.download}'
+            },
+            tooltip: 'download data',
+            xtype:'button',
+            handler: 'onDownload'
+        }]
+    }
+
+
 })

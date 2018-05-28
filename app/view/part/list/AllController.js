@@ -146,6 +146,15 @@ Ext.define('tool_control_system.view.part.list.AllController', {
                 store.sync();
             }
         });
+    },
+
+    onDownload (){
+        console.log('onDownload')
+        self = this;
+        token = '?token='+ tool_control_system.util.Config.getToken();
+        url = 'http://'+tool_control_system.util.Config.hostname()+'/tool_control/public/api/parts/download' + token
+
+        window.location = url
     }
 
 });
