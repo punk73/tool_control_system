@@ -46,6 +46,22 @@ Ext.define('tool_control_system.view.part.list.Parts',{
                }
             ]
         },
+
+        {
+            align: 'center',
+            width: 50,
+            xtype: 'actioncolumn',
+            items: [
+               {
+                  xtype: 'button',
+                  iconCls: 'x-fa fa-trash',
+                  tooltip: 'Delete',
+                  scale: 'small',
+                  handler: 'onDelete',
+                  margin: 3
+               }
+            ]
+        },
         
         { text: 'Part Number',  dataIndex: 'no', flex: 2, 
             layout: {

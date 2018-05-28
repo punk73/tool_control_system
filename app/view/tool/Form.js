@@ -7,6 +7,7 @@ Ext.define('tool_control_system.view.tool.Form',{
     requires: [
         'tool_control_system.view.tool.FormController',
         'tool_control_system.view.tool.FormModel',
+        'tool_control_system.view.tool.List',
         'tool_control_system.store.All_suppliers',
         'tool_control_system.util.SupplierCombobox',
     ],
@@ -152,6 +153,16 @@ Ext.define('tool_control_system.view.tool.Form',{
                 click: 'onDeleteClick'
             },
             disabled:  true
+        },{
+            xtype: 'button',
+            name: 'btn_show',
+            bind:{
+                text : '{btn_show.text}',
+                icon : '{icon.info}'
+            },
+            listeners:{
+                click: 'onShowList'
+            },
         },{
             xtype: 'button',
             text: 'Cancel',

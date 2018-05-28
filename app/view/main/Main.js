@@ -44,9 +44,13 @@ Ext.define('tool_control_system.view.main.Main', {
 
     plugins: 'viewport',
 
+    /*header: false,
+    flex:1,
+    collapsible: true,*/
 
     header: {
-
+        id: 'header',
+        hideMode: 'display',
         layout: {
             align: 'stretchmax'
         },
@@ -55,8 +59,19 @@ Ext.define('tool_control_system.view.main.Main', {
                 text: '{name}',
                 icon: '{header.icon}'
             },
-            flex: 0
+            flex: 0, // biar ga gede
+            margin: '10 2 10 20',
         },
+        /*items: [
+            { 
+                xtype: 'tbfill' 
+            },{   
+                type: 'left',
+                tooltip: 'Cacher le menu',
+                handler: function(event, toolEl, panel){
+                    Ext.getCmp('header').getEl().hide();
+                }
+        }]*/
     },
 
     tabBar: {
@@ -91,7 +106,7 @@ Ext.define('tool_control_system.view.main.Main', {
             responsiveConfig: {
                 wide: {
                     iconAlign: 'left',
-                    textAlign: 'left'
+                    textAlign: 'left',
                 },
                 tall: {
                     iconAlign: 'top',
@@ -117,16 +132,18 @@ Ext.define('tool_control_system.view.main.Main', {
             }]
         },{
             title: 'Log out',
-            // xtype: 'button',
             iconCls: 'fa-sign-out',
             tabConfig: {
+                layout: {
+                    align: 'stretch',
+                    overflowHandler: 'none'
+                },
                 listeners: {
                     click: 'onLogOut'
-                }
-            },
-            items: {
-                text : 'logout'
-            }        
+                },
+                iconAlign: 'left',
+                textAlign: 'left'
+            }      
         }
     ],
 
@@ -213,16 +230,18 @@ Ext.define('tool_control_system.view.main.Main', {
                     }]
                 },{
                     title: 'Log out',
-                    // xtype: 'button',
                     iconCls: 'fa-sign-out',
                     tabConfig: {
+                        layout: {
+                            align: 'stretch',
+                            overflowHandler: 'none'
+                        },
                         listeners: {
                             click: 'onLogOut'
-                        }
-                    },
-                    items: {
-                        title : 'logout'
-                    }            
+                        },
+                        iconAlign: 'left',
+                        textAlign: 'left'
+                    }      
                 }
             ];
 

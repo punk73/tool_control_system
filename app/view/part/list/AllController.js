@@ -125,6 +125,27 @@ Ext.define('tool_control_system.view.part.list.AllController', {
                 self.fireEvent('onInit', part.id  );
             }
         })
+    },
+
+    onDelete : function(grid, rowIndex, colIndex){
+
+        var store = grid.getStore();
+        var model = grid.getStore().getAt(rowIndex);
+        
+
+        if (!model ) {
+          Ext.Msg.alert('Info', 'No Record Selected');
+          return;
+        }
+        
+        Ext.Msg.confirm('Remove Record', 
+          'Are you sure you want to delete?', 
+          function (button) {
+            if (button == 'yes') {
+                store.remove(model);
+                store.sync();
+            }
+        });
     }
 
 });

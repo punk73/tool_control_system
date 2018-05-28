@@ -14,6 +14,9 @@ Ext.define('tool_control_system.view.tool.FormModel', {
         btn_delete :{
         	text: 'Delete'
         },
+        btn_show: {
+            text: 'Show List'
+        },
         model: {
         	no: null,
         	name: '',

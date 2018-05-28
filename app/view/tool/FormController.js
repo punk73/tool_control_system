@@ -223,7 +223,25 @@ Ext.define('tool_control_system.view.tool.FormController', {
         components.delivery_date.enable();
     	components.start_value_date.enable();
     	components.supplier_id.enable();	
-    }
+    },
 
+    onShowList: function (){
+        if (!modal) {
+            var modal = Ext.create('Ext.window.Window', {
+                // title: 'CHART',
+                height: 600,
+                width: 1100,
+                maximizable : true,
+                layout: 'fit',
+                modal :true,
+
+                items: [{
+                    xtype:'tool_list',
+                }]
+            });
+        }
+        
+        modal.show();
+    }
 
 });

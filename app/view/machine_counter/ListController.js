@@ -10,12 +10,7 @@ Ext.define('tool_control_system.view.machine_counter.ListController', {
 	    	viewModel = this.getViewModel();
 	    	store = viewModel.getStore('tools');
 
-	    	/*console.log({
-	    		elements,
-				value,
-				viewModel,
-				store
-	    	})*/
+	    	console.log({component,e})
 
 	    	// return;
 
