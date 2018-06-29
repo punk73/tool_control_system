@@ -414,6 +414,11 @@ Ext.define('tool_control_system.view.main.MainController', {
         })
     },
 
+    showWorkingInstruction(){
+        var link = 'http://'+tool_control_system.util.Config.hostname()+'/tool_control/public/';
+        window.open(link); 
+    },
+
     listen : {
         controller: {
             'users-form': {

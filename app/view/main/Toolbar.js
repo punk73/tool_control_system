@@ -92,6 +92,16 @@ Ext.define("tool_control_system.view.main.Toolbar", {
             listeners: {
                 click: 'reloadNotifOnClick'
             }
+        },{
+            xtype:'button',
+            name : 'btn-show-help',
+            bind : {
+                icon : '{icons.question}'
+            },
+            tooltip: 'Show Working Instruction',
+            listeners: {
+                click: 'showWorkingInstruction'
+            } 
         }
     ]
         
