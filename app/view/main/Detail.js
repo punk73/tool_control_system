@@ -189,7 +189,7 @@ Ext.define('tool_control_system.view.main.Detail', {
     },
     
     {
-      title : 'Forcast & Pck31 Data',
+      title : 'Forecast & Pck31 Data',
       xtype :'panel',
       layout: 'border',
       region : 'east',
@@ -272,7 +272,7 @@ Ext.define('tool_control_system.view.main.Detail', {
           // split: {
           //     size: 10
           // },
-          title : 'Forcast Data',
+          title : 'Forecast Data',
           autoScroll :true,
           bodyPadding: 10,
           margin :'2 0 0 0',
